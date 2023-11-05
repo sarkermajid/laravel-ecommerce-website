@@ -29,7 +29,7 @@ class CategoryController extends Controller
         $image->move('admin/category-image/', $image_name);
         $category->image = $image_name;
         $category->save();
-        return redirect()->back()->with('message','Category added successfully!');
+        return redirect('/category/manage')->with('message','Category added successfully!');
     }
 
     public function manage()
@@ -44,5 +44,24 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         return view('admin.category.view', compact('category'));
+    }
+
+    public function status($id)
+    {
+        $category = Category::find($id);
+        if($category->status == 1){
+            $category->status = 0;
+        }else{
+            $category->status = 1;
+        }
+        $category->save();
+        return redirect()->back()->with('message', 'category status update successfully');
+    }
+
+    public function delete($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->back()->with('message', 'category deteted successfully');
     }
 }

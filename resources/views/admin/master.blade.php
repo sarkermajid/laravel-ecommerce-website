@@ -35,23 +35,27 @@
                     <div class="navbar-brand-box">
                         <a href="{{ route('dashboard') }}" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ asset('/') }}admin/assets/images/logo.svg" alt=""
-                                    height="22">
+                                {{-- <img src="{{ asset('/') }}admin/assets/images/logo.svg" alt=""
+                                    height="22"> --}}
+                                    <p class="mt-3 text-white">Admin Panel</p>
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('/') }}admin/assets/images/logo-dark.png" alt=""
-                                    height="17">
+                                {{-- <img src="{{ asset('/') }}admin/assets/images/logo-dark.png" alt=""
+                                    height="17"> --}}
+                                    <p class="mt-3 text-white">Admin Panel</p>
                             </span>
                         </a>
 
                         <a href="{{ route('dashboard') }}" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ asset('/') }}admin/assets/images/logo-light.svg" alt=""
-                                    height="22">
+                                {{-- <img src="{{ asset('/') }}admin/assets/images/logo-light.svg" alt=""
+                                    height="22"> --}}
+                                    <h3 class="mt-3 text-white">Admin Panel</h3>
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('/') }}admin/assets/images/logo-light.png" alt=""
-                                    height="19">
+                                {{-- <img src="{{ asset('/') }}admin/assets/images/logo-light.png" alt=""
+                                    height="19"> --}}
+                                    <h3 class="mt-3 text-white">Admin Panel</h3>
                             </span>
                         </a>
                     </div>

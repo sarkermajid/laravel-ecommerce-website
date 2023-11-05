@@ -151,7 +151,7 @@
 
 
                         <div>
-                            <input type="submit" class="btn btn-primary" value="Add Category">
+                            <input type="submit" class="btn btn-primary" value="Create">
                         </div>
                     </form>
                 </div>
