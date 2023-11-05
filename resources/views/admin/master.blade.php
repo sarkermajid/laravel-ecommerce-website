@@ -109,14 +109,14 @@
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user"
-                                src="{{ asset('/') }}admin/assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                src="{{ asset('admin/profile/'. Auth::user()->image) }}" alt="Header Avatar">
                             <span class="d-none d-xl-inline-block ml-1">{{ Auth::user()->name }}</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <!-- item-->
-                            {{-- <a class="dropdown-item" href="{{ route('profile.index') }}"><i
-                                    class="bx bx-user font-size-16 align-middle mr-1"></i> Profile</a> --}}
+                            <a class="dropdown-item" href="{{ route('profile.index') }}"><i
+                                    class="bx bx-user font-size-16 align-middle mr-1"></i> Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger" href="#"
                                 onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">

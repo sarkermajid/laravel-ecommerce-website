@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -34,5 +35,10 @@ Route::get('/home',function (){
         Route::get('/category/status/{id}','status')->name('category.status');
         Route::get('/category/edit/{id}','edit')->name('category.edit');
         Route::post('/category/delete/{id}','delete')->name('category.delete');
+    });
+
+    Route::controller(ProfileController::class)->group(function(){
+        Route::get('/profile', 'index')->name('profile.index');
+        Route::post('/profile/update/{id}', 'update')->name('profile.update');
     });
  });
