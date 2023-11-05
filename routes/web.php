@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -22,7 +24,15 @@ Route::get('/home',function (){
     return view('home');
 });
  Route::middleware(['auth','isAdmin'])->group(function(){
-    Route::get('/dashboard', function () {
-        return 'admin dashboard';
-     });
+    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('/category/add', 'index')->name('category.add');
+        Route::post('/category/store','store')->name('category.store');
+        Route::get('/category/manage','manage')->name('category.manage');
+        Route::get('/category/view/{id}','view')->name('category.view');
+        Route::get('/category/status/{id}','status')->name('category.status');
+        Route::get('/category/edit/{id}','edit')->name('category.edit');
+        Route::post('/category/delete/{id}','delete')->name('category.delete');
+    });
  });
