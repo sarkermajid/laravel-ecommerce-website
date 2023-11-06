@@ -34,6 +34,7 @@ Route::get('/home',function (){
         Route::get('/category/view/{id}','view')->name('category.view');
         Route::get('/category/status/{id}','status')->name('category.status');
         Route::get('/category/edit/{id}','edit')->name('category.edit');
+        Route::post('/category/update/{id}','update')->name('category.update');
         Route::post('/category/delete/{id}','delete')->name('category.delete');
     });
 
