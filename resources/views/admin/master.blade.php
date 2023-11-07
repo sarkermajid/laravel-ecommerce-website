@@ -99,9 +99,9 @@
                     </div>
 
                     <div class="dropdown d-none d-lg-inline-block ml-1">
-                        {{-- <a href="{{ route('home') }}" target="_blank" class="btn mt-3 text-white" style="background: #2A3042">
+                        <a href="{{ route('/') }}" target="_blank" class="btn mt-3 text-white" style="background: #2A3042">
                             Visit website
-                        </a> --}}
+                        </a>
                     </div>
 
                     <div class="dropdown d-none d-lg-inline-block ml-1">
@@ -184,6 +184,33 @@
                                 <li><a href="{{ route('product.add') }}">Add Product</a></li>
                                 <li><a href="{{ route('product.manage') }}">Manage Product</a></li>
                             </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
+                                <span>Blogs</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('product.add') }}">Add Blog</a></li>
+                                <li><a href="{{ route('product.manage') }}">Manage Blog</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="waves-effect">
+                                <i class="bx bx-add-to-queue"></i><span
+                                    class="badge badge-pill badge-info float-right"></span>
+                                <span>Social Links</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="waves-effect">
+                                <i class="bx bx-add-to-queue"></i><span
+                                    class="badge badge-pill badge-info float-right"></span>
+                                <span>Site Information</span>
+                            </a>
                         </li>
 
                     </ul>

@@ -24,10 +24,6 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
@@ -42,32 +38,26 @@
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
+        @if(auth()->user())
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="{{ asset('/') }}frontend/assets/img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
             <div class="header__top__right__auth">
-                <a href=""><i class="fa fa-user"></i> Login</a>
+                <a href=""><i class="fa fa-user"></i>{{ auth()->user()->name }}</a>
             </div>
         </div>
+        @else
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__auth">
+                <a href="{{ route('login')}}"><i class="fa fa-user"></i> Login</a>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="{{ route('register')}}"><i class="fa fa-user"></i> Register</a>
+            </div>
+        </div>
+        @endif
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="./index.html">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
                 <li><a href="./blog.html">Blog</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
@@ -77,7 +67,6 @@
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
         </div>
         <div class="humberger__menu__contact">
             <ul>
@@ -107,20 +96,19 @@
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <img src="{{ asset('/') }}frontend/assets/img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
+                            @if(auth()->user())
+                            <div class="header__top__right__auth">
+                                <a href=""><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
+                            </div>
+                            @else
+                            <div class="header__top__right__auth">
+                                <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -138,14 +126,6 @@
                         <ul>
                             <li class="active"><a href="./index.html">Home</a></li>
                             <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
                             <li><a href="./blog.html">Blog</a></li>
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
@@ -177,7 +157,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -227,10 +207,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                        <div class="footer__copyright__text"><p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made by <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.facebook.com/sarkermajid" target="_blank">Sarker Majid</a></p></div>
+                        <div class="footer__copyright__payment"><img src="{{ asset('/') }}frontend/assets/img/payment-item.png" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -247,9 +226,5 @@
     <script src="{{ asset('/') }}frontend/assets/js/mixitup.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/owl.carousel.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
-
-
-
 </body>
-
 </html>

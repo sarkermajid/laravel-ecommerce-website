@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -18,14 +19,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home.index');
-});
+
+Route::get('/',[HomeController::class, 'index'])->name('/');
 
 Auth::routes();
-Route::get('/home',function (){
-    return view('home');
-});
+
  Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
