@@ -76,6 +76,10 @@ class BrandController extends Controller
          // Image upload
         $image = $request->file('image');
         if($image){
+            if(file_exists($brand->image))
+            {
+                unlink($brand->image);
+            }
             $image_name = time().'.'.$image->getClientOriginalExtension();
             $image->move('admin/brand-image/', $image_name);
             $brand->image = $image_name;
