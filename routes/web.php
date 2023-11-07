@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
@@ -42,4 +43,16 @@ Route::get('/home',function (){
         Route::get('/profile', 'index')->name('profile.index');
         Route::post('/profile/update/{id}', 'update')->name('profile.update');
     });
+
+    Route::controller(BrandController::class)->group(function(){
+        Route::get('/brand/add', 'index')->name('brand.add');
+        Route::post('/brand/store', 'store')->name('brand.store');
+        Route::get('/brand/manage', 'manage')->name('brand.manage');
+        Route::get('/brand/view/{id}','view')->name('brand.view');
+        Route::get('/brand/status/{id}','status')->name('brand.status');
+        Route::get('/brand/edit/{id}','edit')->name('brand.edit');
+        Route::post('/brand/update/{id}','update')->name('brand.update');
+        Route::post('/brand/delete/{id}','delete')->name('brand.delete');
+    });
+
  });

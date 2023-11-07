@@ -30,8 +30,8 @@
     </div>
     <div class="col-md-6">
         <div class="card card-body bg-danger">
-            <h3 class="text-white">Total Order </h3>
-            <h4 class="text-white">3</h4>
+            <h3 class="text-white">Total Brands</h3>
+            <h4 class="text-white">{{ $totalBrand }}</h4>
         </div>
     </div>
 </div>

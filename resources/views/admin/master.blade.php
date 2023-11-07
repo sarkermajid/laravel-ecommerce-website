@@ -153,11 +153,22 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-add-to-queue"></i>
-                                <span>Category</span>
+                                <span>Categories</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('category.add') }}">Add Category</a></li>
                                 <li><a href="{{ route('category.manage') }}">Manage Category</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
+                                <span>Brands</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('brand.add') }}">Add Brand</a></li>
+                                <li><a href="{{ route('brand.manage') }}">Manage Brand</a></li>
                             </ul>
                         </li>
                     </ul>

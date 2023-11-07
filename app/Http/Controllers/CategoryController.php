@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Models\Category;
 use Brian2694\Toastr\Facades\Toastr;
-use Brian2694\Toastr\Toastr as ToastrToastr;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -31,8 +30,7 @@ class CategoryController extends Controller
         $image->move('admin/category-image/', $image_name);
         $category->image = $image_name;
         $category->save();
-        Toastr::success('Category Created Successfully');
-        return redirect()->route('category.manage');
+        return redirect()->route('category.manage')->with('message','category created successfully');
     }
 
     public function manage()
@@ -58,8 +56,7 @@ class CategoryController extends Controller
             $category->status = 1;
         }
         $category->save();
-        Toastr::success('Category Status Update Successfully');
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Category Status Update Success');
     }
 
     public function edit($id)
@@ -70,7 +67,6 @@ class CategoryController extends Controller
 
     public function update(Request $request,$id)
     {
-        // dd($request->all());
         $category  = Category::find($id);
         $category->name = $request->name;
         $category->slug  = $request->slug;
@@ -91,8 +87,7 @@ class CategoryController extends Controller
             $category->image = $image_name;
         }
         $category->update();
-        Toastr::success('Category Updated Successfully');
-        return redirect()->route('category.manage');
+        return redirect()->route('category.manage')->with('message','category updated successfully');
     }
 
     public function delete($id)
