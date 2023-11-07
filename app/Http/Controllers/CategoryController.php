@@ -16,7 +16,6 @@ class CategoryController extends Controller
 
     public function store(CategoryStoreRequest $request)
     {
-
         $category  = new Category();
         $category->name = $request->name;
         $category->slug = Str::slug($request->name).'-'.rand(1000,5000);
@@ -27,7 +26,7 @@ class CategoryController extends Controller
         $category->meta_keywords = $request->meta_keywords;
          // Image upload
         $image = $request->file('image');
-        $image_name = time().'.'.$image->getClientOriginalExtension();
+        $image_name = $category->slug . time().'.'.$image->getClientOriginalExtension();
         $image->move('admin/category-image/', $image_name);
         $category->image = $image_name;
         $category->save();
@@ -83,6 +82,10 @@ class CategoryController extends Controller
          // Image upload
         $image = $request->file('image');
         if($image){
+            if(file_exists($category->image))
+            {
+                unlink($category->image);
+            }
             $image_name = time().'.'.$image->getClientOriginalExtension();
             $image->move('admin/category-image/', $image_name);
             $category->image = $image_name;

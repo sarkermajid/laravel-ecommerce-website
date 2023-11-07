@@ -25,12 +25,11 @@ return new class extends Migration
             $table->tinyInteger('discount_type')->nullable()->comment('1 = percentage, 0 = fixed amount');
             $table->double('price');
             $table->double('discount_amount')->nullable();
-            $table->tinyInteger('trending');
-            $table->string('tax')->nullable();
-            $table->tinyInteger('status')->default('0');
-            $table->mediumText('meta_titles')->nullable();
+            $table->tinyInteger('trending')->default('0');
+            $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');
+            $table->mediumText('meta_title')->nullable();
             $table->mediumText('meta_description')->nullable();
-            $table->mediumText('meta_keywords')->nullable();
+            $table->mediumText('meta_keyword')->nullable();
             $table->timestamps();
         });
     }

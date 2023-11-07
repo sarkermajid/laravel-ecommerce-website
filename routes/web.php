@@ -58,8 +58,13 @@ Route::get('/home',function (){
 
     Route::controller(ProductController::class)->group(function(){
         Route::get('/product/add', 'index')->name('product.add');
-        Route::post('/product/store/', 'store')->name('product.store');
+        Route::post('/product/store', 'store')->name('product.store');
         Route::get('/product/manage','manage')->name('product.manage');
+        Route::get('/product/view/{id}','view')->name('product.view');
+        Route::get('/product/status/{id}','status')->name('product.status');
+        Route::get('/product/edit/{id}','edit')->name('product.edit');
+        Route::post('/product/update/{id}','update')->name('product.update');
+        Route::post('/product/delete/{id}','delete')->name('product.delete');
     });
 
  });
