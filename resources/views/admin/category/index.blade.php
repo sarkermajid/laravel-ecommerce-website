@@ -62,23 +62,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="slug">Slug</label>
-                            @error('slug')
-                                <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                            @enderror
-                            <input type="text" name="slug" class="form-control" id="slug">
-                        </div>
-
-                        <div class="form-group">
                             <label for="slug">Description</label>
                             @error('description')
                                 <h6 class="modal-header justify-content-start"
                                     style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
                                     {{ $message }}</h6>
                             @enderror
-                            <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+                            <textarea name="description" id="summernote" class="form-control" rows="3"></textarea>
                         </div>
 
                         <div class="row">
@@ -119,24 +109,29 @@
                             <input type="text" name="meta_title" class="form-control" id="meta_title">
                         </div>
 
-                        <div class="form-group">
-                            <label for="slug">Meta Description</label>
-                            @error('meta_description')
-                                <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                            @enderror
-                            <textarea name="meta_description" id="meta_description" class="form-control" rows="3"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="slug">Meta Keywords</label>
-                            @error('meta_keywords')
-                                <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                            @enderror
-                            <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3"></textarea>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="slug">Meta Description</label>
+                                    @error('meta_description')
+                                        <h6 class="modal-header justify-content-start"
+                                            style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                            {{ $message }}</h6>
+                                    @enderror
+                                    <textarea name="meta_description" id="meta_description" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="slug">Meta Keywords</label>
+                                    @error('meta_keywords')
+                                        <h6 class="modal-header justify-content-start"
+                                            style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                            {{ $message }}</h6>
+                                    @enderror
+                                    <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

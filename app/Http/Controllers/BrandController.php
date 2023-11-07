@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BrandStoreRequest;
 use App\Models\Brand;
-use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -18,7 +18,8 @@ class BrandController extends Controller
     {
         $brand = new Brand();
         $brand->name = $request->name;
-        $brand->description = $request->description;
+        $brand->slug = Str::slug($request->name).'-'.rand(1000,5000);
+        $brand->description = strip_tags(html_entity_decode($request->description));
         $brand->status = $request->status;
         // image upload
         $image = $request->file('image');
@@ -65,7 +66,8 @@ class BrandController extends Controller
     {
         $brand  = Brand::find($id);
         $brand->name = $request->name;
-        $brand->description = $request->description;
+        $brand->slug = Str::slug($request->name).'-'.rand(1000,5000);
+        $brand->description = strip_tags(html_entity_decode($request->description));
         if($brand->status == 'on'){
             $brand->status = 1;
         }else{

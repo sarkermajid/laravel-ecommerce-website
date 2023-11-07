@@ -21,6 +21,10 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
     {{-- toster msg --}}
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <!-- Summernote css -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    {{-- select2 --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @stack('styles')
 
 </head>
@@ -171,6 +175,18 @@
                                 <li><a href="{{ route('brand.manage') }}">Manage Brand</a></li>
                             </ul>
                         </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
+                                <span>Products</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('product.add') }}">Add Product</a></li>
+                                <li><a href="{{ route('product.manage') }}">Manage Product</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -201,6 +217,10 @@
         <script type="text/javascript" src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
         <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        <!-- Summernote js -->
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        {{-- select2 --}}
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script>
             @if (Session::has('message'))
                 toastr.options = {
@@ -233,6 +253,11 @@
                 }
                 toastr.warning("{{ session('warning') }}");
             @endif
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('#summernote').summernote();
+            });
         </script>
                 {!! Toastr::message() !!}
         @stack('scripts')

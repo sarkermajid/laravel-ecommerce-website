@@ -68,7 +68,7 @@
                                     style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
                                     {{ $message }}</h6>
                             @enderror
-                            <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+                            <textarea name="description" id="summernote" class="form-control" rows="3"></textarea>
                         </div>
 
                         <div class="row">

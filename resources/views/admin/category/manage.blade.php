@@ -28,7 +28,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $category->name }}</td>
-                                    <td>{{ $category->description }}</td>
+                                    <td>{{ Str::substr($category->description, 0, 20) }}</td>
                                     <td><img src="{{ asset('admin/category-image/'.$category->image) }}" height="50" width="70"
                                             alt=""></td>
                                     <td><a href="{{ route('category.status', ['id' => $category->id]) }}"

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,12 @@ Route::get('/home',function (){
         Route::get('/brand/edit/{id}','edit')->name('brand.edit');
         Route::post('/brand/update/{id}','update')->name('brand.update');
         Route::post('/brand/delete/{id}','delete')->name('brand.delete');
+    });
+
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('/product/add', 'index')->name('product.add');
+        Route::post('/product/store/', 'store')->name('product.store');
+        Route::get('/product/manage','manage')->name('product.manage');
     });
 
  });
