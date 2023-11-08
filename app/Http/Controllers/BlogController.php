@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BlogStoreRequest;
 use App\Http\Requests\BlogCategoryStoreRequest;
+use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Support\Str;
@@ -88,13 +89,11 @@ class BlogController extends Controller
 
     public function store(BlogStoreRequest $request)
     {
-
-        dd($request->all());
         $blog = new Blog();
         $blog->title = $request->title;
         $blog->slug = Str::slug($blog->title).'-'.rand(1000,5000);
         $blog->user_id = auth()->user()->id;
-        $blog->category_id = $request->category_id;
+        $blog->blog_category_id = $request->blog_category_id;
         $blog->description = $request->description;
         $blog->status = $request->status;
         // Image upload
@@ -110,6 +109,66 @@ class BlogController extends Controller
     {
         $blogs = Blog::orderBy('id','desc')->get();
         return view('admin.blog.manage',compact('blogs'));
+    }
+
+    public function view($id)
+    {
+        $blog = Blog::find($id);
+        return view('admin.blog.view', compact('blog'));
+    }
+
+    public function status($id)
+    {
+        $blog = Blog::find($id);
+        if($blog->status == 1){
+            $blog->status = 0;
+        }else{
+            $blog->status = 1;
+        }
+        $blog->save();
+        return redirect()->back()->with('message', 'blog Status Update Success');
+    }
+
+    public function edit($id)
+    {
+        $blog = Blog::find($id);
+        $blogCategories = BlogCategory::where('status',1)->get();
+        return view('admin.blog.edit',compact('blog','blogCategories'));
+    }
+
+    public function update(BlogUpdateRequest $request ,$id)
+    {
+        $blog = Blog::find($id);
+        $blog->title = $request->title;
+        $blog->slug = Str::slug($blog->title).'-'.rand(1000,5000);
+        $blog->user_id = auth()->user()->id;
+        $blog->blog_category_id = $request->blog_category_id;
+        $blog->description = $request->description;
+        if($blog->status == 'on'){
+            $blog->status = 1;
+        }else{
+            $blog->status = 0;
+        }
+        // Image upload
+        $image = $request->file('image');
+        if($image){
+            if(file_exists($blog->image))
+            {
+                unlink($blog->image);
+            }
+            $image_name = time().'.'.$image->getClientOriginalExtension();
+            $image->move('admin/blog-image/', $image_name);
+            $blog->image = $image_name;
+        }
+        $blog->update();
+        return redirect()->route('blog.manage')->with('message','Blog update successfully');
+    }
+
+    public function delete($id)
+    {
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect()->back()->with('message', 'Blog deteted successfully');
     }
 
 }

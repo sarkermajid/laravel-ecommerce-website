@@ -14,7 +14,7 @@ class Blog extends Model
         'title',
         'slug',
         'user_id',
-        'category_id',
+        'blog_category_id',
         'description',
         'image',
         'trending',
@@ -24,5 +24,10 @@ class Blog extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function blogCategory()
+    {
+        return $this->belongsTo(BlogCategory::class);
     }
 }

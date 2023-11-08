@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->foreignId('user_id')->constrained()->onDelete('restrict');
-            $table->foreignId('category_id')->constrained()->onDelete('restrict');
+            $table->foreignId('blog_category_id');
             $table->longText('description')->nullable();
             $table->string('image');
             $table->tinyInteger('trending')->default('0');

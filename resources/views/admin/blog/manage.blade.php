@@ -16,8 +16,9 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Name</th>
+                                <th>Title</th>
                                 <th>Author</th>
+                                <th>Blog Category</th>
                                 <th>Image</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -27,11 +28,12 @@
                             @foreach ($blogs as $blog)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $blog->name }}</td>
+                                    <td>{{ $blog->title }}</td>
                                     <td>{{ $blog->user->name }}</td>
+                                    <td>{{ $blog->blogCategory->name }}</td>
                                     <td><img src="{{ asset('admin/blog-image/'.$blog->image) }}" height="50" width="70"
                                             alt=""></td>
-                                    <td><a href="{{ route('blog.status', ['id' => $brand->id]) }}"
+                                    <td><a href="{{ route('blog.status', ['id' => $blog->id]) }}"
                                             class="btn btn-sm {{ $blog->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $blog->status == 1 ? 'Active' : 'Inactive' }}</a>
                                     </td>
                                     <td>

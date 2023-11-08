@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -63,7 +64,7 @@ class ProductController extends Controller
         return view('admin.product.edit', compact('product','categories','brands'));
     }
 
-    public function update(ProductStoreRequest $request,$id)
+    public function update(ProductUpdateRequest $request,$id)
     {
         $product = Product::find($id);
         $product->name = $request->name;

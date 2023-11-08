@@ -49,7 +49,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Create New Blog</h4>
+                <h4 class="mb-0 font-size-18">Edit Blog</h4>
             </div>
         </div>
     </div>
@@ -57,16 +57,16 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('blog.update', ['id'=>$blog->id]) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="title">Title</label>
+                            <label for="title">title</label>
                             @error('title')
                             <h6 class="modal-header justify-content-start"
                             style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
                             {{ $message }}</h6>
                             @enderror
-                            <input type="text" name="title" class="form-control" id="title">
+                            <input type="text" value="{{ $blog->title }}" name="title" class="form-control" id="title">
                         </div>
 
                         <div class="row">
@@ -81,8 +81,11 @@
                                     <select name="blog_category_id" class="@error('blog_category_id')is-invalid @enderror select2 form-control ">
                                         <option value="">-Select-</option>
                                         @foreach ($blogCategories as $category)
-                                            <option @if(old('blog_category_id') == $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
+                                        <option
+                                            @if (old('blog_category_id') == $category->id) selected @elseif($category->id == $blog->blogCategory->id) selected @endif
+                                            value="{{ $category->id }}">{{ $category->name }}
+                                        </option>
+                                    @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -95,7 +98,7 @@
                             style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
                             {{ $message }}</h6>
                             @enderror
-                            <textarea name="description" id="summernote" class="form-control"></textarea>
+                            <textarea name="description" id="summernote" class="form-control">{{ $blog->description }}</textarea>
                         </div>
 
                         <div class="row">
@@ -128,15 +131,15 @@
 
                         <div class="form-group">
                             <label class="d-block">Status</label>
-                            <label for="Active" class="form-label"><input type="radio" name="status" value="1" id="Active" checked class="label radio">Active
+                            <label for="Active" class="form-label"><input type="radio" name="status" value="1" id="Active" {{ $blog->status == 1 ? 'checked' : '' }}  class="label radio">Active
                             </label>
                             &nbsp;
                             &nbsp;
-                            <label for="Deactive" class="form-label"><input type="radio" name="status" value="0" id="Deactive" class="label radio">Deactive
+                            <label for="Deactive" class="form-label"><input type="radio" name="status" value="0" id="Deactive" {{ $blog->status == 1 ? 'checked' : '' }}  class="label radio">Deactive
                             </label>
                         </div>
                         <div>
-                            <input type="submit" class="btn btn-primary" value="Create">
+                            <input type="submit" class="btn btn-primary" value="Update">
                         </div>
                     </form>
                 </div>
