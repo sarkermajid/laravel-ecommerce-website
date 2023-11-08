@@ -194,8 +194,8 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('blog.category.add') }}">Add Category</a></li>
                                 <li><a href="{{ route('blog.category.manage') }}">Manage Category</a></li>
-                                <li><a href="{{ route('product.add') }}">Add Blog</a></li>
-                                <li><a href="{{ route('product.manage') }}">Manage Blog</a></li>
+                                <li><a href="{{ route('blog.add') }}">Add Blog</a></li>
+                                <li><a href="{{ route('blog.manage') }}">Manage Blog</a></li>
                             </ul>
                         </li>
 

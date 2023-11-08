@@ -23,7 +23,7 @@ class BrandController extends Controller
         $brand->status = $request->status;
         // image upload
         $image = $request->file('image');
-        $image_name = time().'.'.$image->getClientOriginalExtension();
+        $image_name = $brand->slug . time().'.'.$image->getClientOriginalExtension();
         $image->move('admin/brand-image/', $image_name);
         $brand->image = $image_name;
         $brand->save();

@@ -36,7 +36,7 @@ class ProductController extends Controller
         $product->status = $request->status;
         // Image upload
         $image = $request->file('image');
-        $image_name = time().'.'.$image->getClientOriginalExtension();
+        $image_name = $product->slug . time().'.'.$image->getClientOriginalExtension();
         $image->move('admin/product-image/', $image_name);
         $product->image = $image_name;
         $product->save();

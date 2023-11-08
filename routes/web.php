@@ -38,6 +38,15 @@ Auth::routes();
  Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
+    // Profile Routes
+
+    Route::controller(ProfileController::class)->group(function(){
+        Route::get('/profile', 'index')->name('profile.index');
+        Route::post('/profile/update/{id}', 'update')->name('profile.update');
+    });
+
+    // Categories Routes
+
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/category/add', 'index')->name('category.add');
         Route::post('/category/store','store')->name('category.store');
@@ -49,10 +58,9 @@ Auth::routes();
         Route::post('/category/delete/{id}','delete')->name('category.delete');
     });
 
-    Route::controller(ProfileController::class)->group(function(){
-        Route::get('/profile', 'index')->name('profile.index');
-        Route::post('/profile/update/{id}', 'update')->name('profile.update');
-    });
+
+
+    // Brands Routes
 
     Route::controller(BrandController::class)->group(function(){
         Route::get('/brand/add', 'index')->name('brand.add');
@@ -65,6 +73,8 @@ Auth::routes();
         Route::post('/brand/delete/{id}','delete')->name('brand.delete');
     });
 
+    // Products routes
+
     Route::controller(ProductController::class)->group(function(){
         Route::get('/product/add', 'index')->name('product.add');
         Route::post('/product/store', 'store')->name('product.store');
@@ -76,15 +86,30 @@ Auth::routes();
         Route::post('/product/delete/{id}','delete')->name('product.delete');
     });
 
+    // Blog Categories routes
+
     Route::controller(BlogController::class)->group(function(){
-        Route::get('/blog/category/index', 'blogCategoryIndex')->name('blog.category.add');
+        Route::get('/blog/category/add', 'blogCategoryIndex')->name('blog.category.add');
         Route::post('/blog/category/store', 'blogCategoryStore')->name('blog.category.store');
         Route::get('/blog/category/manage','blogCategoryManage')->name('blog.category.manage');
         Route::get('/blog/category/view/{id}','blogCategoryView')->name('blog.category.view');
-        Route::get('/blog/category/status/{id}','blogCategotyStatus')->name('blog.category.status');
+        Route::get('/blog/category/status/{id}','blogCategoryStatus')->name('blog.category.status');
         Route::get('/blog/category/edit/{id}','blogCategoryEdit')->name('blog.category.edit');
         Route::post('/blog/category/update/{id}','blogCategoryUpdate')->name('blog.category.update');
         Route::post('/blog/category/delete/{id}','blogCategoryDelete')->name('blog.category.delete');
+    });
+
+    // Blogs Routes
+
+    Route::controller(BlogController::class)->group(function(){
+        Route::get('/blog/add', 'index')->name('blog.add');
+        Route::post('/blog/store', 'store')->name('blog.store');
+        Route::get('/blog/manage', 'manage')->name('blog.manage');
+        Route::get('/blog/view/{id}','view')->name('blog.view');
+        Route::get('/blog/status/{id}','status')->name('blog.status');
+        Route::get('/blog/edit/{id}','edit')->name('blog.edit');
+        Route::post('/blog/update/{id}','update')->name('blog.update');
+        Route::post('/blog/delete/{id}','delete')->name('blog.delete');
     });
 
  });

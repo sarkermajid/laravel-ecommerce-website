@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->foreignId('user_id')->constrained()->onDelete('restrict');
             $table->foreignId('category_id')->constrained()->onDelete('restrict');
             $table->longText('description')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->tinyInteger('trending')->default('0');
-            $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');;
+            $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');
             $table->timestamps();
         });
     }
