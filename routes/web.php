@@ -3,9 +3,12 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FrontendBlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -20,7 +23,14 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-Route::get('/',[HomeController::class, 'index'])->name('/');
+Route::get('/',function(){
+    return view('frontend.home.index');
+});
+
+Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/blogs',[FrontendBlogController::class, 'index'])->name('blogs');
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 
 Auth::routes();
 
@@ -66,3 +76,4 @@ Auth::routes();
     });
 
  });
+

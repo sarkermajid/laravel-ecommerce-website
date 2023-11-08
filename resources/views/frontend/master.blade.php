@@ -29,7 +29,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -41,25 +41,30 @@
         @if(auth()->user())
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href=""><i class="fa fa-user"></i>{{ auth()->user()->name }}</a>
+                <a href="" class="login-btn text-white"><i class="fa fa-user"></i>{{ auth()->user()->name }}</a>
             </div>
+            <form method="POST" action="{{ route('logout') }}" style="display: inline">
+                @csrf
+                <input name="_method" type="hidden">
+                <button type="submit" class="logout-btn text-white" data-toggle="tooltip"><i class=""></i> Delete</button>
+            </form>
         </div>
         @else
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href="{{ route('login')}}"><i class="fa fa-user"></i> Login</a>
+                <a href="{{ route('login')}}" class="login-btn text-white"><i class="fa fa-user"></i> Login</a>
             </div>
             <div class="header__top__right__auth">
-                <a href="{{ route('register')}}"><i class="fa fa-user"></i> Register</a>
+                <a href="{{ route('register')}}"  class="login-btn text-white"><i class="fa fa-user"></i> Register</a>
             </div>
         </div>
         @endif
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li class="active"><a href="">Home</a></li>
+                <li><a href="{{ route('shop') }}">Shop</a></li>
+                <li><a href="{{ route('blogs') }}">Blog</a></li>
+                <li class="{{ Request::is('/contact') ? 'active' : '' }}"><a href="{{ route('contact') }}" >Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -99,14 +104,19 @@
                             </div>
                             @if(auth()->user())
                             <div class="header__top__right__auth">
-                                <a href=""><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
+                                <a href="" class="login-btn text-white"><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
                             </div>
+                            <form method="POST" action="{{ route('logout') }}" style="display: inline">
+                                @csrf
+                                <input name="_method" type="hidden">
+                                <button type="submit" class="logout-btn text-white" data-toggle="tooltip"><i class="fa fa-arrow-left"></i> Logout</button>
+                            </form>
                             @else
                             <div class="header__top__right__auth">
-                                <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
+                                <a href="{{ route('login') }}" class="login-btn text-white"><i class="fa fa-user"></i> Login</a>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
+                                <a href="{{ route('register') }}" class="login-btn text-white"><i class="fa fa-user"></i> Register</a>
                             </div>
                             @endif
                         </div>
@@ -118,16 +128,16 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li class="active"><a href="">Home</a></li>
+                            <li><a href="{{ route('shop') }}">Shop</a></li>
+                            <li><a href="{{ route('blogs') }}">Blog</a></li>
+                            <li class="{{ Request::is('/contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -157,7 +167,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('/home') }}frontend/assets/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -181,7 +191,7 @@
                             <li><a href="#">Who We Are</a></li>
                             <li><a href="#">Our Services</a></li>
                             <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                             <li><a href="#">Innovation</a></li>
                             <li><a href="#">Testimonials</a></li>
                         </ul>
@@ -199,7 +209,6 @@
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>

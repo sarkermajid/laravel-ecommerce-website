@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="dropdown d-none d-lg-inline-block ml-1">
-                        <a href="{{ route('/') }}" target="_blank" class="btn mt-3 text-white" style="background: #2A3042">
+                        <a href="{{ url('/') }}" target="_blank" class="btn mt-3 text-white" style="background: #2A3042">
                             Visit website
                         </a>
                     </div>
