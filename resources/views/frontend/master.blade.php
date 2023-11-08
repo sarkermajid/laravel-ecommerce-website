@@ -29,7 +29,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="{{ route('home') }}"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('/') }}frontend/assets/img/logo_blue.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -61,7 +61,7 @@
         @endif
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="">Home</a></li>
+                <li class="active"><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('shop') }}">Shop</a></li>
                 <li><a href="{{ route('blogs') }}">Blog</a></li>
                 <li class="{{ Request::is('/contact') ? 'active' : '' }}"><a href="{{ route('contact') }}" >Contact</a></li>
@@ -128,13 +128,13 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('/') }}frontend/assets/img/logo.png" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('/') }}frontend/assets/img/logo_blue.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="">Home</a></li>
+                            <li class="active"><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('shop') }}">Shop</a></li>
                             <li><a href="{{ route('blogs') }}">Blog</a></li>
                             <li class="{{ Request::is('/contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact</a></li>
@@ -167,7 +167,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset('/home') }}frontend/assets/img/logo.png" alt=""></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('/home') }}frontend/assets/img/logo_blue.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>

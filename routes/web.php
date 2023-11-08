@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -73,6 +74,17 @@ Auth::routes();
         Route::get('/product/edit/{id}','edit')->name('product.edit');
         Route::post('/product/update/{id}','update')->name('product.update');
         Route::post('/product/delete/{id}','delete')->name('product.delete');
+    });
+
+    Route::controller(BlogController::class)->group(function(){
+        Route::get('/blog/category/index', 'blogCategoryIndex')->name('blog.category.add');
+        Route::post('/blog/category/store', 'blogCategoryStore')->name('blog.category.store');
+        Route::get('/blog/category/manage','blogCategoryManage')->name('blog.category.manage');
+        Route::get('/blog/category/view/{id}','blogCategoryView')->name('blog.category.view');
+        Route::get('/blog/category/status/{id}','blogCategotyStatus')->name('blog.category.status');
+        Route::get('/blog/category/edit/{id}','blogCategoryEdit')->name('blog.category.edit');
+        Route::post('/blog/category/update/{id}','blogCategoryUpdate')->name('blog.category.update');
+        Route::post('/blog/category/delete/{id}','blogCategoryDelete')->name('blog.category.delete');
     });
 
  });

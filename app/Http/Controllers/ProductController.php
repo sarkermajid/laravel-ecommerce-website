@@ -67,6 +67,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->name = $request->name;
+        $product->slug = Str::slug($request->name).'-'.rand(1000,5000);
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->description = strip_tags(html_entity_decode($request->description));
