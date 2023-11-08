@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\User;
@@ -11,9 +12,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $totalCategory = Category::count();
-        $totalUser = User::count();
-        $totalBrand = Brand::count();
-        return view('admin.home.index',compact('totalCategory', 'totalUser','totalBrand'));
+        $totalCategories = Category::count();
+        $totalUsers = User::count();
+        $totalBrands = Brand::count();
+        $totalBlogs = Blog::count();
+        return view('admin.home.index',compact('totalCategories', 'totalUsers','totalBrands','totalBlogs'));
     }
 }

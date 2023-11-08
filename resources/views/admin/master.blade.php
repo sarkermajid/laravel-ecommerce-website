@@ -154,6 +154,30 @@
                         </li>
 
                         <li>
+                            <a href="#" class="waves-effect">
+                                <i class="bx bx-add-to-queue"></i><span
+                                    class="badge badge-pill badge-info float-right"></span>
+                                <span>Orders</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="waves-effect">
+                                <i class="bx bx-add-to-queue"></i><span
+                                    class="badge badge-pill badge-info float-right"></span>
+                                <span>Messages</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('user.manage') }}" class="waves-effect">
+                                <i class="bx bx-add-to-queue"></i><span
+                                    class="badge badge-pill badge-info float-right"></span>
+                                <span>Users Control</span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-add-to-queue"></i>
                                 <span>Categories</span>
@@ -189,6 +213,17 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-add-to-queue"></i>
+                                <span>Cupon Code</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('product.add') }}">Create Cupon</a></li>
+                                <li><a href="{{ route('product.manage') }}">Manage Cupon</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
                                 <span>Blogs</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
@@ -200,19 +235,27 @@
                         </li>
 
                         <li>
-                            <a href="#" class="waves-effect">
-                                <i class="bx bx-add-to-queue"></i><span
-                                    class="badge badge-pill badge-info float-right"></span>
-                                <span>Social Links</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
+                                <span>Banners</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('blog.category.add') }}">Add Banner</a></li>
+                                <li><a href="{{ route('blog.category.manage') }}">Manage Banner</a></li>
+                            </ul>
                         </li>
 
                         <li>
-                            <a href="#" class="waves-effect">
-                                <i class="bx bx-add-to-queue"></i><span
-                                    class="badge badge-pill badge-info float-right"></span>
-                                <span>Site Information</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
+                                <span>Settings</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('blog.category.add') }}">Logo & Social Links</a></li>
+                                <li><a href="{{ route('blog.category.manage') }}">About Us</a></li>
+                                <li><a href="{{ route('blog.add') }}">Contact Us</a></li>
+                                <li><a href="{{ route('blog.add') }}">Privacy Policy</a></li>
+                            </ul>
                         </li>
 
                     </ul>

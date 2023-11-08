@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -110,6 +111,14 @@ Auth::routes();
         Route::get('/blog/edit/{id}','edit')->name('blog.edit');
         Route::post('/blog/update/{id}','update')->name('blog.update');
         Route::post('/blog/delete/{id}','delete')->name('blog.delete');
+    });
+
+    // Users Routes
+
+    Route::controller(UserController::class)->group(function (){
+        Route::get('/user/manage', 'manage')->name('user.manage');
+        Route::get('/user/status/{id}', 'status')->name('user.status');
+        Route::post('/user/delete/{id}', 'status')->name('user.delete');
     });
 
  });
