@@ -134,7 +134,7 @@ Auth::routes();
 
     Route::controller(BannerController::class)->group(function(){
         Route::get('/banner/add', 'index')->name('banner.add');
-        Route::post('/banner/update/{id}', 'update')->name('banner.update');
+        Route::post('/banner/update/{id?}', 'update')->name('banner.update');
     });
 
  });

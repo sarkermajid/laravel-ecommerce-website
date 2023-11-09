@@ -49,7 +49,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('banner.update', ['id'=>$banner->id]) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('banner.update', $banner->id ?? '') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="title">Title</label>
@@ -75,9 +75,11 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Image</label>
+                                    @if($banner->image ?? '')
                                     <div class="mb-3">
                                         <td class="text-dark "><img src="{{ asset('admin/banner-image/'.$banner->image) }} "style="border-radius: 10px;" alt="" width="300" height=""/></td>
                                     </div>
+                                    @endif
                                     @error('image')
                                     <h6 class="modal-header justify-content-start"
                                         style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
