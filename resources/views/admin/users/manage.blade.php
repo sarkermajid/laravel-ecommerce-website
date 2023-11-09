@@ -20,7 +20,6 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Image</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -33,9 +32,6 @@
                                     <td>{{ $user->phone }}</td>
                                     <td><img src="{{ asset('frontend/user-image/'.$user->image) }}" height="50" width="70"
                                             alt=""></td>
-                                    <td><a href="{{ route('user.status', ['id' => $user->id]) }}"
-                                            class="btn btn-sm {{ $user->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $user->status == 1 ? 'Active' : 'Inactive' }}</a>
-                                    </td>
                                     <td>
                                         <div>
                                              <form method="POST" action="{{ route('user.delete', ['id' => $user->id]) }}" style="display: inline">

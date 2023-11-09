@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
 {
@@ -25,11 +26,14 @@ class UserProfileController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
+        $user->password = Hash::make($request->password);
         // Image upload
         $image = $request->file('image');
-        $image_name = time().'.'.$image->getClientOriginalExtension();
-        $image->move('frontend/user-image/', $image_name);
-        $user->image = $image_name;
+        if($image){
+            $image_name = time().'.'.$image->getClientOriginalExtension();
+            $image->move('frontend/user-image/', $image_name);
+            $user->image = $image_name;
+        }
         $user->update();
         return redirect()->route('user.profile');
     }

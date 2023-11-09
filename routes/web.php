@@ -120,7 +120,6 @@ Auth::routes();
 
     Route::controller(UserController::class)->group(function (){
         Route::get('/user/manage', 'manage')->name('user.manage');
-        Route::get('/user/status/{id}', 'status')->name('user.status');
         Route::post('/user/delete/{id}', 'status')->name('user.delete');
     });
 

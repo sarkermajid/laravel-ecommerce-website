@@ -13,15 +13,4 @@ class UserController extends Controller
         return view('admin.users.manage',compact('users'));
     }
 
-    public function status($id)
-    {
-        $user = User::find($id);
-        if($user->status == 1){
-            $user->status = 0;
-        }else{
-            $user->status = 1;
-        }
-        $user->save();
-        return redirect()->route('user.manage')->with('message','User Status Updated Successfully');
-    }
 }

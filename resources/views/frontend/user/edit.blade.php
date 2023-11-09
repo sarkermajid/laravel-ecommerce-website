@@ -27,6 +27,11 @@
                                 <input type="number" name="phone" value="{{ $user->phone }}" class="form-control" id="phone">
                             </div>
 
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" value="" placeholder="Password" class="form-control" id="password">
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
