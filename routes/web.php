@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
@@ -129,6 +130,11 @@ Auth::routes();
         Route::get('/admin/contact/message', 'contactMessage')->name('admin.contact.message');
         Route::get('/admin/contact/message/view/{id}', 'contactMessageView')->name('admin.contact.message.view');
         Route::post('/admin/contact/message/delete/{id}', 'contactMessageDelete')->name('admin.contact.message.delete');
+    });
+
+    Route::controller(BannerController::class)->group(function(){
+        Route::get('/banner/add', 'index')->name('banner.add');
+        Route::post('/banner/update/{id}', 'update')->name('banner.update');
     });
 
  });

@@ -235,14 +235,11 @@
                         </li>
 
                         <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bx bx-add-to-queue"></i>
-                                <span>Banners</span>
+                            <a href="{{ route('banner.add') }}"" class="waves-effect">
+                                <i class="bx bx-add-to-queue"></i><span
+                                    class="badge badge-pill badge-info float-right"></span>
+                                <span>Banner</span>
                             </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('blog.category.add') }}">Add Banner</a></li>
-                                <li><a href="{{ route('blog.category.manage') }}">Manage Banner</a></li>
-                            </ul>
                         </li>
 
                         <li>

@@ -73,10 +73,12 @@ class BlogController extends Controller
     public function blogCategoryDelete($id)
     {
         $blogCategory = BlogCategory::find($id);
-        // $blog = Blog::all();
-        // if($blog->category_id == $blogCategory->id){
-        //     return redirect()->back()->with('error','Can not delete this category, already a blog published under this category');
-        // }
+        $blogs = Blog::all();
+        foreach($blogs as $blog){
+            if($blogCategory->id == $blog->blog_category_id){
+                return redirect()->back()->with('error','you can not delete this category');
+            }
+        }
         $blogCategory->delete();
         return redirect()->back()->with('message', 'category deteted successfully');
     }
