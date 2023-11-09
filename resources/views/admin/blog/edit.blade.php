@@ -105,6 +105,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Image</label>
+                                    <div class="mb-3">
+                                        <td class="text-dark "><img src="{{ asset('admin/blog-image/'.$blog->image) }} "style="border-radius: 10px;" alt="" width="300" height=""/></td>
+                                    </div>
                                     @error('image')
                                     <h6 class="modal-header justify-content-start"
                                         style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
@@ -135,7 +138,7 @@
                             </label>
                             &nbsp;
                             &nbsp;
-                            <label for="Deactive" class="form-label"><input type="radio" name="status" value="0" id="Deactive" {{ $blog->status == 1 ? 'checked' : '' }}  class="label radio">Deactive
+                            <label for="Deactive" class="form-label"><input type="radio" name="status" value="0" id="Deactive" {{ $blog->status == 0 ? 'checked' : '' }}  class="label radio">Deactive
                             </label>
                         </div>
                         <div>

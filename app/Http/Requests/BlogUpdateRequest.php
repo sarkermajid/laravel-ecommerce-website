@@ -26,7 +26,6 @@ class BlogUpdateRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required',
             'blog_category_id' => 'required',
             'status' => 'required',
         ];

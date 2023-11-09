@@ -85,6 +85,9 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Image</label>
+                                    <div class="mb-3">
+                                        <td class="text-dark "><img src="{{ asset('admin/category-image/'.$category->image) }} "style="border-radius: 10px;" alt="" width="300" height=""/></td>
+                                    </div>
                                     @error('image')
                                     <h6 class="modal-header justify-content-start"
                                         style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
