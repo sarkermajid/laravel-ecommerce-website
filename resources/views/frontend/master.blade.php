@@ -41,12 +41,12 @@
         @if(auth()->user())
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href="" class="login-btn text-white"><i class="fa fa-user"></i>{{ auth()->user()->name }}</a>
+                <a href="{{ route('user.profile') }}" class="login-btn text-white"><i class="fa fa-user"></i>{{ auth()->user()->name }}</a>
             </div>
             <form method="POST" action="{{ route('logout') }}" style="display: inline">
                 @csrf
                 <input name="_method" type="hidden">
-                <button type="submit" class="logout-btn text-white" data-toggle="tooltip"><i class=""></i> Delete</button>
+                <button type="submit" class="logout-btn text-white" data-toggle="tooltip"><i class=""></i> Logout</button>
             </form>
         </div>
         @else
@@ -105,7 +105,7 @@
                             </div>
                             @if(auth()->user())
                             <div class="header__top__right__auth">
-                                <a href="" class="login-btn text-white"><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
+                                <a href="{{ route('user.profile') }}" class="login-btn text-white"><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
                             </div>
                             <form method="POST" action="{{ route('logout') }}" style="display: inline">
                                 @csrf

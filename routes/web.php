@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -33,7 +34,9 @@ Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/blogs',[FrontendBlogController::class, 'index'])->name('blogs');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
-
+Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
+Route::get('/user/edit', [UserProfileController::class, 'edit'])->name('user.edit');
+Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
 Auth::routes();
 
  Route::middleware(['auth','isAdmin'])->group(function(){
@@ -113,7 +116,7 @@ Auth::routes();
         Route::post('/blog/delete/{id}','delete')->name('blog.delete');
     });
 
-    // Users Routes
+    // Users Routes for admin
 
     Route::controller(UserController::class)->group(function (){
         Route::get('/user/manage', 'manage')->name('user.manage');
