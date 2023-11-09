@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Users</h4>
+                <h4 class="mb-0 font-size-18">Contact Messages</h4>
             </div>
         </div>
     </div>
@@ -12,33 +12,28 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <table class="table" id="tableCategory">
+                    <table class="table" id="tablemessage">
                         <thead>
                             <tr>
                                 <th>SL</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Phone</th>
-                                <th>Image</th>
+                                <th>Message</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($contactMessages as $message)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->phone }}</td>
-                                    <td><img src="{{ asset('frontend/user-image/'.$user->image) }}" height="50" width="70"
-                                            alt=""></td>
+                                    <td>{{ $message->name }}</td>
+                                    <td>{{ $message->email }}</td>
+                                    <td>{{ Str::substr($message->message, 0, 20) }}</td>
                                     <td>
                                         <div>
-                                            <a href="{{ route('user.admin.view', ['id' => $user->id]) }}"
+                                            <a href="{{ route('admin.contact.message.view', ['id' => $message->id]) }}"
                                                 class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> View</a>
-                                            <a href="{{ route('user.admin.edit', ['id' => $user->id]) }}"
-                                                class="btn btn-outline-warning btn-sm"><i cla ss="fa fa-edit"></i> Change</a>
-                                             <form method="POST" action="{{ route('user.admin.delete', ['id' => $user->id]) }}" style="display: inline">
+                                             <form method="POST" action="{{ route('admin.contact.message.delete', ['id' => $message->id]) }}" style="display: inline">
                                                  @csrf
                                                  <input name="_method" type="hidden">
                                                  <button type="submit" class="btn btn-outline-danger btn-sm show_confirm" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</button>
@@ -58,7 +53,7 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#tableCategory').DataTable();
+            $('#tablemessage').DataTable();
         });
     </script>
 

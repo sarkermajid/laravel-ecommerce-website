@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
@@ -14,9 +15,9 @@ class UserProfileController extends Controller
         return view('frontend.user.profile',compact('user'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-        $user = auth()->user();
+        $user = User::find($id);
         return view('frontend.user.edit',compact('user'));
     }
 

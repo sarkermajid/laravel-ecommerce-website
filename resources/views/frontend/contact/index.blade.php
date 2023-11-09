@@ -66,17 +66,18 @@
                         </div>
                     </div>
                 </div>
-                <form action="#">
+                <form action="{{ route('contact.message') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
-                            <input type="text" placeholder="Your name">
+                            <input type="text" required name="name" placeholder="Your name">
                         </div>
                         <div class="col-lg-6 col-md-6">
-                            <input type="text" placeholder="Your Email">
+                            <input type="text" name="email" required placeholder="Your Email">
                         </div>
                         <div class="col-lg-12 text-center">
-                            <textarea placeholder="Your message"></textarea>
-                            <button type="submit" class="site-btn">SEND MESSAGE</button>
+                            <textarea name="message" required placeholder="Your message"></textarea>
+                            <button type="submit"  class="site-btn">SEND MESSAGE</button>
                         </div>
                     </div>
                 </form>

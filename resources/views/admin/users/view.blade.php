@@ -1,13 +1,16 @@
-@extends('frontend.master')
+@extends('admin.master')
 
 @section('body')
-<div class="container">
-    <div class="row py-5">
-        <div class="col-md-6 mx-auto">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h4 class="mb-0 font-size-18">Blog Category</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-center" style="background-color: #1C1C1C">
-                    <h1 class="text-center profile-heading-btn text-center" style="background-color: #1C1C1C">Profile</h1>
-                </div>
                 <div class="card-body">
                     <table class="table table-bordered">
                         <tbody>
@@ -31,15 +34,11 @@
                                 <td class="payment-title"><strong>Joined At :</strong></td>
                                 <td class="text-style">{{ $user->created_at->format('m/d/Y') }}</td>
                             </tr>
-                            <tr>
-                                <td class="payment-title"><strong></strong></td>
-                                <td class="text-style"><a href="{{ route('user.edit', ['id'=>$user->id]) }}" class="site-btn">Edit</a></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
-</div>
+        </div>
+    </div>
 @endsection
+

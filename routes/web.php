@@ -32,10 +32,11 @@ Route::get('/',function(){
 
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/message', [ContactController::class, 'message'])->name('contact.message');
 Route::get('/blogs',[FrontendBlogController::class, 'index'])->name('blogs');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
-Route::get('/user/edit', [UserProfileController::class, 'edit'])->name('user.edit');
+Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
 Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
 Auth::routes();
 
@@ -61,8 +62,6 @@ Auth::routes();
         Route::post('/category/update/{id}','update')->name('category.update');
         Route::post('/category/delete/{id}','delete')->name('category.delete');
     });
-
-
 
     // Brands Routes
 
@@ -119,8 +118,17 @@ Auth::routes();
     // Users Routes for admin
 
     Route::controller(UserController::class)->group(function (){
-        Route::get('/user/manage', 'manage')->name('user.manage');
-        Route::post('/user/delete/{id}', 'status')->name('user.delete');
+        Route::get('/user/admin/manage', 'manage')->name('user.admin.manage');
+        Route::post('/user/admin/delete/{id}', 'status')->name('user.admin.delete');
+        Route::get('/user/admin/view/{id}', 'view')->name('user.admin.view');
+        Route::get('/user/admin/edit/{id}', 'edit')->name('user.admin.edit');
+        Route::post('/user/admin/update/{id}', 'update')->name('user.admin.update');
+    });
+
+    Route::controller(ContactController::class)->group(function(){
+        Route::get('/admin/contact/message', 'contactMessage')->name('admin.contact.message');
+        Route::get('/admin/contact/message/view/{id}', 'contactMessageView')->name('admin.contact.message.view');
+        Route::post('/admin/contact/message/delete/{id}', 'contactMessageDelete')->name('admin.contact.message.delete');
     });
 
  });

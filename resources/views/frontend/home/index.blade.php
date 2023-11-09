@@ -61,6 +61,11 @@
     <section class="categories">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Featured Categories</h2>
+                    </div>
+                </div>
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="{{ asset('/') }}frontend/assets/img/categories/cat-1.jpg">

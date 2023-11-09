@@ -162,7 +162,7 @@
                         </li>
 
                         <li>
-                            <a href="#" class="waves-effect">
+                            <a href="{{ route('admin.contact.message') }}" class="waves-effect">
                                 <i class="bx bx-add-to-queue"></i><span
                                     class="badge badge-pill badge-info float-right"></span>
                                 <span>Messages</span>
@@ -170,7 +170,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('user.manage') }}" class="waves-effect">
+                            <a href="{{ route('user.admin.manage') }}" class="waves-effect">
                                 <i class="bx bx-add-to-queue"></i><span
                                     class="badge badge-pill badge-info float-right"></span>
                                 <span>Users Control</span>
