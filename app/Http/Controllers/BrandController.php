@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BrandStoreRequest;
 use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -92,6 +93,12 @@ class BrandController extends Controller
     public function delete($id)
     {
         $brand = Brand::find($id);
+        $products = Product::all();
+        foreach ($products as $product){
+            if($brand->id == $product->brand_id){
+                return redirect()->back()->with('error', 'you can not delete this brand');
+            }
+        }
         $brand->delete();
         return redirect()->back()->with('message', 'Brand deteted successfully');
     }

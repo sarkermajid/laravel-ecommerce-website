@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -98,6 +99,12 @@ class CategoryController extends Controller
     public function delete($id)
     {
         $category = Category::find($id);
+        $products = Product::all();
+        foreach ($products as $product){
+            if($category->id == $product->category_id){
+                return redirect()->back()->with('error', 'you can not delete this category');
+            }
+        }
         $category->delete();
         return redirect()->back()->with('message', 'category deteted successfully');
     }
