@@ -42,8 +42,5 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*',function ($view){
             $view->with('products',Product::where('status',1)->get());
          });
-        View::composer('*',function ($view){
-            $view->with('topCategories',Category::where('status',1)->orderBy('id','desc')->limit(5)->get());
-         });
     }
 }

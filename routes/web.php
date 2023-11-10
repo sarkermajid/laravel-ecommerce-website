@@ -44,6 +44,8 @@ Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name
 Route::get('category/products/{id}',[ShopController::class,'categoryProduct'])->name('category.product.view');
 // brand wise product view
 Route::get('brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
+// single product view
+
 Auth::routes();
 
  Route::middleware(['auth','isAdmin'])->group(function(){

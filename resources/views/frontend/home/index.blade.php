@@ -75,19 +75,11 @@
                     <div class="section-title">
                         <h2>Products</h2>
                     </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            @foreach ($topCategories as $category)
-                            <li data-filter=".oranges">{{ $category->name }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="row featured__filter">
                 @foreach ($products as $product)
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                <div class="col-lg-2 col-md-4 col-sm-6 mix oranges .{{ $category->name }}">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset('admin/product-image/' . $product->image) }}">
                             <ul class="featured__item__pic__hover">
