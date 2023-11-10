@@ -8,7 +8,7 @@
                     <div class="col-lg-3 col-md-5">
                         <div class="sidebar">
                             <div class="sidebar__item">
-                                <h4>Categories</h4>
+                                <h4>All Categories</h4>
                                 @foreach ($categories as $category)
                                 <ul>
                                     <li><a href="{{ route('category.product.view',['id'=>$category->id]) }}">{{ $category->name }}</a></li>

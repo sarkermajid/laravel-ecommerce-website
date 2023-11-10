@@ -28,9 +28,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        $products = Product::where('status',1)->orderBy('id', 'desc')->get();
-        $categories = Category::where('status',1)->orderBy('id', 'desc')->get();
-        $banner = Banner::first();
-        return view('frontend.home.index',compact('products','categories','banner'));
+        return view('frontend.home.index');
     }
 }

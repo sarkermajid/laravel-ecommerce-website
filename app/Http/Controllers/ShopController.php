@@ -11,32 +11,26 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('status',1)->orderBy('id','desc')->get();
-        $brands = Brand::where('status',1)->orderBy('id', 'desc')->get();
-        return view('frontend.shop.index',compact('categories','brands'));
+        return view('frontend.shop.index');
     }
 
     public function categoryProduct($id)
     {
-        $categories = Category::where('status',1)->orderBy('id','desc')->get();
-        $brands = Brand::where('status',1)->orderBy('id', 'desc')->get();
+        $brands = Brand::where('status',1)->get();
         $products = Product::where('category_id',$id)
                                 ->where('status',1)
-                                ->orderBy('id','desc')
                                 ->get();
 
-        return view('frontend.shop.category-wise-product',compact('products','categories','brands'));
+        return view('frontend.shop.category-wise-product',compact('products','brands'));
     }
 
     public function brandProduct($id)
     {
-        $categories = Category::where('status',1)->orderBy('id','desc')->get();
-        $brands = Brand::where('status',1)->orderBy('id', 'desc')->get();
-        $products = Product::where('category_id',$id)
+        $brands = Brand::where('status',1)->get();
+        $products = Product::where('brand_id',$id)
                                 ->where('status',1)
-                                ->orderBy('id','desc')
                                 ->get();
 
-        return view('frontend.shop.brand-wise-product',compact('products','categories','brands'));
+        return view('frontend.shop.brand-wise-product',compact('products','brands'));
     }
 }
