@@ -67,7 +67,7 @@ class BrandController extends Controller
         $brand->name = $request->name;
         $brand->slug = Str::slug($request->name).'-'.rand(1000,5000);
         $brand->description = strip_tags(html_entity_decode($request->description));
-        if($brand->status == 'on'){
+        if($request->status == 'on'){
             $brand->status = 1;
         }else{
             $brand->status = 0;

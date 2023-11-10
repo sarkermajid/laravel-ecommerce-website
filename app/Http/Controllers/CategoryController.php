@@ -73,7 +73,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = Str::slug($request->name).'-'.rand(1000,5000);
         $category->description = strip_tags(html_entity_decode($request->description));
-        if($category->status == 'on'){
+        if($request->status == 'on'){
             $category->status = 1;
         }else{
             $category->status = 0;

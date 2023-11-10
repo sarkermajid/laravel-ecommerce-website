@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +28,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('frontend.home.index');
+        $products = Product::where('status',1)->orderBy('id', 'desc')->get();
+        $categories = Category::where('status',1)->orderBy('id', 'desc')->get();
+        $banner = Banner::first();
+        return view('frontend.home.index',compact('products','categories','banner'));
     }
 }

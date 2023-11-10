@@ -39,6 +39,11 @@ Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
 Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
 Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
+
+// category wise product view
+Route::get('category/products/{id}',[ShopController::class,'categoryProduct'])->name('category.product.view');
+// brand wise product view
+Route::get('brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
 Auth::routes();
 
  Route::middleware(['auth','isAdmin'])->group(function(){

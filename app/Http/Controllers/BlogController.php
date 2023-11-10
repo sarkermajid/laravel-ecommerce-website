@@ -146,7 +146,11 @@ class BlogController extends Controller
         $blog->user_id = auth()->user()->id;
         $blog->blog_category_id = $request->blog_category_id;
         $blog->description = $request->description;
-        $blog->status = $request->status;
+        if($request->status == 'on'){
+            $blog->status = 1;
+        }else{
+            $blog->status = 0;
+        }
         // Image upload
         $image = $request->file('image');
         if($image){
