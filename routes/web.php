@@ -27,11 +27,11 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-Route::get('/',function(){
-    return view('frontend.home.index');
-});
+// Route::get('/',function(){
+//     return view('frontend.home.index');
+// });
 
-Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/message', [ContactController::class, 'message'])->name('contact.message');
 Route::get('/blogs',[FrontendBlogController::class, 'index'])->name('blogs');

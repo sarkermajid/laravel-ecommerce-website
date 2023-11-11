@@ -11,27 +11,42 @@ class ShopController extends Controller
 {
     public function index()
     {
-        return view('frontend.shop.index');
+        $categories = Category::where('status',1)->orderBy('id','desc')->get();
+        $brands = Brand::where('status',1)->orderBy('id','desc')->get();
+        $products = Product::where('status',1)->orderBy('id','desc')->get();
+        return view('frontend.shop.index',compact(
+            'categories',
+            'brands',
+            'products'
+        ));
     }
 
     public function categoryProduct($id)
     {
+        $categories = Category::where('status',1)->orderBy('id','desc')->get();
         $brands = Brand::where('status',1)->get();
         $products = Product::where('category_id',$id)
                                 ->where('status',1)
                                 ->get();
 
-        return view('frontend.shop.category-wise-product',compact('products','brands'));
+        return view('frontend.shop.category-wise-product',compact(
+            'categories',
+            'products',
+            'brands'));
     }
 
     public function brandProduct($id)
     {
+        $categories = Category::where('status',1)->orderBy('id','desc')->get();
         $brands = Brand::where('status',1)->get();
         $products = Product::where('brand_id',$id)
                                 ->where('status',1)
                                 ->get();
 
-        return view('frontend.shop.brand-wise-product',compact('products','brands'));
+        return view('frontend.shop.brand-wise-product',compact(
+            'categories',
+            'products',
+            'brands'));
     }
 
     public function singleProduct($id)

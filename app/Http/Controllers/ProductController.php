@@ -26,9 +26,12 @@ class ProductController extends Controller
         $product->slug = Str::slug($request->name).'-'.rand(1000,5000);
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
-        $product->description = strip_tags(html_entity_decode($request->description));
+        $product->short_description = $request->short_description;
+        $product->description = $request->description;
         $product->qty = $request->qty;
         $product->price = $request->price;
+        $product->currency = $request->currency;
+        $product->weight = $request->weight;
         $product->discount_type = $request->discount_type;
         $product->discount_amount = $request->discount_amount;
         $product->meta_title = $request->meta_title;
@@ -71,19 +74,18 @@ class ProductController extends Controller
         $product->slug = Str::slug($request->name).'-'.rand(1000,5000);
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
-        $product->description = strip_tags(html_entity_decode($request->description));
+        $product->short_description = $request->short_description;
+        $product->description = $request->description;
         $product->qty = $request->qty;
         $product->price = $request->price;
+        $product->currency = $request->currency;
+        $product->weight = $request->weight;
         $product->discount_type = $request->discount_type;
         $product->discount_amount = $request->discount_amount;
         $product->meta_title = $request->meta_title;
         $product->meta_description = $request->meta_description;
         $product->meta_keyword = $request->meta_keyword;
-        if($product->status == 'on'){
-            $product->status = 1;
-        }else{
-            $product->status = 0;
-        }
+        $product->status = $request->status;
         // Image upload
         $image = $request->file('image');
         if($image){

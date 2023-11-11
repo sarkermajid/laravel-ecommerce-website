@@ -49,8 +49,9 @@
                             @endif
                             <ul>
                                 <li><b>Availability</b> <span>{{ $product->qty > 0 ? 'In Stock' : 'Out of Stock' }}</span></li>
-                                {{-- <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                                <li><b>Weight</b> <span>0.5 kg</span></li> --}}
+                                @if($product->weight)
+                                <li><b>Weight</b> <span>{{ $product->weight }}</span></li>
+                                @endif
                                 <li><b>Share on</b>
                                     <div class="share">
                                         <a href="#"><i class="fa fa-facebook"></i></a>

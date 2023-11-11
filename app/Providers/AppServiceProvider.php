@@ -30,20 +30,20 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        View::composer('*',function ($view){
-            $view->with('latestCategories',Category::where('status',1)->limit(8)->get());
-         });
-        View::composer('*',function ($view){
-            $view->with('categories',Category::where('status',1)->get());
-         });
-        View::composer('*',function ($view){
-            $view->with('banner',Banner::first());
-         });
-        View::composer('*',function ($view){
-            $view->with('Brands',Brand::where('status',1)->get());
-         });
-        View::composer('*',function ($view){
-            $view->with('products',Product::where('status',1)->get());
-         });
+        // View::composer('*',function ($view){
+        //     $view->with('latestCategories',Category::where('status',1)->limit(8)->get());
+        //  });
+        // View::composer('*',function ($view){
+        //     $view->with('categories',Category::where('status',1)->get());
+        //  });
+        // View::composer('*',function ($view){
+        //     $view->with('banner',Banner::first());
+        //  });
+        // View::composer('*',function ($view){
+        //     $view->with('Brands',Brand::where('status',1)->get());
+        //  });
+        // View::composer('*',function ($view){
+        //     $view->with('products',Product::where('status',1)->get());
+        //  });
     }
 }

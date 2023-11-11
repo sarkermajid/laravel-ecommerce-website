@@ -106,7 +106,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="slug">Description</label>
+                            <label for="short_description">Short Description</label>
+                            @error('short_description')
+                            <h6 class="modal-header justify-content-start"
+                            style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                            {{ $message }}</h6>
+                            @enderror
+                            <textarea name="short_descriptionn" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
                             @error('description')
                             <h6 class="modal-header justify-content-start"
                             style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
@@ -116,7 +126,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="qty" class="form-label">Product Quantity</label>
                                     @error('qty')
@@ -129,7 +139,7 @@
                                         aria-describedby="emailHelp" placeholder="Quantity" value="{{ old('qty') }}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="price" class="form-label" >Price</label>
                                     @error('price')
@@ -142,9 +152,35 @@
                                         aria-describedby="emailHelp" placeholder="Price" value="{{ old('price') }}">
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="currency" class="form-label" >Currency</label>
+                                    @error('currency')
+                                    <h6 class="modal-header justify-content-start"
+                                    style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                    {{ $message }}</h6>
+                                    @enderror
+                                    <input type="text" step="any" name="currency"
+                                        class="form-control @error('currency') is-invalid @enderror" id="currency"
+                                        aria-describedby="emailHelp" placeholder="Currency" value="{{ old('currency') }}">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="weight" class="form-label" >Weight</label>
+                                    @error('weight')
+                                    <h6 class="modal-header justify-content-start"
+                                    style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                    {{ $message }}</h6>
+                                    @enderror
+                                    <input type="text" step="any" name="weight"
+                                        class="form-control @error('weight') is-invalid @enderror" id="weight"
+                                        aria-describedby="emailHelp" placeholder="Weight" value="{{ old('weight') }}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="price" class="form-label">Discount Type</label>
                                     @error('discount_type')
@@ -158,13 +194,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="discount_amount" class="form-label">Discount Price</label>
                                     @error('discount_amount')
                                     <h6 class="modal-header justify-content-start"
                                     style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6> 
+                                    {{ $message }}</h6>
                                     @enderror
                                     <input type="number" step="any" name="discount_amount"
                                         class="form-control @error('discount_amount') is-invalid @enderror" id="discount_amount"

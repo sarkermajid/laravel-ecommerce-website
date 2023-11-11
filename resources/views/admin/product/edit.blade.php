@@ -111,6 +111,16 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="slug">Short Description</label>
+                            @error('short_description')
+                            <h6 class="modal-header justify-content-start"
+                            style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                            {{ $message }}</h6>
+                            @enderror
+                            <textarea name="short_description" class="form-control">{{ $product->short_description }}</textarea>
+                        </div>
+
+                        <div class="form-group">
                             <label for="slug">Description</label>
                             @error('description')
                             <h6 class="modal-header justify-content-start"
@@ -121,7 +131,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="qty" class="form-label">Product Quantity</label>
                                     @error('qty')
@@ -134,7 +144,7 @@
                                         aria-describedby="emailHelp" placeholder="Quantity" value="{{ old('qty') ?? $product->qty }}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="price" class="form-label" >Price</label>
                                     @error('price')
@@ -147,9 +157,35 @@
                                         aria-describedby="emailHelp" placeholder="Price" value="{{ old('price') ?? $product->price }}">
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="currency" class="form-label" >Currency</label>
+                                    @error('currency')
+                                    <h6 class="modal-header justify-content-start"
+                                    style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                    {{ $message }}</h6>
+                                    @enderror
+                                    <input type="text" step="any" name="currency"
+                                        class="form-control @error('currency') is-invalid @enderror" id="currency"
+                                        aria-describedby="emailHelp" placeholder="Currency" value="{{ old('currency') ?? $product->currency }}">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="weight" class="form-label" >Weight</label>
+                                    @error('weight')
+                                    <h6 class="modal-header justify-content-start"
+                                    style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                    {{ $message }}</h6>
+                                    @enderror
+                                    <input type="text" step="any" name="weight"
+                                        class="form-control @error('weight') is-invalid @enderror" id="weight"
+                                        aria-describedby="emailHelp" placeholder="Weight" value="{{ old('weight') ?? $product->currency }}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="price" class="form-label">Discount Type</label>
                                     <select name="discount_type"
@@ -169,7 +205,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="discount_amount" class="form-label">Discount Price</label>
                                     @error('discount_amount')
@@ -224,6 +260,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Image</label>
+                                    <div class="mb-3">
+                                        <td class="text-dark "><img src="{{ asset('admin/product-image/'.$product->image) }} "style="border-radius: 10px;" alt="" width="300" height=""/></td>
+                                    </div>
                                     @error('image')
                                     <h6 class="modal-header justify-content-start"
                                         style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
@@ -254,11 +293,11 @@
                             </label>
                             &nbsp;
                             &nbsp;
-                            <label for="Deactive" class="form-label"><input type="radio" name="status" value="0" id="Deactive" {{ $product->status == 1 ? 'checked' : '' }}  class="label radio">Deactive
+                            <label for="Deactive" class="form-label"><input type="radio" name="status" value="0" id="Deactive" {{ $product->status == 0 ? 'checked' : '' }}  class="label radio">Deactive
                             </label>
                         </div>
                         <div>
-                            <input type="submit" class="btn btn-primary" value="Create">
+                            <input type="submit" class="btn btn-primary" value="Update">
                         </div>
                     </form>
                 </div>

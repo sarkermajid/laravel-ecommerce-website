@@ -28,6 +28,17 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('frontend.home.index');
+        $latestCategories = Category::where('status',1)->orderBy('id','desc')->limit(8)->get();
+        $categories = Category::where('status',1)->orderBy('id','desc')->get();
+        $banner = Banner::first();
+        $products = Product::where('status',1)->get();
+        $latestProducts = Product::where('status',1)->orderBy('id','desc')->get();
+        return view('frontend.home.index',compact(
+            'latestCategories',
+            'categories',
+            'banner',
+            'products',
+            'latestProducts'
+        ));
     }
 }

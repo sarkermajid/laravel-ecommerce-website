@@ -27,6 +27,10 @@
                                 <td class="text-style">{{ $product->brand->name }}</td>
                             </tr>
                             <tr>
+                                <td class="payment-title"><strong>Short Description :</strong></td>
+                                <td class="text-style">{{ $product->short_description ?? ''}}</td>
+                            </tr>
+                            <tr>
                                 <td class="payment-title"><strong>Description :</strong></td>
                                 <td class="text-style">{{ $product->description }}</td>
                             </tr>
@@ -39,12 +43,20 @@
                                 <td class="text-style">{{ $product->price }}</td>
                             </tr>
                             <tr>
+                                <td class="payment-title"><strong>Currency :</strong></td>
+                                <td class="text-style">{{ $product->currency ?? '' }}</td>
+                            </tr>
+                            <tr>
+                                <td class="payment-title"><strong>Weight :</strong></td>
+                                <td class="text-style">{{ $product->weight ?? ''}}</td>
+                            </tr>
+                            <tr>
                                 <td class="payment-title"><strong>Discount Type :</strong></td>
-                                <td class="text-style">{{ $product->discount_type }}</td>
+                                <td class="text-style">{{ $product->discount_type ?? '' }}</td>
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Discount Amount:</strong></td>
-                                <td class="text-style">{{ $product->discount_amount }}</td>
+                                <td class="text-style">{{ $product->discount_amount ?? ''}}</td>
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Image :</strong></td>
