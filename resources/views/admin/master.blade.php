@@ -183,8 +183,8 @@
                                 <span>Categories</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('category.add') }}">Add Category</a></li>
-                                <li><a href="{{ route('category.manage') }}">Manage Category</a></li>
+                                <li><a href="{{ route('category.add') }}">Create</a></li>
+                                <li><a href="{{ route('category.manage') }}">Manage</a></li>
                             </ul>
                         </li>
 
@@ -194,8 +194,8 @@
                                 <span>Brands</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('brand.add') }}">Add Brand</a></li>
-                                <li><a href="{{ route('brand.manage') }}">Manage Brand</a></li>
+                                <li><a href="{{ route('brand.add') }}">Create</a></li>
+                                <li><a href="{{ route('brand.manage') }}">Manage</a></li>
                             </ul>
                         </li>
 
@@ -205,19 +205,19 @@
                                 <span>Products</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('product.add') }}">Add Product</a></li>
-                                <li><a href="{{ route('product.manage') }}">Manage Product</a></li>
+                                <li><a href="{{ route('product.add') }}">Create</a></li>
+                                <li><a href="{{ route('product.manage') }}">Manage</a></li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bx bx-add-to-queue"></i>
-                                <span>Cupon Code</span>
+                                <span>Promo Code</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('product.add') }}">Create Cupon</a></li>
-                                <li><a href="{{ route('product.manage') }}">Manage Cupon</a></li>
+                                <li><a href="{{ route('product.add') }}">Create</a></li>
+                                <li><a href="{{ route('product.manage') }}">Manage</a></li>
                             </ul>
                         </li>
 
@@ -227,9 +227,9 @@
                                 <span>Blogs</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('blog.category.add') }}">Add Category</a></li>
+                                <li><a href="{{ route('blog.category.add') }}">Create Category</a></li>
                                 <li><a href="{{ route('blog.category.manage') }}">Manage Category</a></li>
-                                <li><a href="{{ route('blog.add') }}">Add Blog</a></li>
+                                <li><a href="{{ route('blog.add') }}">Create Blog</a></li>
                                 <li><a href="{{ route('blog.manage') }}">Manage Blog</a></li>
                             </ul>
                         </li>

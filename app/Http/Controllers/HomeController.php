@@ -15,10 +15,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -32,13 +32,15 @@ class HomeController extends Controller
         $categories = Category::where('status',1)->orderBy('id','desc')->get();
         $banner = Banner::first();
         $products = Product::where('status',1)->get();
-        $latestProducts = Product::where('status',1)->orderBy('id','desc')->get();
+        $latestProductsDesc = Product::where('status',1)->orderBy('id','desc')->limit(3)->get();
+        $latestProductsAsc = Product::where('status',1)->orderBy('id','asc')->limit(3)->get();
         return view('frontend.home.index',compact(
             'latestCategories',
             'categories',
             'banner',
             'products',
-            'latestProducts'
+            'latestProductsDesc',
+            'latestProductsAsc'
         ));
     }
 }

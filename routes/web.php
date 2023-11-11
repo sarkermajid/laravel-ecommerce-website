@@ -13,6 +13,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -36,16 +37,21 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/message', [ContactController::class, 'message'])->name('contact.message');
 Route::get('/blogs',[FrontendBlogController::class, 'index'])->name('blogs');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+
+// user route
 Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
 Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
 Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
 
-// category wise product view
+// category wise product view route
 Route::get('category/products/{id}',[ShopController::class,'categoryProduct'])->name('category.product.view');
-// brand wise product view
+// brand wise product view route
 Route::get('brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
-// single product view
+// single product view route
 Route::get('product/single/view/{id}',[ShopController::class,'singleProduct'])->name('product.single.view');
+// wishlist route
+Route::get('product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
+Route::get('product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
 Auth::routes();
 
  Route::middleware(['auth','isAdmin'])->group(function(){

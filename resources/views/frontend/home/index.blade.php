@@ -83,14 +83,14 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset('admin/product-image/' . $product->image) }}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="{{ route('wishlist.add', ['product_id'=>$product->id]) }}"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">{{ $product->name }}</a></h6>
-                            <h5>{{ $product->price }} BDT</h5>
+                            <h5>{{ $product->price }} {{ $product->currency }}</h5>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                         <h4>Latest Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                @foreach ($latestProducts as $latestProduct )
+                                @foreach ($latestProductsDesc as $latestProduct )
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="{{ asset('admin/product-image/'.$latestProduct->image) }}" alt="">
@@ -123,33 +123,17 @@
                                 @endforeach
                             </div>
                             <div class="latest-prdouct__slider__item">
+                                @foreach ($latestProductsAsc as $latestProduct )
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="{{ asset('/') }}frontend/assets/img/latest-product/lp-1.jpg" alt="">
+                                        <img src="{{ asset('admin/product-image/'.$latestProduct->image) }}" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
+                                        <h6>{{ $latestProduct->name }}</h6>
+                                        <span>{{ $latestProduct->price }} {{ $latestProduct->currency }}</span>
                                     </div>
                                 </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{{ asset('/') }}frontend/assets/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{{ asset('/') }}frontend/assets/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>

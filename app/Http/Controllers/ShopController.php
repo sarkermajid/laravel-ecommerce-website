@@ -52,6 +52,8 @@ class ShopController extends Controller
     public function singleProduct($id)
     {
         $product = Product::find($id);
+        $product->trending = $product->trending + 1;
+        $product->save();
         $relatedProducts = Product::where('category_id',$product->category_id)->get();
         return view('frontend.shop.single-product-view',compact('product','relatedProducts'));
     }

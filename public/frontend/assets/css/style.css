@@ -193,6 +193,17 @@ ol {
 	border: none;
 }
 
+.cart-btn {
+	font-size: 12px;
+	color: #ffffff;
+	font-weight: 700;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 5px 15px 5px;
+	background: #02A8F3;
+	border: none;
+}
+
 .login-btn {
 	font-size: 10px;
 	color: #ffffff;
