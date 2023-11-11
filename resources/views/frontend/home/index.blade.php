@@ -11,7 +11,7 @@
                             <i class="fa fa-bars"></i>
                             <span>All Categories</span>
                         </div>
-                        @foreach ($categories as $category)
+                        @foreach ($latestCategories as $category)
                         <ul>
                             <li><a href="{{ route('category.product.view',['id'=>$category->id]) }}">{{ $category->name }}</a></li>
                         </ul>
@@ -84,7 +84,7 @@
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset('admin/product-image/' . $product->image) }}">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
@@ -107,7 +107,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Top Brands</h4>
+                        <h4>Top Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">

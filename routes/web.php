@@ -45,7 +45,7 @@ Route::get('category/products/{id}',[ShopController::class,'categoryProduct'])->
 // brand wise product view
 Route::get('brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
 // single product view
-
+Route::get('product/single/view/{id}',[ShopController::class,'singleProduct'])->name('product.single.view');
 Auth::routes();
 
  Route::middleware(['auth','isAdmin'])->group(function(){

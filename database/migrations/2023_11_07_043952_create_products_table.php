@@ -19,11 +19,13 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->foreignId('category_id')->constrained()->onDelete('restrict');
             $table->foreignId('brand_id')->constrained()->onDelete('restrict');
+            $table->longText('short_description')->nullable();
             $table->longText('description')->nullable();
             $table->string('image');
             $table->bigInteger('qty');
             $table->tinyInteger('discount_type')->nullable()->comment('1 = percentage, 0 = fixed amount');
             $table->double('price');
+            $table->string('currency')->nullable();
             $table->double('discount_amount')->nullable();
             $table->tinyInteger('trending')->default('0');
             $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');

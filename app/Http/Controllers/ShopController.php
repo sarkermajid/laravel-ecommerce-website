@@ -33,4 +33,11 @@ class ShopController extends Controller
 
         return view('frontend.shop.brand-wise-product',compact('products','brands'));
     }
+
+    public function singleProduct($id)
+    {
+        $product = Product::find($id);
+        $relatedProducts = Product::where('category_id',$product->category_id)->get();
+        return view('frontend.shop.single-product-view',compact('product','relatedProducts'));
+    }
 }

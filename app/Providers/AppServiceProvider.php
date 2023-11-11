@@ -31,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::composer('*',function ($view){
+            $view->with('latestCategories',Category::where('status',1)->limit(8)->get());
+         });
+        View::composer('*',function ($view){
             $view->with('categories',Category::where('status',1)->get());
          });
         View::composer('*',function ($view){
