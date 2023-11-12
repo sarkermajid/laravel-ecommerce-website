@@ -31,8 +31,7 @@
                                     <td>{{ Str::substr($category->description, 0, 20) }}</td>
                                     <td><img src="{{ asset('admin/category-image/'.$category->image) }}" height="50" width="70"
                                             alt=""></td>
-                                    <td><a href="{{ route('category.status', ['id' => $category->id]) }}"
-                                            class="btn btn-sm {{ $category->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $category->status == 1 ? 'Active' : 'Inactive' }}</a>
+                                    <td><a href="" data-id="{{ $category->id }}" class="btn btn-sm category-status {{ $category->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $category->status == 1 ? 'Active' : 'Inactive' }}</a>
                                     </td>
                                     <td>
                                         <div>

@@ -49,16 +49,18 @@ class CategoryController extends Controller
         return view('admin.category.view', compact('category'));
     }
 
-    public function status($id)
+    public function status(Request $request)
     {
-        $category = Category::find($id);
+        $category = Category::find($request->category_id);
         if($category->status == 1){
             $category->status = 0;
         }else{
             $category->status = 1;
         }
         $category->save();
-        return redirect()->back()->with('message', 'Category Status Update Success');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
     public function edit($id)
