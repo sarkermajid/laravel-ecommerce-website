@@ -31,8 +31,8 @@
                                     <td>{{ Str::substr($brand->description, 0, 20) }}</td>
                                     <td><img src="{{ asset('admin/brand-image/'.$brand->image) }}" height="50" width="70"
                                             alt=""></td>
-                                    <td><a href="{{ route('brand.status', ['id' => $brand->id]) }}"
-                                            class="btn btn-sm {{ $brand->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $brand->status == 1 ? 'Active' : 'Inactive' }}</a>
+                                    <td><a href="" data-id="{{ $brand->id }}"
+                                            class="btn btn-sm brand-status {{ $brand->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $brand->status == 1 ? 'Active' : 'Inactive' }}</a>
                                     </td>
                                     <td>
                                         <div>
@@ -40,11 +40,7 @@
                                                 class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> View</a>
                                              <a href="{{ route('brand.edit', ['id' => $brand->id]) }}"
                                                  class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                             <form method="POST" action="{{ route('brand.delete', ['id' => $brand->id]) }}" style="display: inline">
-                                                 @csrf
-                                                 <input name="_method" type="hidden">
-                                                 <button type="submit" class="btn btn-outline-danger btn-sm show_confirm" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</button>
-                                             </form>
+                                             <a href="" data-id="{{ $brand->id }}" class="btn btn-outline-danger btn-sm show_confirm brand-delete" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -66,23 +62,23 @@
 
     <script type="text/javascript">
 
-        $('.show_confirm').click(function(event) {
-             var form =  $(this).closest("form");
-             var name = $(this).data("name");
-             event.preventDefault();
-             swal({
-                 title: `Are you sure?`,
-                 text: "You won't be able to revert this!",
-                 icon: "warning",
-                 buttons: true,
-                 dangerMode: true,
-             })
-             .then((willDelete) => {
-               if (willDelete) {
-                 form.submit();
-               }
-             });
-         });
+        // $('.show_confirm').click(function(event) {
+        //      var form =  $(this).closest("form");
+        //      var name = $(this).data("name");
+        //      event.preventDefault();
+        //      swal({
+        //          title: `Are you sure?`,
+        //          text: "You won't be able to revert this!",
+        //          icon: "warning",
+        //          buttons: true,
+        //          dangerMode: true,
+        //      })
+        //      .then((willDelete) => {
+        //        if (willDelete) {
+        //          form.submit();
+        //        }
+        //      });
+        //  });
 
     </script>
 @endpush

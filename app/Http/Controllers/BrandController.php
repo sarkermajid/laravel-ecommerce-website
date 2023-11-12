@@ -43,16 +43,18 @@ class BrandController extends Controller
         return view('admin.brand.view', compact('brand'));
     }
 
-    public function status($id)
+    public function status(Request $request)
     {
-        $brand = Brand::find($id);
+        $brand = Brand::find($request->brand_id);
         if($brand->status == 1){
             $brand->status = 0;
         }else{
             $brand->status = 1;
         }
         $brand->save();
-        return redirect()->back()->with('message', 'Brand Status Update Success');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
     public function edit($id)
@@ -88,16 +90,20 @@ class BrandController extends Controller
     }
 
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $brand = Brand::find($id);
+        $brand = Brand::find($request->brand_id);
         $products = Product::all();
         foreach ($products as $product){
             if($brand->id == $product->brand_id){
-                return redirect()->back()->with('error', 'you can not delete this brand');
+                return response()->json([
+                    'status' => 'success',
+                ]);
             }
         }
         $brand->delete();
-        return redirect()->back()->with('message', 'Brand deteted successfully');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 }

@@ -98,16 +98,20 @@ class CategoryController extends Controller
         return redirect()->route('category.manage')->with('message','category updated successfully');
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $category = Category::find($id);
+        $category = Category::find($request->category_id);
         $products = Product::all();
         foreach ($products as $product){
             if($category->id == $product->category_id){
-                return redirect()->back()->with('error', 'you can not delete this category');
+                return response()->json([
+                    'status' => 'error',
+                ]);
             }
         }
         $category->delete();
-        return redirect()->back()->with('message', 'category deteted successfully');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 }

@@ -78,7 +78,7 @@ Auth::routes();
         Route::get('/category/status','status')->name('category.status');
         Route::get('/category/edit/{id}','edit')->name('category.edit');
         Route::post('/category/update/{id}','update')->name('category.update');
-        Route::post('/category/delete/{id}','delete')->name('category.delete');
+        Route::post('/category/delete/','delete')->name('category.delete');
     });
 
     // Brands Routes
@@ -88,10 +88,10 @@ Auth::routes();
         Route::post('/brand/store', 'store')->name('brand.store');
         Route::get('/brand/manage', 'manage')->name('brand.manage');
         Route::get('/brand/view/{id}','view')->name('brand.view');
-        Route::get('/brand/status/{id}','status')->name('brand.status');
+        Route::get('/brand/status','status')->name('brand.status');
         Route::get('/brand/edit/{id}','edit')->name('brand.edit');
         Route::post('/brand/update/{id}','update')->name('brand.update');
-        Route::post('/brand/delete/{id}','delete')->name('brand.delete');
+        Route::post('/brand/delete/','delete')->name('brand.delete');
     });
 
     // Products routes
