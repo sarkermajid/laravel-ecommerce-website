@@ -18,7 +18,7 @@ class CartController extends Controller
             if($product){
                 if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists()){
                     return response()->json([
-                        'status' => $product->name . 'Already added to cart',
+                        'status' => 'error',
                     ]);
                 }else{
                     $cart = new Cart();
@@ -27,14 +27,41 @@ class CartController extends Controller
                     $cart->product_qty = $product_qty;
                     $cart->save();
                     return response()->json([
-                        'status' => $product->name . 'Added to cart',
+                        'status' => 'success',
                     ]);
                 }
             }
         }else{
             return response()->json([
                 'status' => 'error',
-                'message' => 'Login to continue',
+            ]);
+        }
+    }
+    public function directAddtoCart(Request $request)
+    {
+        $product_id = $request->product_id;
+        $product_qty = $request->product_qty;
+        if(Auth::check()){
+            $product = Product::where('id',$product_id)->first();
+            if($product){
+                if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists()){
+                    return response()->json([
+                        'status' => 'error',
+                    ]);
+                }else{
+                    $cart = new Cart();
+                    $cart->user_id = Auth::id();
+                    $cart->product_id = $product_id;
+                    $cart->product_qty = $product_qty;
+                    $cart->save();
+                    return response()->json([
+                        'status' => 'success',
+                    ]);
+                }
+            }
+        }else{
+            return response()->json([
+                'status' => 'error',
             ]);
         }
     }

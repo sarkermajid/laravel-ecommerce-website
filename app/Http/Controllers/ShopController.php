@@ -34,7 +34,8 @@ class ShopController extends Controller
         return view('frontend.shop.category-wise-product',compact(
             'categories',
             'products',
-            'brands'));
+            'brands'
+        ));
     }
 
     public function brandProduct($id)

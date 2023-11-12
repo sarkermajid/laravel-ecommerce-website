@@ -234,23 +234,7 @@
             }
         });
 
-        $('.addToCart').click(function(e){
-            e.preventDefault();
-            var product_id = $(this).closest('.product_data').find('.product_id').val();
-            var product_qty = $(this).closest('.product_data').find('.qty_input').val();
 
-            $.ajax({
-                url: "{{ route('addToCart') }}",
-                method: 'post',
-                data:{
-                    product_id: product_id,
-                    product_qty: product_qty
-                },
-                success: function(res){
-                    alert(res.status);
-                }
-            })
-        })
     })
 
 

@@ -53,7 +53,9 @@ Route::get('product/single/view/{id}',[ShopController::class,'singleProduct'])->
 // wishlist route
 Route::get('product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
 Route::get('product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
+// cart route
 Route::post('add-to-cart', [CartController::class, 'index'])->name('addToCart');
+Route::post('direct-add-to-cart', [CartController::class, 'directAddtoCart'])->name('directAddToCart');
 
 
 Auth::routes();

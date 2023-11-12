@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ecommerce Website</title>
 
     <!-- Google Font -->
@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/style.css" type="text/css">
+    {{-- toster msg --}}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>
@@ -238,7 +240,8 @@
     <script src="{{ asset('/') }}frontend/assets/js/mixitup.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/owl.carousel.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    @include('frontend.ajax')
     <script>
         @if (Session::has('message'))
             toastr.options = {
