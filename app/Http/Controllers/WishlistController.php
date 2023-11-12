@@ -9,7 +9,7 @@ class WishlistController extends Controller
 {
     public function index()
     {
-        return view('admin.wishlist.view');
+        return view('frontend.wishlist.view');
     }
 
     public function add($product_id)
@@ -19,7 +19,7 @@ class WishlistController extends Controller
             $wishlist->product_id = $product_id;
             $wishlist->user_id = Auth()->user()->id;
             $wishlist->save();
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Wishlist saved successfully');
         }else{
             return redirect()->route('login');
         }

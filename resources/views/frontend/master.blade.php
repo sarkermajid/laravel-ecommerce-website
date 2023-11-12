@@ -21,8 +21,6 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/style.css" type="text/css">
-    {{-- toster msg --}}
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>
@@ -147,7 +145,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="{{ route('wishlist.view') }}"><i class="fa fa-heart"></i> <span>{{ $wishlist ?? '' }}</span></a></li>
+                            <li><a href="{{ route('wishlist.view') }}"><i class="fa fa-heart"></i> <span>{{ $wishlist ?? '0' }}</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
@@ -239,7 +237,38 @@
     <script src="{{ asset('/') }}frontend/assets/js/mixitup.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/owl.carousel.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-    {!! Toastr::message() !!}
+    <script>
+        @if (Session::has('message'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('message') }}");
+        @endif
+
+        @if (Session::has('error'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('error') }}");
+        @endif
+
+        @if (Session::has('info'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('info') }}");
+        @endif
+
+        @if (Session::has('warning'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.warning("{{ session('warning') }}");
+        @endif
+    </script>
 </body>
 </html>

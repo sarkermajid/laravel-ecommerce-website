@@ -14,10 +14,12 @@ class ShopController extends Controller
         $categories = Category::where('status',1)->orderBy('id','desc')->get();
         $brands = Brand::where('status',1)->orderBy('id','desc')->get();
         $products = Product::where('status',1)->orderBy('id','desc')->get();
+        $offerProducts = Product::whereNotNull('discount_amount')->get();
         return view('frontend.shop.index',compact(
             'categories',
             'brands',
-            'products'
+            'products',
+            'offerProducts'
         ));
     }
 

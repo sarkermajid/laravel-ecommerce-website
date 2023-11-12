@@ -327,7 +327,6 @@
                 $('#summernote').summernote();
             });
         </script>
-                {!! Toastr::message() !!}
         @stack('scripts')
 </body>
 
