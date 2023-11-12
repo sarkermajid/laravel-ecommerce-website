@@ -4,7 +4,7 @@
         <!-- Product Details Section Begin -->
         <section class="product-details spad">
             <div class="container">
-                <div class="row">
+                <div class="row product_data">
                     <div class="col-lg-6 col-md-6">
                         <div class="product__details__pic">
                             <div class="product__details__pic__item">
@@ -37,14 +37,15 @@
                             <div class="product__details__price">{{ $product->price }} BDT</div>
                             <p>{{ $product->description }}</p>
                             @if($product->qty > 0 )
+                            <input type="hidden" class="product_id" value="{{ $product->id }}">
                             <div class="product__details__quantity">
                                 <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                                    <div class="pro-qty ">
+                                        <input type="text" class="qty_input" value="1">
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">ADD TO CARD</a>
+                            <a href="#" class="primary-btn addToCart">ADD TO CARD</a>
                             <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                             @endif
                             <ul>

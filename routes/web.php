@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WishlistController;
@@ -52,6 +53,9 @@ Route::get('product/single/view/{id}',[ShopController::class,'singleProduct'])->
 // wishlist route
 Route::get('product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
 Route::get('product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
+Route::post('add-to-cart', [CartController::class, 'index'])->name('addToCart');
+
+
 Auth::routes();
 
  Route::middleware(['auth','isAdmin'])->group(function(){

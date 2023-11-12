@@ -210,15 +210,48 @@
         var oldValue = $button.parent().find('input').val();
         if ($button.hasClass('inc')) {
             var newVal = parseFloat(oldValue) + 1;
+            if(newVal > 10){
+                var newVal = parseFloat(oldValue);
+            }
         } else {
             // Don't allow decrementing below zero
-            if (oldValue > 0) {
+            if (oldValue > 1) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
-                newVal = 0;
+                newVal = 1;
             }
         }
         $button.parent().find('input').val(newVal);
     });
+    /*-------------------
+		Add to Cart
+	--------------------- */
+
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('.addToCart').click(function(e){
+            e.preventDefault();
+            var product_id = $(this).closest('.product_data').find('.product_id').val();
+            var product_qty = $(this).closest('.product_data').find('.qty_input').val();
+
+            $.ajax({
+                url: "{{ route('addToCart') }}",
+                method: 'post',
+                data:{
+                    product_id: product_id,
+                    product_qty: product_qty
+                },
+                success: function(res){
+                    alert(res.status);
+                }
+            })
+        })
+    })
+
 
 })(jQuery);
