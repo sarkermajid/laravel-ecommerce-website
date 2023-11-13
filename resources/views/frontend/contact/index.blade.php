@@ -1,5 +1,8 @@
 @extends('frontend.master')
 
+@section('title')
+    Contact
+@endsection
 @section('body')
         <!-- Contact Section Begin -->
         <section class="contact spad">

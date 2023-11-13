@@ -39,24 +39,27 @@ Route::post('/contact/message', [ContactController::class, 'message'])->name('co
 Route::get('/blogs',[FrontendBlogController::class, 'index'])->name('blogs');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 
-// user route
-Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
-Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
-Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
-
 // category wise product view route
-Route::get('category/products/{id}',[ShopController::class,'categoryProduct'])->name('category.product.view');
+Route::get('/category/products/{id}',[ShopController::class,'categoryProduct'])->name('category.product.view');
 // brand wise product view route
-Route::get('brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
+Route::get('/brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
 // single product view route
-Route::get('product/single/view/{id}',[ShopController::class,'singleProduct'])->name('product.single.view');
+Route::get('/product/single/view/{id}',[ShopController::class,'singleProduct'])->name('product.single.view');
 // wishlist route
-Route::get('product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
-Route::get('product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
-// cart route
-Route::post('add-to-cart', [CartController::class, 'index'])->name('addToCart');
-Route::post('direct-add-to-cart', [CartController::class, 'directAddtoCart'])->name('directAddToCart');
+Route::get('/product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
+Route::get('/product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
 
+Route::middleware(['auth'])->group(function(){
+    // user route
+    Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
+    Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
+    Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
+    // cart route
+    Route::post('/add-to-cart', [CartController::class, 'index'])->name('addToCart');
+    Route::post('/direct-add-to-cart', [CartController::class, 'directAddtoCart'])->name('directAddToCart');
+    Route::get('/cart-view',[CartController::class, 'cartView'])->name('cart');
+    Route::post('/cart-delete',[CartController::class, 'cartDelete'])->name('cart.delete');
+});
 
 Auth::routes();
 

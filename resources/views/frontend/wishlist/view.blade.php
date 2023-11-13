@@ -1,5 +1,8 @@
 @extends('frontend.master')
 
+@section('title')
+    Wishlist
+@endsection
 @section('body')
     <!-- wishlist Section Begin -->
     <section class="shoping-cart spad">

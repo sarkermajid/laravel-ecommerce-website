@@ -1,5 +1,9 @@
 @extends('frontend.master')
 
+@section('title')
+    Home
+@endsection
+
 @section('body')
     <!-- Hero Section Begin -->
     <section class="hero">

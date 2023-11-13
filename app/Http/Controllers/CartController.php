@@ -37,6 +37,7 @@ class CartController extends Controller
             ]);
         }
     }
+
     public function directAddtoCart(Request $request)
     {
         $product_id = $request->product_id;
@@ -64,5 +65,20 @@ class CartController extends Controller
                 'status' => 'error',
             ]);
         }
+    }
+
+    public function cartView()
+    {
+        $carts = Cart::where('user_id',Auth::id())->get();
+        return view('frontend.cart.view',compact('carts'));
+    }
+
+    public function cartDelete(Request $request)
+    {
+        $cart = Cart::find($request->cart_id);
+        $cart->delete();
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 }

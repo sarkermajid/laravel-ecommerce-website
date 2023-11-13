@@ -9,7 +9,7 @@
 
 <script>
 
-    // addtocart ajax function
+    // addtocart ajax functionality
     $(document).ready(function(){
         $('.addToCart').click(function(e){
             e.preventDefault();
@@ -69,7 +69,7 @@
     })
 
 
-    // directaddtocart ajax function
+    // directaddtocart ajax functionality
     $(document).ready(function(){
         $('.directAddToCart').click(function(e){
             e.preventDefault();
@@ -122,6 +122,24 @@
                                 "hideMethod": "fadeOut"
                                 }
                         }
+                }
+            })
+        })
+    })
+
+    // remove addtocart ajax functionality
+    $(document).ready(function(){
+        $('.remove_cart').click(function(e){
+            e.preventDefault();
+            let cart_id = $(this).data('id');
+            $.ajax({
+                url : "{{ route('cart.delete') }}",
+                method: "POST",
+                data: { cart_id: cart_id},
+                success:function(res){
+                    if(res.status == 'success'){
+                        window.location.reload();
+                    }
                 }
             })
         })

@@ -1,5 +1,9 @@
 @extends('frontend.master')
 
+@section('title')
+    Blog
+@endsection
+
 @section('body')
 
         <!-- Blog Section Begin -->

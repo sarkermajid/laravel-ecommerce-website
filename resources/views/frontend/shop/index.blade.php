@@ -1,5 +1,9 @@
 @extends('frontend.master')
 
+@section('title')
+    Shop
+@endsection
+
 @section('body')
         <!-- Product Section Begin -->
         <section class="product spad">
