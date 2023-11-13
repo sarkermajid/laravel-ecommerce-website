@@ -97,7 +97,7 @@ class BrandController extends Controller
         foreach ($products as $product){
             if($brand->id == $product->brand_id){
                 return response()->json([
-                    'status' => 'success',
+                    'status' => 'error',
                 ]);
             }
         }
