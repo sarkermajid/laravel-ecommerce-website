@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WishlistController;
@@ -48,7 +49,8 @@ Route::get('/product/single/view/{id}',[ShopController::class,'singleProduct'])-
 // wishlist route
 Route::get('/product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
 Route::get('/product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
-
+// cart count route
+Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count');
 Route::middleware(['auth'])->group(function(){
     // user route
     Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
@@ -61,6 +63,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/cart-delete',[CartController::class, 'cartDelete'])->name('cart.delete');
     Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('cart.update.inc');
     Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
+    // checkout route
+    Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 });
 
 Auth::routes();

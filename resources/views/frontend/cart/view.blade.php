@@ -32,6 +32,7 @@
                                         <td class="shoping__cart__price">
                                            {{ $cart->product->price }} {{ $cart->product->currency }}
                                         </td>
+                                        @if($cart->product->qty > $cart->product_qty)
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
                                                 <div class="pro-qty">
@@ -41,6 +42,9 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        @else
+                                            <td><span class="text-danger">Out Of Stock</span></td>
+                                        @endif
                                         <td class="shoping__cart__total">
                                             {{ $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty }} {{ $cart->product->currency }}
                                         </td>
@@ -64,7 +68,7 @@
                     <div class="col-lg-6">
                         <div class="shoping__continue">
                             <div class="shoping__discount">
-                                <h5>Discount Codes</h5>
+                                <h5>Apply Promo Code</h5>
                                 <form action="#">
                                     <input type="text" placeholder="Enter your Promo Code">
                                     <button type="submit" class="site-btn">APPLY PROMO</button>
@@ -78,7 +82,7 @@
                             <ul>
                                 <li>Total <span>{{ $total }} {{ $cart->product->currency ?? ''}}</span></li>
                                 </ul>
-                            <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                            <a href="{{ route('checkout') }}" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </div>

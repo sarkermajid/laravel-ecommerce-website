@@ -118,4 +118,12 @@ class CartController extends Controller
             'status' => 'success',
         ]);
     }
+
+    public function cartCount()
+    {
+        $cartCount = Cart::where('user_id',Auth::id())->count();
+        return response()->json([
+            'cartCount' => $cartCount,
+        ]);
+    }
 }

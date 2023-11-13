@@ -11,6 +11,7 @@
     <title>@yield('title')</title>
 
     <!-- Google Font -->
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
@@ -149,7 +150,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="{{ route('wishlist.view') }}"><i class="fa fa-heart"></i> <span>{{ $wishlist ?? '0' }}</span></a></li>
-                            <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-bag"></i> <span class="cart-count">0</span></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>

@@ -9,8 +9,12 @@
 
 <script>
 
-    // addtocart ajax functionality
+
     $(document).ready(function(){
+        // load cart count function call
+        loadCartCount();
+
+        // addtocart ajax functionality
         $('.addToCart').click(function(e){
             e.preventDefault();
             var product_id = $(this).closest('.product_data').find('.product_id').val();
@@ -66,11 +70,8 @@
                 }
             })
         })
-    })
 
-
-    // directaddtocart ajax functionality
-    $(document).ready(function(){
+        // directaddtocart ajax functionality
         $('.directAddToCart').click(function(e){
             e.preventDefault();
             var product_id = $(this).data('id');
@@ -125,10 +126,8 @@
                 }
             })
         })
-    })
 
-    // remove addtocart ajax functionality
-    $(document).ready(function(){
+        // remove addtocart ajax functionality
         $('.remove_cart').click(function(e){
             e.preventDefault();
             let cart_id = $(this).data('id');
@@ -143,10 +142,8 @@
                 }
             })
         })
-    })
 
-    // inc and dec button total price of single product ajax functionality
-    $(document).ready(function(){
+        // cart product increment button ajax functionality
         $('.inc').click(function(e){
             e.preventDefault();
             var product_id = $(this).data('id');
@@ -180,6 +177,7 @@
             })
         })
 
+        // cart product decrement button ajax functionality
         $('.dec').click(function(e){
             e.preventDefault();
             var product_id = $(this).data('id');
@@ -212,7 +210,21 @@
                 }
             })
         })
+
+         // cart count
+        function loadCartCount(){
+            $.ajax({
+            'url' : "{{ route('cart.count') }}",
+            'method' : 'GET',
+            success: function(res){
+                console.log(res.cartCount);
+                $('.cart-count').html('0');
+                $('.cart-count').html(res.cartCount);
+            }
+        })}
+
     })
+
 
 
 </script>
