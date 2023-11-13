@@ -79,7 +79,7 @@
             </div>
             <div class="row featured__filter">
                 @foreach ($products as $product)
-                <div class="col-lg-2 col-md-4 col-sm-6 mix oranges .{{ $category->name }}">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges .{{ $category->name }}">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset('admin/product-image/' . $product->image) }}">
                             <ul class="featured__item__pic__hover">
