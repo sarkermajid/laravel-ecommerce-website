@@ -13,7 +13,7 @@ class CartController extends Controller
     {
         $product_id = $request->product_id;
         $product_qty = $request->product_qty;
-        if(Auth::check()){
+        if(auth()->user()){
             $product = Product::where('id',$product_id)->first();
             if($product){
                 if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists()){
@@ -33,7 +33,7 @@ class CartController extends Controller
             }
         }else{
             return response()->json([
-                'status' => 'error',
+                'status' => 'info',
             ]);
         }
     }
@@ -42,7 +42,7 @@ class CartController extends Controller
     {
         $product_id = $request->product_id;
         $product_qty = $request->product_qty;
-        if(Auth::check()){
+        if(auth()->user()){
             $product = Product::where('id',$product_id)->first();
             if($product){
                 if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists()){
@@ -62,7 +62,7 @@ class CartController extends Controller
             }
         }else{
             return response()->json([
-                'status' => 'error',
+                'status' => 'info',
             ]);
         }
     }

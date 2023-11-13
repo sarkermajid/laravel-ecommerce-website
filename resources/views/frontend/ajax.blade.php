@@ -66,6 +66,25 @@
                                 "showMethod": "fadeIn",
                                 "hideMethod": "fadeOut"
                                 }
+                        }else if(res.status == 'info'){
+                            Command: toastr["error"]("Please continue with Register/login")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
                         }
                 }
             })
@@ -84,6 +103,7 @@
                     product_qty: product_qty
                 },
                 success: function(res){
+                    loadCartCount();
                     if(res.status == 'success'){
                             Command: toastr["success"]("Cart added successfully")
                                 toastr.options = {
@@ -105,6 +125,25 @@
                                 }
                         }else if(res.status == 'error'){
                             Command: toastr["error"]("Already this product added to cart")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }else if(res.status == 'info'){
+                            Command: toastr["error"]("Please continue with Register/login")
                                 toastr.options = {
                                 "closeButton": true,
                                 "debug": false,

@@ -46,23 +46,27 @@ Route::get('/category/products/{id}',[ShopController::class,'categoryProduct'])-
 Route::get('/brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
 // single product view route
 Route::get('/product/single/view/{id}',[ShopController::class,'singleProduct'])->name('product.single.view');
+
 // wishlist route
+
 Route::get('/product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
 Route::get('/product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
-// cart count route
+
+// cart route
+
+Route::post('/add-to-cart', [CartController::class, 'index'])->name('addToCart');
+Route::post('/direct-add-to-cart', [CartController::class, 'directAddtoCart'])->name('directAddToCart');
+Route::get('/cart-view',[CartController::class, 'cartView'])->name('cart');
+Route::post('/cart-delete',[CartController::class, 'cartDelete'])->name('cart.delete');
+Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('cart.update.inc');
+Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
 Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count');
 Route::middleware(['auth'])->group(function(){
     // user route
     Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
     Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
     Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
-    // cart route
-    Route::post('/add-to-cart', [CartController::class, 'index'])->name('addToCart');
-    Route::post('/direct-add-to-cart', [CartController::class, 'directAddtoCart'])->name('directAddToCart');
-    Route::get('/cart-view',[CartController::class, 'cartView'])->name('cart');
-    Route::post('/cart-delete',[CartController::class, 'cartDelete'])->name('cart.delete');
-    Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('cart.update.inc');
-    Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
+
     // checkout route
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 });
