@@ -145,5 +145,74 @@
         })
     })
 
+    // inc and dec button total price of single product ajax functionality
+    $(document).ready(function(){
+        $('.inc').click(function(e){
+            e.preventDefault();
+            var product_id = $(this).data('id');
+            $.ajax({
+                url : "{{ route('cart.update.inc') }}",
+                method: "POST",
+                data: { product_id: product_id},
+                success:function(res){
+                    window.location.reload();
+                    if(res.status == 'error'){
+                            Command: toastr["error"]("You cannot select more than 10 products")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }
+                }
+            })
+        })
+
+        $('.dec').click(function(e){
+            e.preventDefault();
+            var product_id = $(this).data('id');
+            $.ajax({
+                url : "{{ route('cart.update.dec') }}",
+                method: "POST",
+                data: { product_id: product_id},
+                success:function(res){
+                    window.location.reload();
+                    if(res.status == 'error'){
+                            Command: toastr["error"]("You cannot select negative quantity")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }
+                }
+            })
+        })
+    })
+
 
 </script>

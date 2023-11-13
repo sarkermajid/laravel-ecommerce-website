@@ -59,6 +59,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/direct-add-to-cart', [CartController::class, 'directAddtoCart'])->name('directAddToCart');
     Route::get('/cart-view',[CartController::class, 'cartView'])->name('cart');
     Route::post('/cart-delete',[CartController::class, 'cartDelete'])->name('cart.delete');
+    Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('cart.update.inc');
+    Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
 });
 
 Auth::routes();

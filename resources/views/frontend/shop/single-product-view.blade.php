@@ -41,7 +41,9 @@
                             <div class="product__details__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty ">
+                                        <span class="dec qtybtn">-</span>
                                         <input type="text" class="qty_input" value="1">
+                                        <span class="inc qtybtn">+</span>
                                     </div>
                                 </div>
                             </div>

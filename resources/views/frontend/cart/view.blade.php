@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shoping__cart__table">
-                            <table>
+                            <table class="">
                                 <thead>
                                     <tr>
                                         <th class="shoping__product">Products</th>
@@ -22,6 +22,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php $total = 0; @endphp
                                     @foreach ($carts as $cart)
                                     <tr>
                                         <td class="shoping__cart__item">
@@ -34,17 +35,20 @@
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
                                                 <div class="pro-qty">
+                                                    <span class="dec qtybtn" data-id="{{ $cart->product_id }}">-</span>
                                                     <input type="text" value="{{ $cart->product_qty }}">
+                                                    <span class="inc qtybtn" data-id="{{ $cart->product_id }}">+</span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="shoping__cart__total">
-                                            $110.00
+                                            {{ $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty }} {{ $cart->product->currency }}
                                         </td>
                                         <td class="shoping__cart__item__close">
                                             <span class="icon_close remove_cart" data-id="{{ $cart->id }}"></span>
                                         </td>
                                     </tr>
+                                    @php $total += $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty @endphp
                                     @endforeach
                                 </tbody>
                             </table>
@@ -55,8 +59,6 @@
                     <div class="col-lg-12">
                         <div class="shoping__cart__btns">
                             <a href="{{ route('shop') }}" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                            <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                                Upadate Cart</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -64,8 +66,8 @@
                             <div class="shoping__discount">
                                 <h5>Discount Codes</h5>
                                 <form action="#">
-                                    <input type="text" placeholder="Enter your coupon code">
-                                    <button type="submit" class="site-btn">APPLY COUPON</button>
+                                    <input type="text" placeholder="Enter your Promo Code">
+                                    <button type="submit" class="site-btn">APPLY PROMO</button>
                                 </form>
                             </div>
                         </div>
@@ -74,9 +76,8 @@
                         <div class="shoping__checkout">
                             <h5>Cart Total</h5>
                             <ul>
-                                <li>Subtotal <span>$454.98</span></li>
-                                <li>Total <span>$454.98</span></li>
-                            </ul>
+                                <li>Total <span>{{ $total }} {{ $cart->product->currency ?? ''}}</span></li>
+                                </ul>
                             <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
