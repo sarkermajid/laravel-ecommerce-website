@@ -67,7 +67,7 @@
                                 "hideMethod": "fadeOut"
                                 }
                         }else if(res.status == 'info'){
-                            Command: toastr["error"]("Please continue with Register/login")
+                            Command: toastr["error"]("Please continue with Register/Login")
                                 toastr.options = {
                                 "closeButton": true,
                                 "debug": false,
@@ -143,7 +143,7 @@
                                 "hideMethod": "fadeOut"
                                 }
                         }else if(res.status == 'info'){
-                            Command: toastr["error"]("Please continue with Register/login")
+                            Command: toastr["error"]("Please continue with Register/Login")
                                 toastr.options = {
                                 "closeButton": true,
                                 "debug": false,
