@@ -11,8 +11,9 @@
 
 
     $(document).ready(function(){
-        // load cart count function call
+        // load cart count and wishlist function call
         loadCartCount();
+        loadWishlistCount();
 
         // addtocart ajax functionality
         $('.addToCart').click(function(e){
@@ -28,6 +29,7 @@
                     product_qty: product_qty
                 },
                 success: function(res){
+                    loadCartCount();
                     if(res.status == 'success'){
                             Command: toastr["success"]("Cart added successfully")
                                 toastr.options = {
@@ -256,9 +258,109 @@
             'url' : "{{ route('cart.count') }}",
             'method' : 'GET',
             success: function(res){
-                console.log(res.cartCount);
                 $('.cart-count').html('0');
                 $('.cart-count').html(res.cartCount);
+            }
+        })}
+
+        // addtowishlist ajax functionality
+        $('.addToWishlist').click(function(e){
+            e.preventDefault();
+            var product_id = $(this).data('id');
+
+            $.ajax({
+                url : "{{ route('wishlist.add') }}",
+                method : 'POST',
+                data : {product_id : product_id},
+                success: function(res){
+                    loadWishlistCount();
+                    if(res.status == 'success'){
+                            Command: toastr["success"]("Wishlist added successfully")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }else if(res.status == 'error'){
+                            Command: toastr["error"]("Already this product have wishlist")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }else if(res.status == 'info'){
+                            Command: toastr["error"]("Please continue with Register/Login")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }
+                }
+            })
+        })
+
+        // remove wishlist ajax functionality
+        $('.wishlist-delete').click(function(e){
+            e.preventDefault();
+            var wishlist_id = $(this).data('id');
+
+            $.ajax({
+                url : "{{ route('wishlist.delete') }}",
+                method: "POST",
+                data: {wishlist_id:wishlist_id},
+                success:function(res){
+                    if(res.status == 'success'){
+                        window.location.reload();
+                    }
+                }
+            })
+        })
+
+        // wishlist count
+        function loadWishlistCount(){
+            $.ajax({
+            'url' : "{{ route('wishlist.count') }}",
+            'method' : 'GET',
+            success: function(res){
+                $('.wishlist-count').html('0');
+                $('.wishlist-count').html(res.wishListCount);
             }
         })}
 

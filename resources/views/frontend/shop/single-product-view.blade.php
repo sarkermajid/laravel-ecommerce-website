@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <a href="#" class="primary-btn addToCart">ADD TO CARD</a>
-                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <a href="#" data-id="{{ $product->id }}" class="heart-icon addToWishlist"><span class="icon_heart_alt"></span></a>
                             @endif
                             <ul>
                                 <li><b>Availability</b> <span>{{ $product->qty > 0 ? 'In Stock' : 'Out of Stock' }}</span></li>

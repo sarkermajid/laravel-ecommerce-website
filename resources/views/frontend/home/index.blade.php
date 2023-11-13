@@ -87,7 +87,7 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset('admin/product-image/' . $product->image) }}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="{{ route('wishlist.add', ['product_id'=>$product->id]) }}"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
                                 @if($product->qty > 0)
                                 <li><a href="#" data-id="{{ $product->id }}" class="directAddToCart"><i class="fa fa-shopping-cart "></i></a></li>

@@ -49,8 +49,10 @@ Route::get('/product/single/view/{id}',[ShopController::class,'singleProduct'])-
 
 // wishlist route
 
-Route::get('/product/wishlist',[WishlistController::class,'index'])->name('wishlist.view');
-Route::get('/product/wishlist/{product_id}',[WishlistController::class,'add'])->name('wishlist.add');
+Route::get('/product/wishlist',[WishlistController::class,'index'])->name('wishlist');
+Route::post('/add-to-wishlist',[WishlistController::class,'addToWishList'])->name('wishlist.add');
+Route::post('/wishlist/delete',[WishlistController::class,'wishlistDelete'])->name('wishlist.delete');
+Route::get('/wishlist/count',[WishlistController::class,'wishlistCount'])->name('wishlist.count');
 
 // cart route
 
