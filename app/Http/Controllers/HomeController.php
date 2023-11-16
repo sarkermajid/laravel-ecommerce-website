@@ -34,16 +34,16 @@ class HomeController extends Controller
         $banner = Banner::first();
         $products = Product::where('status',1)->get();
         $latestProductsDesc = Product::where('status',1)->orderBy('id','desc')->limit(3)->get();
-        $latestProductsAsc = Product::where('status',1)->orderBy('id','asc')->limit(3)->get();
         $blogs = Blog::where('status',1)->orderBy('id','desc')->limit(3)->get();
+        $trendingProducts = Product::orderBy('trending','desc')->limit(3)->get();
         return view('frontend.home.index',compact(
             'latestCategories',
             'categories',
             'banner',
             'products',
             'latestProductsDesc',
-            'latestProductsAsc',
-            'blogs'
+            'blogs',
+            'trendingProducts'
         ));
     }
 }

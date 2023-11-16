@@ -43,7 +43,7 @@
         <a href="{{ route('product.manage') }}">
             <div class="card card-body" style="background-color: #2980b9">
                 <h3 class="text-white">Total Products</h3>
-                <h4 class="text-white">1</h4>
+                <h4 class="text-white">{{ $totalProducts }}</h4>
             </div>
         </a>
     </div>

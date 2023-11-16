@@ -160,7 +160,7 @@
                                             <div class="product__discount__item__text">
                                                 <span>{{ $product->category->name }}</span>
                                                 <h5><a href="#">{{ $product->name }}</a></h5>
-                                                <div class="product__item__price">{{ $product->currency }} {{ $product->discount_amount }}<span>{{ $product->currency }}{{ $product->price }}</span></div>
+                                                <div class="product__item__price">{{ $product->discount_amount }} {{ $product->currency }} <span>{{ $product->currency }}{{ $product->price }}</span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6><a href="#">{{ $product->name }}</a></h6>
-                                        <h5>{{ $product->currency }} {{ $product->price }}</h5>
+                                        <h5>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ $product->currency }} </h5>
                                     </div>
                                 </div>
                             </div>

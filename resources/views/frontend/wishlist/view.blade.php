@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <div class="shoping__cart__btns">
-                        <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                        <a href="{{ route('shop') }}" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                     </div>
                 </div>
             </div>
