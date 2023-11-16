@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -34,13 +35,15 @@ class HomeController extends Controller
         $products = Product::where('status',1)->get();
         $latestProductsDesc = Product::where('status',1)->orderBy('id','desc')->limit(3)->get();
         $latestProductsAsc = Product::where('status',1)->orderBy('id','asc')->limit(3)->get();
+        $blogs = Blog::where('status',1)->orderBy('id','desc')->limit(3)->get();
         return view('frontend.home.index',compact(
             'latestCategories',
             'categories',
             'banner',
             'products',
             'latestProductsDesc',
-            'latestProductsAsc'
+            'latestProductsAsc',
+            'blogs'
         ));
     }
 }

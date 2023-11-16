@@ -46,6 +46,10 @@ Route::get('/category/products/{id}',[ShopController::class,'categoryProduct'])-
 Route::get('/brand/products/{id}',[ShopController::class,'brandProduct'])->name('brand.product.view');
 // single product view route
 Route::get('/product/single/view/{id}',[ShopController::class,'singleProduct'])->name('product.single.view');
+// single blog view route
+Route::get('blog/single/view/{id}', [FrontendBlogController::class, 'singleBlog'])->name('blog.single.view');
+// category wise blog route
+Route::get('/category/blog/view/{id}', [FrontendBlogController::class,'categoryBlog'])->name('category.blog.view');
 
 // wishlist route
 

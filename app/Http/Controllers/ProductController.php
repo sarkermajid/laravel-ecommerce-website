@@ -27,7 +27,7 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->short_description = $request->short_description;
-        $product->description = $request->description;
+        $product->description = strip_tags(html_entity_decode($request->description));
         $product->qty = $request->qty;
         $product->price = $request->price;
         $product->currency = $request->currency;
@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->short_description = $request->short_description;
-        $product->description = $request->description;
+        $product->description = strip_tags(html_entity_decode($request->description));
         $product->qty = $request->qty;
         $product->price = $request->price;
         $product->currency = $request->currency;
