@@ -15,7 +15,7 @@
 
     <!-- App Css-->
     <link href="{{ asset('/') }}admin/assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('/') }}admin/assets/css/toastr.min.css" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('/') }}admin/assets/css/toastr.min.css" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('/') }}admin/assets/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
     {{-- toster msg --}}
@@ -281,7 +281,7 @@
 
         <!-- App js -->
         <script src="{{ asset('/') }}admin/assets/js/app.js"></script>
-        <script src="{{ asset('/') }}admin/assets/js/toastr.min.js"></script>
+        {{-- <script src="{{ asset('/') }}admin/assets/js/toastr.min.js"></script> --}}
         <script type="text/javascript" src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
         <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>

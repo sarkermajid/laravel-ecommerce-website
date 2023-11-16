@@ -33,8 +33,8 @@
                                     <td>{{ $blog->blogCategory->name }}</td>
                                     <td><img src="{{ asset('admin/blog-image/'.$blog->image) }}" height="50" width="70"
                                             alt=""></td>
-                                    <td><a href="{{ route('blog.status', ['id' => $blog->id]) }}"
-                                            class="btn btn-sm {{ $blog->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $blog->status == 1 ? 'Active' : 'Inactive' }}</a>
+                                    <td><a href="" data-id="{{ $blog->id }}"
+                                            class="btn btn-sm blog-status {{ $blog->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $blog->status == 1 ? 'Active' : 'Inactive' }}</a>
                                     </td>
                                     <td>
                                         <div>
@@ -42,11 +42,7 @@
                                                 class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> View</a>
                                              <a href="{{ route('blog.edit', ['id' => $blog->id]) }}"
                                                  class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                             <form method="POST" action="{{ route('blog.delete', ['id' => $blog->id]) }}" style="display: inline">
-                                                 @csrf
-                                                 <input name="_method" type="hidden">
-                                                 <button type="submit" class="btn btn-outline-danger btn-sm show_confirm" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</button>
-                                             </form>
+                                            <a href="" data-id="{{ $blog->id }}" class="btn btn-outline-danger btn-sm show_confirm blog-delete" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</a>
                                         </div>
                                     </td>
                                 </tr>

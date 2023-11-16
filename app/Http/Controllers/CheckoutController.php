@@ -17,7 +17,6 @@ class CheckoutController extends Controller
             if(!Product::where('id',$cart->product_id)->where('qty','>=',$cart->product_qty)->exists())
             {
                 $removeCart = Cart::where('user_id',Auth::id())->where('product_id',$cart->product_id)->first();
-                dd($removeCart);
                 $removeCart->delete();
             }
         }

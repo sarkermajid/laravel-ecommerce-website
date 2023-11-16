@@ -101,22 +101,26 @@ class ProductController extends Controller
         return redirect()->route('product.manage')->with('message','Product Updated Successfully');
     }
 
-    public function status($id)
+    public function status(Request $request)
     {
-        $product = Product::find($id);
+        $product = Product::find($request->product_id);
         if($product->status == 1){
             $product->status = 0;
         }else{
             $product->status = 1;
         }
         $product->save();
-        return redirect()->route('product.manage')->with('message','Product Status change successfully');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $product = Product::find($id);
+        $product = Product::find($request->product_id);
         $product->delete();
-        return redirect()->route('product.manage')->with('message','Product deleted successfully');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 }

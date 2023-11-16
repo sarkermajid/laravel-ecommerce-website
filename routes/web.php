@@ -118,10 +118,10 @@ Auth::routes();
         Route::post('/product/store', 'store')->name('product.store');
         Route::get('/product/manage','manage')->name('product.manage');
         Route::get('/product/view/{id}','view')->name('product.view');
-        Route::get('/product/status/{id}','status')->name('product.status');
+        Route::get('/product/status','status')->name('product.status');
         Route::get('/product/edit/{id}','edit')->name('product.edit');
         Route::post('/product/update/{id}','update')->name('product.update');
-        Route::post('/product/delete/{id}','delete')->name('product.delete');
+        Route::post('/product/delete','delete')->name('product.delete');
     });
 
     // Blog Categories routes
@@ -131,10 +131,10 @@ Auth::routes();
         Route::post('/blog/category/store', 'blogCategoryStore')->name('blog.category.store');
         Route::get('/blog/category/manage','blogCategoryManage')->name('blog.category.manage');
         Route::get('/blog/category/view/{id}','blogCategoryView')->name('blog.category.view');
-        Route::get('/blog/category/status/{id}','blogCategoryStatus')->name('blog.category.status');
+        Route::get('/blog/category/status','blogCategoryStatus')->name('blog.category.status');
         Route::get('/blog/category/edit/{id}','blogCategoryEdit')->name('blog.category.edit');
         Route::post('/blog/category/update/{id}','blogCategoryUpdate')->name('blog.category.update');
-        Route::post('/blog/category/delete/{id}','blogCategoryDelete')->name('blog.category.delete');
+        Route::post('/blog/category/delete','blogCategoryDelete')->name('blog.category.delete');
     });
 
     // Blogs Routes
@@ -144,17 +144,17 @@ Auth::routes();
         Route::post('/blog/store', 'store')->name('blog.store');
         Route::get('/blog/manage', 'manage')->name('blog.manage');
         Route::get('/blog/view/{id}','view')->name('blog.view');
-        Route::get('/blog/status/{id}','status')->name('blog.status');
+        Route::get('/blog/status','status')->name('blog.status');
         Route::get('/blog/edit/{id}','edit')->name('blog.edit');
         Route::post('/blog/update/{id}','update')->name('blog.update');
-        Route::post('/blog/delete/{id}','delete')->name('blog.delete');
+        Route::post('/blog/delete','delete')->name('blog.delete');
     });
 
     // Users Routes for admin
 
     Route::controller(UserController::class)->group(function (){
         Route::get('/user/admin/manage', 'manage')->name('user.admin.manage');
-        Route::post('/user/admin/delete/{id}', 'status')->name('user.admin.delete');
+        Route::post('/user/admin/delete', 'delete')->name('user.admin.delete');
         Route::get('/user/admin/view/{id}', 'view')->name('user.admin.view');
         Route::get('/user/admin/edit/{id}', 'edit')->name('user.admin.edit');
         Route::post('/user/admin/update/{id}', 'update')->name('user.admin.update');
@@ -163,7 +163,7 @@ Auth::routes();
     Route::controller(ContactController::class)->group(function(){
         Route::get('/admin/contact/message', 'contactMessage')->name('admin.contact.message');
         Route::get('/admin/contact/message/view/{id}', 'contactMessageView')->name('admin.contact.message.view');
-        Route::post('/admin/contact/message/delete/{id}', 'contactMessageDelete')->name('admin.contact.message.delete');
+        Route::post('/admin/contact/message/delete', 'contactMessageDelete')->name('admin.contact.message.delete');
     });
 
     Route::controller(BannerController::class)->group(function(){

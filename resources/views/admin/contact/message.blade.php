@@ -33,11 +33,7 @@
                                         <div>
                                             <a href="{{ route('admin.contact.message.view', ['id' => $message->id]) }}"
                                                 class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> View</a>
-                                             <form method="POST" action="{{ route('admin.contact.message.delete', ['id' => $message->id]) }}" style="display: inline">
-                                                 @csrf
-                                                 <input name="_method" type="hidden">
-                                                 <button type="submit" class="btn btn-outline-danger btn-sm show_confirm" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</button>
-                                             </form>
+                                                <a href="" data-id="{{ $message->id }}" class="btn btn-outline-danger btn-sm show_confirm message-delete" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</a>
                                         </div>
                                     </td>
                                 </tr>

@@ -38,11 +38,7 @@
                                                 class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> View</a>
                                             <a href="{{ route('user.admin.edit', ['id' => $user->id]) }}"
                                                 class="btn btn-outline-warning btn-sm"><i cla ss="fa fa-edit"></i> Change</a>
-                                             <form method="POST" action="{{ route('user.admin.delete', ['id' => $user->id]) }}" style="display: inline">
-                                                 @csrf
-                                                 <input name="_method" type="hidden">
-                                                 <button type="submit" class="btn btn-outline-danger btn-sm show_confirm" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</button>
-                                             </form>
+                                                <a href="" data-id="{{ $user->id }}" class="btn btn-outline-danger btn-sm show_confirm user-delete" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -64,23 +60,23 @@
 
     <script type="text/javascript">
 
-        $('.show_confirm').click(function(event) {
-             var form =  $(this).closest("form");
-             var name = $(this).data("name");
-             event.preventDefault();
-             swal({
-                 title: `Are you sure?`,
-                 text: "You won't be able to revert this!",
-                 icon: "warning",
-                 buttons: true,
-                 dangerMode: true,
-             })
-             .then((willDelete) => {
-               if (willDelete) {
-                 form.submit();
-               }
-             });
-         });
+    //     $('.show_confirm').click(function(event) {
+    //          var form =  $(this).closest("form");
+    //          var name = $(this).data("name");
+    //          event.preventDefault();
+    //          swal({
+    //              title: `Are you sure?`,
+    //              text: "You won't be able to revert this!",
+    //              icon: "warning",
+    //              buttons: true,
+    //              dangerMode: true,
+    //          })
+    //          .then((willDelete) => {
+    //            if (willDelete) {
+    //              form.submit();
+    //            }
+    //          });
+    //      });
 
-    </script>
+    // </script>
 @endpush

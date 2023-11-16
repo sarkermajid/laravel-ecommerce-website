@@ -38,16 +38,18 @@ class BlogController extends Controller
         return view('admin.blog.category.view', compact('blogCategory'));
     }
 
-    public function blogCategoryStatus($id)
+    public function blogCategoryStatus(Request $request)
     {
-        $blogCategory = BlogCategory::find($id);
+        $blogCategory = BlogCategory::find($request->category_id);
         if($blogCategory->status == 1){
             $blogCategory->status = 0;
         }else{
             $blogCategory->status = 1;
         }
         $blogCategory->save();
-        return redirect()->back()->with('message', 'Category Status Update Success');
+        return response()->json([
+            'status'=> 'success',
+        ]);
     }
 
     public function blogCategoryEdit($id)
@@ -61,7 +63,7 @@ class BlogController extends Controller
         $blogCategory  = BlogCategory::find($id);
         $blogCategory->name = $request->name;
         $blogCategory->slug = Str::slug($request->slug).'-'. rand(1000,5000);
-        if($blogCategory->status == 'on'){
+        if($request->status == 'on'){
             $blogCategory->status = 1;
         }else{
             $blogCategory->status = 0;
@@ -70,17 +72,21 @@ class BlogController extends Controller
         return redirect()->route('blog.category.manage')->with('message','category updated successfully');
     }
 
-    public function blogCategoryDelete($id)
+    public function blogCategoryDelete(Request $request)
     {
-        $blogCategory = BlogCategory::find($id);
+        $blogCategory = BlogCategory::find($request->category_id);
         $blogs = Blog::all();
         foreach($blogs as $blog){
             if($blogCategory->id == $blog->blog_category_id){
-                return redirect()->back()->with('error','you can not delete this category');
+                return response()->json([
+                    'status' => 'error',
+                ]);
             }
         }
         $blogCategory->delete();
-        return redirect()->back()->with('message', 'category deteted successfully');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
     public function index()
@@ -119,16 +125,18 @@ class BlogController extends Controller
         return view('admin.blog.view', compact('blog'));
     }
 
-    public function status($id)
+    public function status(Request $request)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::find($request->blog_id);
         if($blog->status == 1){
             $blog->status = 0;
         }else{
             $blog->status = 1;
         }
         $blog->save();
-        return redirect()->back()->with('message', 'blog Status Update Success');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
     public function edit($id)
@@ -166,11 +174,13 @@ class BlogController extends Controller
         return redirect()->route('blog.manage')->with('message','Blog update successfully');
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::find($request->blog_id);
         $blog->delete();
-        return redirect()->back()->with('message', 'Blog deteted successfully');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
 }

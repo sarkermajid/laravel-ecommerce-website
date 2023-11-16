@@ -34,4 +34,13 @@ class UserController extends Controller
         return redirect()->route('user.manage')->with('message','User Passwords updated successfully');
     }
 
+    public function delete(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->delete();
+        return response()->json([
+            'status' => 'success',
+        ]);
+    }
+
 }

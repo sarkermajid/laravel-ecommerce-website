@@ -41,8 +41,7 @@
                                     <td>{{ $product->discount_amount }}</td>
                                     <td><img src="{{ asset('admin/product-image/'.$product->image) }}" height="50" width="70"
                                             alt=""></td>
-                                    <td><a href="{{ route('product.status', ['id' => $product->id]) }}"
-                                            class="btn btn-sm {{ $product->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $product->status == 1 ? 'Active' : 'Inactive' }}</a>
+                                    <td><a href="" data-id="{{ $product->id }}" class="btn btn-sm product-status {{ $product->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $product->status == 1 ? 'Active' : 'Inactive' }}</a>
                                     </td>
                                     <td>
                                         <div>
@@ -50,11 +49,7 @@
                                                 class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Details</a>
                                              <a href="{{ route('product.edit', ['id' => $product->id]) }}"
                                                  class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                             <form method="POST" action="{{ route('product.delete', ['id' => $product->id]) }}" style="display: inline">
-                                                 @csrf
-                                                 <input name="_method" type="hidden">
-                                                 <button type="submit" class="btn btn-outline-danger btn-sm show_confirm" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</button>
-                                             </form>
+                                             <a href="" data-id="{{ $product->id }}" class="btn btn-outline-danger btn-sm show_confirm product-delete" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -76,23 +71,23 @@
 
     <script type="text/javascript">
 
-        $('.show_confirm').click(function(event) {
-             var form =  $(this).closest("form");
-             var name = $(this).data("name");
-             event.preventDefault();
-             swal({
-                 title: `Are you sure?`,
-                 text: "You won't be able to revert this!",
-                 icon: "warning",
-                 buttons: true,
-                 dangerMode: true,
-             })
-             .then((willDelete) => {
-               if (willDelete) {
-                 form.submit();
-               }
-             });
-         });
+        // $('.show_confirm').click(function(event) {
+        //      var form =  $(this).closest("form");
+        //      var name = $(this).data("name");
+        //      event.preventDefault();
+        //      swal({
+        //          title: `Are you sure?`,
+        //          text: "You won't be able to revert this!",
+        //          icon: "warning",
+        //          buttons: true,
+        //          dangerMode: true,
+        //      })
+        //      .then((willDelete) => {
+        //        if (willDelete) {
+        //          form.submit();
+        //        }
+        //      });
+        //  });
 
     </script>
 @endpush
