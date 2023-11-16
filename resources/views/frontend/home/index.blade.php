@@ -285,7 +285,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title from-blog__title">
-                        <h2>The Blogs</h2>
+                        <h2>Blogs</h2>
                     </div>
                 </div>
             </div>
