@@ -100,41 +100,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Meta Title</label>
-                            @error('meta_title')
-                                <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                            @enderror
-                            <input type="text" name="meta_title" class="form-control" id="meta_title">
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="slug">Meta Description</label>
-                                    @error('meta_description')
-                                        <h6 class="modal-header justify-content-start"
-                                            style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                            {{ $message }}</h6>
-                                    @enderror
-                                    <textarea name="meta_description" id="meta_description" class="form-control" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="slug">Meta Keywords</label>
-                                    @error('meta_keywords')
-                                        <h6 class="modal-header justify-content-start"
-                                            style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                            {{ $message }}</h6>
-                                    @enderror
-                                    <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label class="d-block">Status</label>
                             <label for="Active" class="form-label"><input type="radio" name="status" value="1" id="Active" checked class="label radio">Active
                             </label>

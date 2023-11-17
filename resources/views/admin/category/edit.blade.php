@@ -113,36 +113,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Meta Title</label>
-                            @error('meta_title')
-                                <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                            @enderror
-                            <input type="text" name="meta_title" value="{{ $category->meta_title }}" class="form-control" id="meta_title">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="slug">Meta Description</label>
-                            @error('meta_description')
-                                <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                            @enderror
-                            <textarea name="meta_description" id="meta_description" class="form-control" rows="3">{{ $category->meta_description }}</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="slug">Meta Keywords</label>
-                            @error('meta_keywords')
-                                <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #ffffff; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                            @enderror
-                            <textarea name="meta_keywords" id="meta_keywords" class="form-control" rows="3">{{ $category->meta_keywords }}</textarea>
-                        </div>
-
-                        <div class="form-group">
                             <label class="d-block">Status</label>
                             <label for="Active" class="form-label"><input type="radio" name="status"  id="Active" {{ $category->status == 1 ? 'checked' : '' }} class="label radio">Active
                             </label>

@@ -153,17 +153,16 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Review Products</h4>
+                        <h4>Latest Brands</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                @foreach ($trendingProducts as $trendingProduct )
+                                @foreach ($brands as $brand )
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="{{ asset('admin/product-image/'.$trendingProduct->image) }}" alt="">
+                                        <img src="{{ asset('admin/brand-image/'.$brand->image) }}" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
-                                        <h6>{{ $trendingProduct->name }}</h6>
-                                        <span>{{ $trendingProduct->price }} {{ $trendingProduct->currency }}</span>
+                                        <h6>{{ $brand->name }}</h6>
                                     </div>
                                 </a>
                                 @endforeach

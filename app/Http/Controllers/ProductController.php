@@ -33,9 +33,6 @@ class ProductController extends Controller
         $product->currency = $request->currency;
         $product->weight = $request->weight;
         $product->discount_amount = $request->discount_amount;
-        $product->meta_title = $request->meta_title;
-        $product->meta_description = $request->meta_description;
-        $product->meta_keyword = $request->meta_keyword;
         $product->status = $request->status;
         // Image upload
         $image = $request->file('image');
@@ -80,9 +77,6 @@ class ProductController extends Controller
         $product->currency = $request->currency;
         $product->weight = $request->weight;
         $product->discount_amount = $request->discount_amount;
-        $product->meta_title = $request->meta_title;
-        $product->meta_description = $request->meta_description;
-        $product->meta_keyword = $request->meta_keyword;
         $product->status = $request->status;
         // Image upload
         $image = $request->file('image');

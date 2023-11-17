@@ -23,9 +23,6 @@ class CategoryController extends Controller
         $category->slug = Str::slug($request->name).'-'.rand(1000,5000);
         $category->description = strip_tags(html_entity_decode($request->description));
         $category->status = $request->status;
-        $category->meta_title = $request->meta_title;
-        $category->meta_description = $request->meta_description;
-        $category->meta_keywords = $request->meta_keywords;
          // Image upload
         $image = $request->file('image');
         $image_name = $category->slug . time().'.'.$image->getClientOriginalExtension();
@@ -80,9 +77,6 @@ class CategoryController extends Controller
         }else{
             $category->status = 0;
         }
-        $category->meta_title = $request->meta_title;
-        $category->meta_description = $request->meta_description;
-        $category->meta_keywords = $request->meta_keywords;
          // Image upload
         $image = $request->file('image');
         if($image){
