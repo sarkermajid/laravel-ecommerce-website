@@ -19,10 +19,9 @@
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Brand</th>
-                                <th>Quantity</th>
+                                <th>Stock</th>
                                 <th>Price</th>
-                                <th>Discount Type</th>
-                                <th>Discount Amount</th>
+                                <th>Discount Price</th>
                                 <th>Image</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -37,7 +36,6 @@
                                     <td>{{ $product->brand->name }}</td>
                                     <td>{{ $product->qty }}</td>
                                     <td>{{ $product->price }}</td>
-                                    <td>{{ $product->discount_type == 1 ?  'Percentage' : 'Fixed Price'}}</td>
                                     <td>{{ $product->discount_amount }}</td>
                                     <td><img src="{{ asset('admin/product-image/'.$product->image) }}" height="50" width="70"
                                             alt=""></td>

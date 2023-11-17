@@ -32,7 +32,6 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->currency = $request->currency;
         $product->weight = $request->weight;
-        $product->discount_type = $request->discount_type;
         $product->discount_amount = $request->discount_amount;
         $product->meta_title = $request->meta_title;
         $product->meta_description = $request->meta_description;
@@ -80,7 +79,6 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->currency = $request->currency;
         $product->weight = $request->weight;
-        $product->discount_type = $request->discount_type;
         $product->discount_amount = $request->discount_amount;
         $product->meta_title = $request->meta_title;
         $product->meta_description = $request->meta_description;
