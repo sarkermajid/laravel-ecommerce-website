@@ -23,7 +23,7 @@
                                     <div class="col-lg-12">
                                         <div class="checkout__input">
                                             <p>Name<span>*</span></p>
-                                            <input type="text" value="{{ auth()->user()->name }}">
+                                            <input type="text" name="name" value="{{ auth()->user()->name }}">
                                         </div>
                                     </div>
                                 </div>
@@ -31,21 +31,21 @@
                                     <div class="col-lg-12">
                                         <div class="checkout__input">
                                             <p>Phone<span>*</span></p>
-                                            <input type="text" value="{{ auth()->user()->phone ?? '' }}">
+                                            <input type="number" name="phone" value="{{ auth()->user()->phone ?? '' }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="checkout__input">
                                     <p>Address<span>*</span></p>
-                                    <input type="text" value="{{ auth()->user()->address ?? '' }}" class="checkout__input__add">
+                                    <input type="text" name="address" value="{{ auth()->user()->address ?? '' }}" class="checkout__input__add">
                                 </div>
                                 <div class="checkout__input">
-                                    <p>Town/City<span>*</span></p>
-                                    <input type="text" value="{{ auth()->user()->city ?? '' }}">
+                                    <p>City/Town<span>*</span></p>
+                                    <input type="text" name="city" value="{{ auth()->user()->city ?? '' }}">
                                 </div>
                                 <div class="checkout__input">
                                     <p>Postcode / ZIP<span>*</span></p>
-                                    <input type="text" value="{{ auth()->user()->zip_code ?? '' }}">
+                                    <input type="number" name="zip_code" value="{{ auth()->user()->zip_code ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">

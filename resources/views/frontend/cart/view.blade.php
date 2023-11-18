@@ -32,7 +32,7 @@
                                         <td class="shoping__cart__price">
                                            {{ $cart->product->price }} {{ $cart->product->currency }}
                                         </td>
-                                        @if($cart->product->qty > $cart->product_qty)
+                                        @if($cart->product->qty >= $cart->product_qty)
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
                                                 <div class="pro-qty">
