@@ -112,7 +112,7 @@
                                 <a href="" class="login-btn text-white dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user.orders') }}">My Orders</a></li>
                                     <form method="POST" action="{{ route('logout') }}" style="display: inline">
                                         @csrf
                                         <input name="_method" type="hidden">

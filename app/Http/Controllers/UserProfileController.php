@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,5 +38,17 @@ class UserProfileController extends Controller
         }
         $user->update();
         return redirect()->route('user.profile');
+    }
+
+    public function orders()
+    {
+        $orders = Order::where('user_id',auth()->user()->id)->get();
+        return view('frontend.user.orders',compact('orders'));
+    }
+
+    public function orderView($id)
+    {
+        $order = Order::where('id',$id)->where('user_id',auth()->user()->id)->first();
+        return view('frontend.user.order-details',compact('order'));
     }
 }

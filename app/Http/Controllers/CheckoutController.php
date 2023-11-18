@@ -41,7 +41,7 @@ class CheckoutController extends Controller
             $order->city = $request->city;
             $order->zip_code = $request->zip_code;
             $order->total_price = $request->total_price;
-            $order->tracking_number = $order->name.'-'.rand(1000,5000);
+            $order->tracking_number = rand(100000,500000);
             $order->save();
 
             foreach($carts as $cart){

@@ -4,7 +4,7 @@
 @section('body')
     <div class="container">
         <div class="row py-5">
-            <div class="col-lg-6 mx-auto">
+            <div class="col-lg-10 mx-auto">
                 <div class="card">
                     <div class="card-header text-center" style="background-color: #1C1C1C">
                         <h1 class="text-center profile-heading-btn text-center" style="background-color: #1C1C1C">Edit Profile</h1>

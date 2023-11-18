@@ -72,6 +72,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
     Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
     Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
+    Route::get('/user/orders', [UserProfileController::class, 'orders'])->name('user.orders');
+    Route::get('/user/orders/view/{id}', [UserProfileController::class, 'orderView'])->name('user.orders.view');
+
 
     // checkout route
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
