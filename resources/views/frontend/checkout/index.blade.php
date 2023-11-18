@@ -16,7 +16,8 @@
                 </div>
                 <div class="checkout__form">
                     <h4>Billing Details</h4>
-                    <form action="#">
+                    <form action="{{ route('placeOrder') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-8 col-md-6">
                                 <div class="row">
@@ -59,8 +60,9 @@
                                         @php $total += $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty @endphp
                                         @endforeach
                                     </ul>
+                                    <input type="hidden" name="total_price" value="{{ $total }}">
                                     <hr>
-                                    <div class="checkout__order__total">Total <span>{{ $total }} {{ $cart->product->currency }}</span></div>
+                                    <div class="checkout__order__total">Total <span>{{ $total }} {{ $cart->product->currency ?? '' }}</span></div>
                                     <div class="checkout__input__checkbox">
                                         <label for="payment">
                                             Cash On Delivery
