@@ -13,6 +13,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WishlistController;
@@ -170,16 +171,27 @@ Auth::routes();
         Route::post('/user/admin/update/{id}', 'update')->name('user.admin.update');
     });
 
+    // Contact message routes
+
     Route::controller(ContactController::class)->group(function(){
         Route::get('/admin/contact/message', 'contactMessage')->name('admin.contact.message');
         Route::get('/admin/contact/message/view/{id}', 'contactMessageView')->name('admin.contact.message.view');
         Route::post('/admin/contact/message/delete', 'contactMessageDelete')->name('admin.contact.message.delete');
     });
 
+    // Banners routes
     Route::controller(BannerController::class)->group(function(){
         Route::get('/banner/add', 'index')->name('banner.add');
         Route::post('/banner/update/{id?}', 'update')->name('banner.update');
     });
+
+    // Orders routes
+
+    Route::get('/orders/pending', [OrderController::class, 'pending'])->name('orders.pending');
+    Route::get('/orders/ontheway', [OrderController::class, 'ontheway'])->name('orders.ontheway');
+    Route::get('/orders/completed', [OrderController::class, 'completed'])->name('orders.completed');
+    Route::get('/orders/status/ontheway', [OrderController::class, 'onthewayStatusChange'])->name('orders.status.ontheway');
+    Route::get('/orders/status/completed', [OrderController::class, 'completedStatusChange'])->name('orders.status.completed');
 
  });
 

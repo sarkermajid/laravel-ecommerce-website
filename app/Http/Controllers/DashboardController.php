@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,13 +21,15 @@ class DashboardController extends Controller
         $totalBlogs = Blog::count();
         $totalMessages = Contact::count();
         $totalProducts = Product::count();
+        $totalOrders = Order::count();
         return view('admin.home.index',compact(
             'totalCategories',
             'totalUsers',
             'totalBrands',
             'totalBlogs',
             'totalMessages',
-            'totalProducts'
+            'totalProducts',
+            'totalOrders',
         ));
     }
 

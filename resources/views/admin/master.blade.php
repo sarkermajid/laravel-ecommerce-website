@@ -154,11 +154,15 @@
                         </li>
 
                         <li>
-                            <a href="#" class="waves-effect">
-                                <i class="bx bx-add-to-queue"></i><span
-                                    class="badge badge-pill badge-info float-right"></span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
                                 <span>Orders</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('orders.pending') }}">Pending</a></li>
+                                <li><a href="{{ route('orders.ontheway') }}">On the way</a></li>
+                                <li><a href="{{ route('orders.completed') }}">Completed</a></li>
+                            </ul>
                         </li>
 
                         <li>
@@ -291,6 +295,8 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         {{-- swal confirm msg alert --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
         {{-- ajax js --}}
         @include('admin.ajax')
         <script>

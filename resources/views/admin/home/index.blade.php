@@ -13,7 +13,7 @@
     <div class="col-md-4">
         <div class="card card-body" style="background-color: #ff5252">
             <h3 class="text-white">Total Orders</h3>
-            <h4 class="text-white">12</h4>
+            <h4 class="text-white">{{ $totalOrders }}</h4>
         </div>
     </div>
     <div class="col-md-4">
