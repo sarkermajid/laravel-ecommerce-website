@@ -187,11 +187,15 @@ Auth::routes();
 
     // Orders routes
 
+    Route::get('/orders/all', [OrderController::class, 'allOrders'])->name('orders.all');
     Route::get('/orders/pending', [OrderController::class, 'pending'])->name('orders.pending');
     Route::get('/orders/ontheway', [OrderController::class, 'ontheway'])->name('orders.ontheway');
     Route::get('/orders/completed', [OrderController::class, 'completed'])->name('orders.completed');
+    Route::get('/orders/cancel', [OrderController::class, 'cancelOrders'])->name('orders.cancel');
+    Route::get('/orders/status/pending', [OrderController::class, 'pendingStatusChange'])->name('orders.status.pending');
     Route::get('/orders/status/ontheway', [OrderController::class, 'onthewayStatusChange'])->name('orders.status.ontheway');
     Route::get('/orders/status/completed', [OrderController::class, 'completedStatusChange'])->name('orders.status.completed');
+    Route::get('/orders/status/cancel', [OrderController::class, 'cancelStatusChange'])->name('orders.status.cancel');
 
  });
 

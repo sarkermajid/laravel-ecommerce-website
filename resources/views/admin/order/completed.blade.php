@@ -26,7 +26,7 @@
                         <tbody>
                             @foreach ($completedOrders as $order)
                                 <tr>
-                                    <td> {{ $loop->iteration }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $order->created_at->format('m-d-Y') }}</td>
                                     <td>{{ $order->tracking_number }}</td>
                                     <td>{{ $order->total_price }}</td>

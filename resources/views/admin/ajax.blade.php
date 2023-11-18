@@ -531,6 +531,44 @@
         })
     })
 
+    // Order Status change for Pending
+    $(document).ready(function(){
+        $(document).on('click','.pending',function(e){
+            e.preventDefault();
+            let order_id      = $(this).data('id');
+            if(confirm('Are you sure ? you want to change this order status ?')){
+                $.ajax({
+                    url: "{{ route('orders.status.pending') }}",
+                    method: 'get',
+                    data: { order_id: order_id},
+                    success:function(res){
+                        $('.table').load(location.href+' .table');
+                        if(res.status == 'success'){
+                            Command: toastr["success"]("Order status change successfully")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }
+                    },
+                })
+            }
+        })
+    })
+
     // Order Status change for ontheway
     $(document).ready(function(){
         $(document).on('click','.ontheway',function(e){
@@ -577,6 +615,44 @@
             if(confirm('Are you sure ? you want to change this order status ?')){
                 $.ajax({
                     url: "{{ route('orders.status.completed') }}",
+                    method: 'get',
+                    data: { order_id: order_id},
+                    success:function(res){
+                        $('.table').load(location.href+' .table');
+                        if(res.status == 'success'){
+                            Command: toastr["success"]("Order status change successfully")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }
+                    },
+                })
+            }
+        })
+    })
+
+    // Order Status change for Completed
+    $(document).ready(function(){
+        $(document).on('click','.cancel',function(e){
+            e.preventDefault();
+            let order_id      = $(this).data('id');
+            if(confirm('Are you sure ? you want to change this order status ?')){
+                $.ajax({
+                    url: "{{ route('orders.status.cancel') }}",
                     method: 'get',
                     data: { order_id: order_id},
                     success:function(res){

@@ -24,7 +24,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pendingOrders as $order)
+                            @foreach ($allOrders as $order)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $order->created_at->format('m-d-Y') }}</td>
@@ -32,12 +32,28 @@
                                     <td>{{ $order->total_price }}</td>
                                     <td>
                                         <div class="dropdown">
-                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                              {{ $order->status == 0 ? 'Pending' : '' }}
+                                            @if($order->status == 0)
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" style="width: 85px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Pending
                                             </button>
+                                            @elseif ($order->status == 1)
+                                            <button class="btn btn-info btn-sm dropdown-toggle" style="width: 85px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                On The Way
+                                            </button>
+                                            @elseif($order->status == 2)
+                                            <button class="btn btn-success btn-sm dropdown-toggle" style="width: 85px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Completed
+                                            </button>
+                                            @else
+                                            <button class="btn btn-danger btn-sm dropdown-toggle" style="width: 85px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Cancle
+                                            </button>
+                                            @endif
                                             <ul class="dropdown-menu">
-                                              <li><a class="dropdown-item ontheway" data-id="{{ $order->id }}" href="">On The Way</a></li>
+                                              <li><a class="dropdown-item pending" data-id="{{ $order->id }}" href="#">Pending</a></li>
+                                              <li><a class="dropdown-item ontheway" data-id="{{ $order->id }}" href="#">On The Way</a></li>
                                               <li><a class="dropdown-item completed" data-id="{{ $order->id }}" href="#">Completed</a></li>
+                                              <li><a class="dropdown-item cancel" data-id="{{ $order->id }}" href="#">Cancel</a></li>
                                             </ul>
                                           </div>
                                     </td>

@@ -159,9 +159,11 @@
                                 <span>Orders</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('orders.all') }}">All</a></li>
                                 <li><a href="{{ route('orders.pending') }}">Pending</a></li>
                                 <li><a href="{{ route('orders.ontheway') }}">On the way</a></li>
                                 <li><a href="{{ route('orders.completed') }}">Completed</a></li>
+                                <li><a href="{{ route('orders.cancel') }}">Cancel</a></li>
                             </ul>
                         </li>
 

@@ -24,21 +24,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pendingOrders as $order)
+                            @foreach ($cancelOrders as $order)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $order->created_at->format('m-d-Y') }}</td>
                                     <td>{{ $order->tracking_number }}</td>
                                     <td>{{ $order->total_price }}</td>
                                     <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                              {{ $order->status == 0 ? 'Pending' : '' }}
+                                        <div class="">
+                                            <button class="btn btn-danger btn-sm" type="button" aria-expanded="false">
+                                              {{ $order->status == 3 ? 'Cancel' : '' }}
                                             </button>
-                                            <ul class="dropdown-menu">
-                                              <li><a class="dropdown-item ontheway" data-id="{{ $order->id }}" href="">On The Way</a></li>
-                                              <li><a class="dropdown-item completed" data-id="{{ $order->id }}" href="#">Completed</a></li>
-                                            </ul>
                                           </div>
                                     </td>
                                     <td><a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Details</a></td>
