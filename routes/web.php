@@ -69,18 +69,21 @@ Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('
 Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
 Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count');
 Route::middleware(['auth'])->group(function(){
-    // user route
+
+    // user routes
+
     Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
     Route::get('/user/edit/{id}', [UserProfileController::class, 'edit'])->name('user.edit');
     Route::post('/user/update/{id}', [UserProfileController::class, 'update'])->name('user.update');
     Route::get('/user/orders', [UserProfileController::class, 'orders'])->name('user.orders');
     Route::get('/user/orders/view/{id}', [UserProfileController::class, 'orderView'])->name('user.orders.view');
 
+    // checkout routes
 
-    // checkout route
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
-    // Order place route
+    // Order place routes
+
     Route::post('/place_order', [CheckoutController::class, 'placeOrder'])->name('placeOrder');
 });
 
@@ -188,6 +191,7 @@ Auth::routes();
     // Orders routes
 
     Route::get('/orders/all', [OrderController::class, 'allOrders'])->name('orders.all');
+    Route::get('/order/view/{id}', [OrderController::class, 'view'])->name('order.view');
     Route::get('/orders/pending', [OrderController::class, 'pending'])->name('orders.pending');
     Route::get('/orders/ontheway', [OrderController::class, 'ontheway'])->name('orders.ontheway');
     Route::get('/orders/completed', [OrderController::class, 'completed'])->name('orders.completed');

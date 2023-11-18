@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Pending Orders</h4>
+                <h4 class="mb-0 font-size-18">Cancel Orders</h4>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
                                             </button>
                                           </div>
                                     </td>
-                                    <td><a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Details</a></td>
+                                    <td><a href="{{ route('order.view', ['id'=>$order->id]) }}" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Details</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

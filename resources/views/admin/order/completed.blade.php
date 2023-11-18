@@ -37,7 +37,7 @@
                                             </button>
                                           </div>
                                     </td>
-                                    <td><a href="" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Details</a></td>
+                                    <td><a href="{{ route('order.view', ['id'=>$order->id]) }}" class="btn btn-outline-info btn-sm"><i class="fa fa-eye"></i> Details</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

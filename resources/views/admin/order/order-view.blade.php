@@ -1,12 +1,12 @@
-@extends('frontend.master')
+@extends('admin.master')
 
 @section('body')
 <div class="container">
-    <div class="row py-5">
-        <div class="col-md-10 mx-auto">
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-center" style="background-color: #1C1C1C">
-                    <h1 class="text-center profile-heading-btn text-center" style="background-color: #1C1C1C">Order Details</h1>
+                <div class="card-header text-center" style="background-color: #2A3042">
+                    <h3 class="text-center profile-heading-btn text-white text-center">Order Details</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">

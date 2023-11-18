@@ -13,6 +13,12 @@ class OrderController extends Controller
         return view('admin.order.allorders',compact('allOrders'));
     }
 
+    public function view($id)
+    {
+        $order = Order::find($id);
+        return view('admin.order.order-view',compact('order'));
+    }
+
 
     public function pending()
     {
