@@ -108,14 +108,18 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                             </div>
                             @if(auth()->user())
-                            <div class="header__top__right__auth">
-                                <a href="{{ route('user.profile') }}" class="login-btn text-white"><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
+                            <div class="header__top__right__auth dropdown">
+                                <a href="" class="login-btn text-white dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user"></i> {{ auth()->user()->name }}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                    <form method="POST" action="{{ route('logout') }}" style="display: inline">
+                                        @csrf
+                                        <input name="_method" type="hidden">
+                                        <button type="submit" class="dropdown-item" data-toggle="tooltip">Logout <i class="fa fa-arrow-left"></i></button>
+                                    </form>
+                                  </ul>
                             </div>
-                            <form method="POST" action="{{ route('logout') }}" style="display: inline">
-                                @csrf
-                                <input name="_method" type="hidden">
-                                <button type="submit" class="logout-btn text-white" data-toggle="tooltip"><i class="fa fa-arrow-left"></i> Logout</button>
-                            </form>
                             @else
                             <div class="header__top__right__auth">
                                 <a href="{{ route('login') }}" class="login-btn text-white"><i class="fa fa-user"></i> Login</a>
@@ -240,6 +244,8 @@
     <script src="{{ asset('/') }}frontend/assets/js/mixitup.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/owl.carousel.min.js"></script>
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     @include('frontend.ajax')
     <script>
