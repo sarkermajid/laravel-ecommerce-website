@@ -208,7 +208,12 @@ Auth::routes();
     // Promo Codes routes
 
     Route::controller(PromoCodeController::class)->group(function(){
-        
+        Route::get('/promo/create', 'index')->name('promo.add');
+        Route::post('/promo/store', 'store')->name('promo.store');
+        Route::get('/promo/manage', 'manage')->name('promo.manage');
+        Route::get('/promo/view/{id}', 'view')->name('promo.view');
+        Route::get('/promo/edit/{id}', 'edit')->name('promo.edit');
+        Route::post('/promo/delete', 'delete')->name('promo.delete');
     });
 
 

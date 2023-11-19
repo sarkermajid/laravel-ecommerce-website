@@ -24,6 +24,9 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     {{-- select2 --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    {{-- datepicker --}}
+    <link rel="stylesheet" href="{{ asset('admin/assets/datepicker/date-picker.css') }}"/>
+
     @stack('styles')
 
 </head>
@@ -222,8 +225,8 @@
                                 <span>Promo Code</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('product.add') }}">Create</a></li>
-                                <li><a href="{{ route('product.manage') }}">Manage</a></li>
+                                <li><a href="{{ route('promo.add') }}">Create</a></li>
+                                <li><a href="{{ route('promo.manage') }}">Manage</a></li>
                             </ul>
                         </li>
 
@@ -299,6 +302,10 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <!-- datepicker  -->
+        <script src="{{ asset('admin/assets/datepicker/datepicker.js') }}"></script>
+        <script src="{{ asset('admin/assets/datepicker/datepicker.en.js') }}"></script>
+        <script src="{{ asset('admin/assets/datepicker/datepicker.custom.js') }}"></script>
         {{-- ajax js --}}
         @include('admin.ajax')
         <script>

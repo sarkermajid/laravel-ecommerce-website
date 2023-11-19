@@ -19,7 +19,7 @@ return new class extends Migration
             $table->tinyInteger('type')->default('0')->comment('1 = percentage, 0 = fixed');
             $table->string('code');
             $table->integer('limit');
-            $table->integer('used');
+            $table->integer('used')->default('0');
             $table->double('discount');
             $table->string('expire_date');
             $table->tinyInteger('status')->default('0')->comment('0 = inactive, 1 = active');
