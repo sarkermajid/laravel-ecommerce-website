@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-center" style="background-color: #2A3042">
-                    <h3 class="text-center profile-heading-btn text-white text-uppercase text-center">Order Invoice</h3>
+                    <h3 class="text-center profile-heading-btn text-white text-uppercase text-center">Order Details</h3>
                     <a href="{{ route('order.invoice', ['id'=>$order->id]) }}" class="btn btn-outline-success">Generate Invoice</a>
                 </div>
                 <div class="card-body">
