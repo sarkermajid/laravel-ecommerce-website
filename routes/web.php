@@ -14,6 +14,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PromoCodeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WishlistController;
@@ -190,16 +191,26 @@ Auth::routes();
 
     // Orders routes
 
-    Route::get('/orders/all', [OrderController::class, 'allOrders'])->name('orders.all');
-    Route::get('/order/view/{id}', [OrderController::class, 'view'])->name('order.view');
-    Route::get('/orders/pending', [OrderController::class, 'pending'])->name('orders.pending');
-    Route::get('/orders/ontheway', [OrderController::class, 'ontheway'])->name('orders.ontheway');
-    Route::get('/orders/completed', [OrderController::class, 'completed'])->name('orders.completed');
-    Route::get('/orders/cancel', [OrderController::class, 'cancelOrders'])->name('orders.cancel');
-    Route::get('/orders/status/pending', [OrderController::class, 'pendingStatusChange'])->name('orders.status.pending');
-    Route::get('/orders/status/ontheway', [OrderController::class, 'onthewayStatusChange'])->name('orders.status.ontheway');
-    Route::get('/orders/status/completed', [OrderController::class, 'completedStatusChange'])->name('orders.status.completed');
-    Route::get('/orders/status/cancel', [OrderController::class, 'cancelStatusChange'])->name('orders.status.cancel');
-    Route::get('/invoice/{id}',[OrderController::class, 'generateInvoice'])->name('order.invoice');
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/orders/all','allOrders')->name('orders.all');
+        Route::get('/order/view/{id}','view')->name('order.view');
+        Route::get('/orders/pending', 'pending')->name('orders.pending');
+        Route::get('/orders/ontheway', 'ontheway')->name('orders.ontheway');
+        Route::get('/orders/completed', 'completed')->name('orders.completed');
+        Route::get('/orders/cancel', 'cancelOrders')->name('orders.cancel');
+        Route::get('/orders/status/pending','pendingStatusChange')->name('orders.status.pending');
+        Route::get('/orders/status/ontheway','onthewayStatusChange')->name('orders.status.ontheway');
+        Route::get('/orders/status/completed','completedStatusChange')->name('orders.status.completed');
+        Route::get('/orders/status/cancel', 'cancelStatusChange')->name('orders.status.cancel');
+        Route::get('/invoice/{id}','generateInvoice')->name('order.invoice');
+    });
+
+    // Promo Codes routes
+
+    Route::controller(PromoCodeController::class)->group(function(){
+        
+    });
+
+
  });
 

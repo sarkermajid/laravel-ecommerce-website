@@ -11,10 +11,12 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <div class="card card-body" style="background-color: #ff5252">
-            <h3 class="text-white">Total Orders</h3>
-            <h4 class="text-white">{{ $totalOrders }}</h4>
-        </div>
+        <a href="{{ route('orders.all') }}">
+            <div class="card card-body" style="background-color: #ff5252">
+                <h3 class="text-white">Total Orders</h3>
+                <h4 class="text-white">{{ $totalOrders }}</h4>
+            </div>
+        </a>
     </div>
     <div class="col-md-4">
         <div class="card card-body" style="background-color: #2c2c54">
