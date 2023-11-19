@@ -200,6 +200,6 @@ Auth::routes();
     Route::get('/orders/status/ontheway', [OrderController::class, 'onthewayStatusChange'])->name('orders.status.ontheway');
     Route::get('/orders/status/completed', [OrderController::class, 'completedStatusChange'])->name('orders.status.completed');
     Route::get('/orders/status/cancel', [OrderController::class, 'cancelStatusChange'])->name('orders.status.cancel');
-
+    Route::get('/invoice/{id}',[OrderController::class, 'generateInvoice'])->name('order.invoice');
  });
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -83,4 +85,12 @@ class OrderController extends Controller
             'status' => 'success',
         ]);
     }
+
+    public function generateInvoice($id)
+    {
+        $order = Order::find($id);
+        $pdf = Pdf::loadView('admin.order.order-invoice',compact('order'));
+        return $pdf->stream('order-invoice.pdf');
+    }
+
 }
