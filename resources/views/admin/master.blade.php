@@ -267,7 +267,7 @@
                                 <span>Pages</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('blog.category.manage') }}">About Us</a></li>
+                                <li><a href="{{ route('about-us') }}">About Us</a></li>
                                 <li><a href="{{ route('blog.add') }}">Contact Us</a></li>
                                 <li><a href="{{ route('blog.add') }}">Privacy Policy</a></li>
                                 <li><a href="{{ route('blog.add') }}">Terms and Condition</a></li>

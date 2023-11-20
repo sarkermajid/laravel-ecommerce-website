@@ -35,7 +35,7 @@
                                 <span>(18 reviews)</span>
                             </div>
                             <div class="product__details__price">{{ $product->price }} BDT</div>
-                            <p>{{ $product->description }}</p>
+                            <p>{{ $product->short_description }}</p>
                             @if($product->qty > 0 )
                             <input type="hidden" class="product_id" value="{{ $product->id }}">
                             <div class="product__details__quantity">
@@ -82,7 +82,7 @@
                                 <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                     <div class="product__details__tab__desc">
                                         <h6>Product Description</h6>
-                                        <p>{{ $product->description }}</p>
+                                        <p>{!! $product->description !!}</p>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tabs-3" role="tabpanel">

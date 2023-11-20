@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
@@ -69,6 +70,11 @@ Route::post('/cart-delete',[CartController::class, 'cartDelete'])->name('cart.de
 Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('cart.update.inc');
 Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
 Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count');
+
+// Pages routes
+Route::get('/about-us', [AboutUsController::class, 'view'])->name('aboutUs');
+
+
 
 Route::middleware(['auth'])->group(function(){
 
@@ -219,6 +225,9 @@ Auth::routes();
         Route::post('/promo/delete', 'delete')->name('promo.delete');
     });
 
+    // About us route
+    Route::get('/about-us/create',[AboutUsController::class, 'index'])->name('about-us');
+    Route::post('/about-us/update/{id?}',[AboutUsController::class, 'store'])->name('about-us.update');
 
  });
 
