@@ -191,7 +191,7 @@
                         <ul>
                             <li><a href="{{ route('aboutUs') }}">About Us</a></li>
                             <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
                             <li><a href="#">Terms and Conditions</a></li>
                         </ul>
                     </div>

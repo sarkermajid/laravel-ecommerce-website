@@ -15,6 +15,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\PromoCodeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
@@ -73,7 +74,7 @@ Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count
 
 // Pages routes
 Route::get('/about-us', [AboutUsController::class, 'view'])->name('aboutUs');
-
+Route::get('/privacy-policy',[PrivacyPolicyController::class, 'view'])->name('privacyPolicy');
 
 
 Route::middleware(['auth'])->group(function(){
@@ -228,6 +229,9 @@ Auth::routes();
     // About us route
     Route::get('/about-us/create',[AboutUsController::class, 'index'])->name('about-us');
     Route::post('/about-us/update/{id?}',[AboutUsController::class, 'store'])->name('about-us.update');
+    // privacy policy route
+    Route::get('/privacy-policy/create',[PrivacyPolicyController::class, 'index'])->name('privacy-policy');
+    Route::post('/privacy-policy/update/{id?}',[PrivacyPolicyController::class, 'store'])->name('privacy-policy.update');
 
  });
 

@@ -269,8 +269,9 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('about-us') }}">About Us</a></li>
                                 <li><a href="{{ route('blog.add') }}">Contact Us</a></li>
-                                <li><a href="{{ route('blog.add') }}">Privacy Policy</a></li>
+                                <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
                                 <li><a href="{{ route('blog.add') }}">Terms and Condition</a></li>
+                                <li><a href="{{ route('blog.add') }}">Delivery Information</a></li>
                             </ul>
                         </li>
 
