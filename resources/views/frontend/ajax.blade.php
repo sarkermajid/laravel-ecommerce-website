@@ -364,6 +364,11 @@
             }
         })}
 
+        // price range search ajax functionality
+        $('.ui-slider-handle').on('change',function(){
+            alert('hi')
+        })
+
     })
 
 

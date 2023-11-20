@@ -86,6 +86,7 @@ Route::middleware(['auth'])->group(function(){
     // Order place routes
 
     Route::post('/place_order', [CheckoutController::class, 'placeOrder'])->name('placeOrder');
+
 });
 
 Auth::routes();
