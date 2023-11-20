@@ -32,4 +32,10 @@ class PromoCodeController extends Controller
         $promoCodes = PromoCode::orderBy('id','desc')->get();
         return view('admin.promo.manage',compact('promoCodes'));
     }
+
+    public function view($id)
+    {
+        $promoCode = PromoCode::find($id);
+        return view('admin.promo.view', compact('promoCode'));
+    }
 }

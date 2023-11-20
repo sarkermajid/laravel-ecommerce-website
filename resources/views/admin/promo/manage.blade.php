@@ -22,7 +22,7 @@
                                 <th>Discount</th>
                                 <th>Limit</th>
                                 <th>Used</th>
-                                <th>Expiry Date</th>
+                                <th>Expire Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
