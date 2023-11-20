@@ -213,6 +213,7 @@ Auth::routes();
         Route::get('/promo/manage', 'manage')->name('promo.manage');
         Route::get('/promo/view/{id}', 'view')->name('promo.view');
         Route::get('/promo/edit/{id}', 'edit')->name('promo.edit');
+        Route::post('/promo/update/{id}', 'update')->name('promo.update');
         Route::post('/promo/delete', 'delete')->name('promo.delete');
     });
 

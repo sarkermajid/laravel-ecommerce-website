@@ -23,6 +23,7 @@
                                 <th>Limit</th>
                                 <th>Used</th>
                                 <th>Expire Date</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,6 +38,9 @@
                                     <td>{{ $promoCode->limit }}</td>
                                     <td>{{ $promoCode->used }}</td>
                                     <td>{{ $promoCode->expire_date }}</td>
+                                    <td><a href="" data-id="{{ $promoCode->id }}"
+                                        class="btn btn-sm promo-status {{ $promoCode->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $promoCode->status == 1 ? 'Active' : 'Inactive' }}</a>
+                                    </td>
                                     <td>
                                         <div>
                                             <a href="{{ route('promo.view', ['id' => $promoCode->id]) }}"

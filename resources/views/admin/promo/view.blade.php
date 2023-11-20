@@ -40,7 +40,7 @@
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Created At :</strong></td>
-                                <td class="text-style">{{ $promoCode->created_at->format('m-d-Y') }}</td>
+                                <td class="text-style">{{ $promoCode->created_at->format('m/d/Y') }}</td>
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Expire Date :</strong></td>
