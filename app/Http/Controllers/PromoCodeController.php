@@ -58,4 +58,27 @@ class PromoCodeController extends Controller
         $promoCode->update();
         return redirect()->route('promo.manage')->with('message','Promo code updated successfully');
     }
+
+    public function status(Request $request)
+    {
+        $promoCode = PromoCode::find($request->promo_id);
+        if($promoCode->status == 1 ){
+            $promoCode->status = 0;
+        }else{
+            $promoCode->status = 1;
+        }
+        $promoCode->save();
+        return response()->json([
+            'status' => 'success',
+        ]);
+    }
+
+    public function delete(Request $request)
+    {
+        $promoCode = PromoCode::find($request->promo_id);
+        $promoCode->delete();
+        return response()->json([
+            'status' => 'success',
+        ]);
+    }
 }

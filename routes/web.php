@@ -214,6 +214,7 @@ Auth::routes();
         Route::get('/promo/view/{id}', 'view')->name('promo.view');
         Route::get('/promo/edit/{id}', 'edit')->name('promo.edit');
         Route::post('/promo/update/{id}', 'update')->name('promo.update');
+        Route::get('/promo/status', 'status')->name('promo.status');
         Route::post('/promo/delete', 'delete')->name('promo.delete');
     });
 

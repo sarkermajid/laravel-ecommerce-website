@@ -73,6 +73,14 @@
             </div>
         </a>
     </div>
+    <div class="col-md-4">
+        <a href="{{ route('promo.manage') }}">
+            <div class="card card-body" style="background-color: #1e3799">
+                <h3 class="text-white">Total Promos</h3>
+                <h4 class="text-white">{{ $totalPromos }}</h4>
+            </div>
+        </a>
+    </div>
 </div>
 
 @push('scripts')

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\PromoCode;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class DashboardController extends Controller
         $totalMessages = Contact::count();
         $totalProducts = Product::count();
         $totalOrders = Order::count();
+        $totalPromos = PromoCode::count();
         return view('admin.home.index',compact(
             'totalCategories',
             'totalUsers',
@@ -30,6 +32,7 @@ class DashboardController extends Controller
             'totalMessages',
             'totalProducts',
             'totalOrders',
+            'totalPromos'
         ));
     }
 

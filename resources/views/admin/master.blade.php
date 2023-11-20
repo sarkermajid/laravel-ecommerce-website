@@ -257,10 +257,20 @@
                                 <span>Settings</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('blog.category.add') }}">Logo & Social Links</a></li>
+                                <li><a href="{{ route('blog.category.add') }}">General Settings</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-add-to-queue"></i>
+                                <span>Pages</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('blog.category.manage') }}">About Us</a></li>
                                 <li><a href="{{ route('blog.add') }}">Contact Us</a></li>
                                 <li><a href="{{ route('blog.add') }}">Privacy Policy</a></li>
+                                <li><a href="{{ route('blog.add') }}">Terms and Condition</a></li>
                             </ul>
                         </li>
 

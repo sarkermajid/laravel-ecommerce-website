@@ -683,5 +683,79 @@
         })
     })
 
+    // Promo status change
+    $(document).ready(function(){
+        $(document).on('click','.promo-status',function(e){
+            e.preventDefault();
+            let promo_id      = $(this).data('id');
+            $.ajax({
+                url: "{{ route('promo.status') }}",
+                method: 'GET',
+                data: { promo_id: promo_id},
+                success:function(res){
+                    $('.table').load(location.href+' .table');
+                    if(res.status == 'success'){
+                        Command: toastr["success"]("Promo status change successfully")
+                            toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            }
+                    }
+                },
+            })
+        })
+    })
+
+    //  Promo delete
+    $(document).ready(function(){
+        $(document).on('click','.promo-delete',function(e){
+            e.preventDefault();
+            let promo_id      = $(this).data('id');
+            if(confirm('Are you sure ? you want to delete this Promo ?')){
+                $.ajax({
+                    url: "{{ route('promo.delete') }}",
+                    method: 'post',
+                    data: { promo_id: promo_id},
+                    success:function(res){
+                        $('.table').load(location.href+' .table');
+                        if(res.status == 'success'){
+                            Command: toastr["success"]("Promo delete successfully")
+                                toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                                }
+                        }
+                    },
+                })
+            }
+        })
+    })
+
 
 </script>
