@@ -62,4 +62,10 @@ class ShopController extends Controller
         $relatedProducts = Product::where('category_id',$product->category_id)->get();
         return view('frontend.shop.single-product-view',compact('product','relatedProducts'));
     }
+
+    public function priceRangeSearch(Request $request)
+    {
+        $products = Product::whereBetween('price',[$request->left_value,$request->right_value])->get();
+        return view('frontend.shop.price-filter', compact('products'))->render();
+    }
 }

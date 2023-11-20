@@ -61,7 +61,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <h5 class="px-2">Total Price: <span class="float-right">{{ $order->total_price}}</span></h5>
+                            <h5 class="px-2">Total Price: <span class="float-right">{{ $order->total_price}} {{ $item->product->currency }}</span></h5>
                         </div>
                     </div>
                 </div>

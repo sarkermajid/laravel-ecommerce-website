@@ -1,3 +1,9 @@
+@push('styles')
+
+@endpush
+
+
+
 @extends('frontend.master')
 
 @section('title')
@@ -84,26 +90,28 @@
                                 <h2>Products</h2>
                             </div>
                         </div>
-                        <div class="row">
-                            @foreach($products as $product)
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'.$product->image) }}">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
-                                            @if($product->qty > 0)
-                                            <li><a href="#" data-id="{{ $product->id }}" class="directAddToCart"><i class="fa fa-shopping-cart "></i></a></li>
-                                            @endif
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h6><a href="#">{{ $product->name }}</a></h6>
-                                        <h5>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ $product->currency }} </h5>
+                        <div class="col-lg-12 col-md-7">
+                            <div class="row">
+                                @foreach($products as $product)
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'. $product->image) }}">
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
+                                                @if($product->qty > 0)
+                                                <li><a href="#" data-id="{{ $product->id }}" class="directAddToCart"><i class="fa fa-shopping-cart "></i></a></li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h6><a href="{{ route('product.single.view', ['id'=>$product->id]) }}">{{ $product->name }}</a></h6>
+                                            <h5>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ $product->currency }} </h5>
+                                        </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
                         <div class="product__pagination">
                             <a href="#">1</a>
@@ -117,3 +125,7 @@
         </section>
         <!-- Product Section End -->
 @endsection
+
+@push('scripts')
+
+@endpush

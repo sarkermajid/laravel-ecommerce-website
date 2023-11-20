@@ -69,6 +69,7 @@ Route::post('/cart-delete',[CartController::class, 'cartDelete'])->name('cart.de
 Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('cart.update.inc');
 Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
 Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count');
+
 Route::middleware(['auth'])->group(function(){
 
     // user routes
@@ -86,7 +87,6 @@ Route::middleware(['auth'])->group(function(){
     // Order place routes
 
     Route::post('/place_order', [CheckoutController::class, 'placeOrder'])->name('placeOrder');
-
 });
 
 Auth::routes();

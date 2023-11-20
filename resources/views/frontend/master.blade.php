@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/style.css" type="text/css">
     {{-- toster msg --}}
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    @stack('styles')
 </head>
 
 <body>
@@ -281,5 +282,6 @@
             toastr.warning("{{ session('warning') }}");
         @endif
     </script>
+    @stack('scripts')
 </body>
 </html>
