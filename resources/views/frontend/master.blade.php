@@ -190,7 +190,7 @@
                         <h6>Useful Links</h6>
                         <ul>
                             <li><a href="{{ route('aboutUs') }}">About Us</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="{{ route('deliveryInformation') }}">Delivery infomation</a></li>
                             <li><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
                             <li><a href="{{ route('termsAndCondition') }}">Terms and Conditions</a></li>
                         </ul>

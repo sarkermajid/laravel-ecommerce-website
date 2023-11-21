@@ -3543,3 +3543,7 @@ ol {
 		font-size: 24px;
 	}
 }
+
+body > footer > div > div:nth-child(2) > div > div > div.footer__copyright__text > p > a{
+    color: black;
+}

@@ -14,6 +14,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DeliveryInformationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\PromoCodeController;
@@ -77,6 +78,7 @@ Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count
 Route::get('/about-us', [AboutUsController::class, 'view'])->name('aboutUs');
 Route::get('/privacy-policy',[PrivacyPolicyController::class, 'view'])->name('privacyPolicy');
 Route::get('/terms-and-condition',[TermsAndConditionController::class, 'view'])->name('termsAndCondition');
+Route::get('/delivery-information',[DeliveryInformationController::class, 'view'])->name('deliveryInformation');
 
 
 Route::middleware(['auth'])->group(function(){
@@ -228,14 +230,17 @@ Auth::routes();
         Route::post('/promo/delete', 'delete')->name('promo.delete');
     });
 
-    // About us route
+    // About us routes
     Route::get('/about-us/create',[AboutUsController::class, 'index'])->name('about-us');
     Route::post('/about-us/update/{id?}',[AboutUsController::class, 'store'])->name('about-us.update');
-    // privacy policy route
+    // Privacy policy route
     Route::get('/privacy-policy/create',[PrivacyPolicyController::class, 'index'])->name('privacy-policy');
     Route::post('/privacy-policy/update/{id?}',[PrivacyPolicyController::class, 'store'])->name('privacy-policy.update');
-    // Terms and Conditions route
+    // Terms and Conditions routes
     Route::get('/terms-and-conditions/create',[TermsAndConditionController::class, 'index'])->name('terms-and-condition');
     Route::post('/terms-and-conditions/update/{id?}',[TermsAndConditionController::class, 'store'])->name('terms-and-condition.update');
+    // Delivery Information routes
+    Route::get('/delivery-information/create',[DeliveryInformationController::class, 'index'])->name('delivery-information');
+    Route::post('/delivery-information/update/{id?}',[DeliveryInformationController::class, 'store'])->name('delivery-information.update');
  });
 

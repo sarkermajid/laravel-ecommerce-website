@@ -270,7 +270,7 @@
                                 <li><a href="{{ route('about-us') }}">About Us</a></li>
                                 <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
                                 <li><a href="{{ route('terms-and-condition') }}">Terms and Condition</a></li>
-                                <li><a href="{{ route('terms-and-condition') }}">Delivery Information</a></li>
+                                <li><a href="{{ route('delivery-information') }}">Delivery Information</a></li>
                             </ul>
                         </li>
 
