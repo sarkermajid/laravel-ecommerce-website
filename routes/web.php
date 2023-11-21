@@ -17,6 +17,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\PromoCodeController;
+use App\Http\Controllers\TermsAndConditionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WishlistController;
@@ -75,6 +76,7 @@ Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count
 // Pages routes
 Route::get('/about-us', [AboutUsController::class, 'view'])->name('aboutUs');
 Route::get('/privacy-policy',[PrivacyPolicyController::class, 'view'])->name('privacyPolicy');
+Route::get('/terms-and-condition',[TermsAndConditionController::class, 'view'])->name('termsAndCondition');
 
 
 Route::middleware(['auth'])->group(function(){
@@ -232,6 +234,8 @@ Auth::routes();
     // privacy policy route
     Route::get('/privacy-policy/create',[PrivacyPolicyController::class, 'index'])->name('privacy-policy');
     Route::post('/privacy-policy/update/{id?}',[PrivacyPolicyController::class, 'store'])->name('privacy-policy.update');
-
+    // Terms and Conditions route
+    Route::get('/terms-and-conditions/create',[TermsAndConditionController::class, 'index'])->name('terms-and-condition');
+    Route::post('/terms-and-conditions/update/{id?}',[TermsAndConditionController::class, 'store'])->name('terms-and-condition.update');
  });
 
