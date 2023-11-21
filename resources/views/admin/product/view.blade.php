@@ -32,7 +32,7 @@
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Description :</strong></td>
-                                <td class="text-style">{{ $product->description }}</td>
+                                <td class="text-style">{!! $product->description !!}</td>
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Quantity :</strong></td>

@@ -19,7 +19,7 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->message = $request->message;
         $contact->save();
-        return redirect()->back();
+        return redirect()->back()->with('message','Message sent successfully');
     }
 
     public function contactMessage()
