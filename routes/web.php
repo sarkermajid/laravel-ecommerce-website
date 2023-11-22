@@ -74,6 +74,7 @@ Route::post('/cart-update-inc',[CartController::class, 'cartUpdateInc'])->name('
 Route::post('/cart-update-dec',[CartController::class, 'cartUpdateDec'])->name('cart.update.dec');
 Route::get('/cart/count', [CartController::class,'cartCount'])->name('cart.count');
 
+
 // Pages routes
 Route::get('/about-us', [AboutUsController::class, 'view'])->name('aboutUs');
 Route::get('/privacy-policy',[PrivacyPolicyController::class, 'view'])->name('privacyPolicy');
@@ -94,6 +95,9 @@ Route::middleware(['auth'])->group(function(){
     // checkout routes
 
     Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+
+    // Promo Code apply routes
+    Route::get('/apply-promo-code',[CheckoutController::class,'applyPromoCode'])->name('applyPromoCode');
 
     // Order place routes
 

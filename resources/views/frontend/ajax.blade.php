@@ -364,6 +364,98 @@
             }
         })}
 
+        // apply promo code ajax
+
+        // $('#applyPromoForm').submit(function(e){
+        //     e.preventDefault();
+        //     var form = $(this);
+
+        //     $.ajax({
+        //     url: "{{ route('applyPromoCode') }}",
+        //     type: "get",
+        //     data: form.serialize(),
+        //     success:function(res){
+        //         if(res.status == 'success'){
+        //                     Command: toastr["success"]("Promo Code Applied successfully")
+        //                         toastr.options = {
+        //                         "closeButton": true,
+        //                         "debug": false,
+        //                         "newestOnTop": false,
+        //                         "progressBar": false,
+        //                         "positionClass": "toast-top-right",
+        //                         "preventDuplicates": false,
+        //                         "onclick": null,
+        //                         "showDuration": "300",
+        //                         "hideDuration": "1000",
+        //                         "timeOut": "5000",
+        //                         "extendedTimeOut": "1000",
+        //                         "showEasing": "swing",
+        //                         "hideEasing": "linear",
+        //                         "showMethod": "fadeIn",
+        //                         "hideMethod": "fadeOut"
+        //                         }
+        //                 }else if(res.status == 'limit_error'){
+        //                     Command: toastr["error"]("Promo code limit is out of range")
+        //                         toastr.options = {
+        //                         "closeButton": true,
+        //                         "debug": false,
+        //                         "newestOnTop": false,
+        //                         "progressBar": false,
+        //                         "positionClass": "toast-top-right",
+        //                         "preventDuplicates": false,
+        //                         "onclick": null,
+        //                         "showDuration": "300",
+        //                         "hideDuration": "1000",
+        //                         "timeOut": "5000",
+        //                         "extendedTimeOut": "1000",
+        //                         "showEasing": "swing",
+        //                         "hideEasing": "linear",
+        //                         "showMethod": "fadeIn",
+        //                         "hideMethod": "fadeOut"
+        //                         }
+        //                 }else if(res.status == 'expired_error'){
+        //                     Command: toastr["error"]("Promo Expired")
+        //                         toastr.options = {
+        //                         "closeButton": true,
+        //                         "debug": false,
+        //                         "newestOnTop": false,
+        //                         "progressBar": false,
+        //                         "positionClass": "toast-top-right",
+        //                         "preventDuplicates": false,
+        //                         "onclick": null,
+        //                         "showDuration": "300",
+        //                         "hideDuration": "1000",
+        //                         "timeOut": "5000",
+        //                         "extendedTimeOut": "1000",
+        //                         "showEasing": "swing",
+        //                         "hideEasing": "linear",
+        //                         "showMethod": "fadeIn",
+        //                         "hideMethod": "fadeOut"
+        //                         }
+        //                 }else if(res.status == 'not_found'){
+        //                     Command: toastr["error"]("Promo Code not found")
+        //                         toastr.options = {
+        //                         "closeButton": true,
+        //                         "debug": false,
+        //                         "newestOnTop": false,
+        //                         "progressBar": false,
+        //                         "positionClass": "toast-top-right",
+        //                         "preventDuplicates": false,
+        //                         "onclick": null,
+        //                         "showDuration": "300",
+        //                         "hideDuration": "1000",
+        //                         "timeOut": "5000",
+        //                         "extendedTimeOut": "1000",
+        //                         "showEasing": "swing",
+        //                         "hideEasing": "linear",
+        //                         "showMethod": "fadeIn",
+        //                         "hideMethod": "fadeOut"
+        //                         }
+        //                 }
+        //     }
+        //     });
+        // })
+
 
     })
 

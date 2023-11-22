@@ -6,7 +6,9 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use App\Models\PromoCode;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,6 +17,7 @@ class CheckoutController extends Controller
     public function checkout()
     {
         $carts = Cart::where('user_id',Auth::id())->get();
+        $cartTotalBalance = 0;
         foreach($carts as $cart)
         {
             if(!Product::where('id',$cart->product_id)->where('qty','>=',$cart->product_qty)->exists())
@@ -23,8 +26,8 @@ class CheckoutController extends Controller
                 $removeCart->delete();
             }
         }
-        $updateCarts = Cart::where('user_id',Auth::id())->get();
-        return view('frontend.checkout.index',compact('updateCarts'));
+        $carts = Cart::where('user_id',Auth::id())->get();
+        return view('frontend.checkout.index',compact('carts','cartTotalBalance'));
     }
 
     public function placeOrder(Request $request)
@@ -75,5 +78,55 @@ class CheckoutController extends Controller
             return redirect()->back()->with('error','Your cart is empty');
         }
 
+    }
+
+    public function applyPromoCode(Request $request)
+    {
+        $carts = Cart::where('user_id',Auth::id())->get();
+        if($carts->count() > 0){
+            foreach($carts as $cart)
+            {
+                $cartTotalBalance = 0;
+                $cartTotalBalance +=  $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty;
+            }
+            $promoCode = PromoCode::where('code',$request->promo_code)->first();
+            if($promoCode){
+                if($promoCode->user_id == auth()->user()->id){
+                    return redirect()->back()->with('error','You are already used promo code');
+                }else{
+                    $currentDate = Carbon::now();
+                    $expiryDate = Carbon::createFromFormat('m/d/Y', $promoCode->expire_date);
+                    if ($currentDate < $expiryDate) {
+                        if ($promoCode->limit > 0) {
+                            if($promoCode->type == 1){
+                                $cartTotalBalance -= ($promoCode->discount / 100) * $cartTotalBalance;
+                            }else{
+                                $cartTotalBalance -= $promoCode->discount;
+                            }
+                            $promoCode->used = $promoCode->used + 1;
+                            $promoCode->limit = $promoCode->limit - 1;
+                            $promoCode->user_id = auth()->user()->id;
+                            $promoCode->save();
+                            return view('frontend.checkout.index',compact('cartTotalBalance','carts'))->with('message','Promo Code applied successfully');
+                        } else {
+                            $promoCode->status = 0;
+                            $promoCode->save();
+                            return redirect()->back()->with('error','Promo code limit is out of range');
+                        }
+                    } else {
+                        $promoCode->status = 0;
+                        $promoCode->save();
+                        return response()->json([
+                            'status' => 'expired_error',
+                        ]);
+                    }
+                }
+
+            }else{
+                return redirect()->back()->with('error','Promo code not found');
+            }
+        }else{
+            return redirect()->route('home');
+        }
     }
 }

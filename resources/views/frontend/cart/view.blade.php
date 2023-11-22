@@ -30,7 +30,7 @@
                                             <h5>{{ $cart->product->name }}</h5>
                                         </td>
                                         <td class="shoping__cart__price">
-                                           {{ $cart->product->price }} {{ $cart->product->currency }}
+                                           {{ $cart->product->discount_amount ? $cart->product->discount_amount  : $cart->product->price }} {{ $cart->product->currency }}
                                         </td>
                                         @if($cart->product->qty >= $cart->product_qty)
                                         <td class="shoping__cart__quantity">
@@ -66,22 +66,13 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="shoping__continue">
-                            <div class="shoping__discount">
-                                <h5>Apply Promo Code</h5>
-                                <form action="#">
-                                    <input type="text" placeholder="Enter your Promo Code">
-                                    <button type="submit" class="site-btn">APPLY PROMO</button>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="shoping__checkout">
                             <h5>Cart Total</h5>
                             <ul>
                                 <li>Total <span>{{ $total }} {{ $cart->product->currency ?? ''}}</span></li>
-                                </ul>
+                            </ul>
                             <a href="{{ route('checkout') }}" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
@@ -90,3 +81,5 @@
         </section>
         <!-- Shoping Cart Section End -->
 @endsection
+
+

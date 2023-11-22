@@ -10,9 +10,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h6><span class="icon_tag_alt"></span> Have a Promo Code? <a href="{{ route('cart') }}">Click here</a> to enter your code
+                        <h6><span class="icon_tag_alt"></span>
+                            <span for="promo_question">Do you have a Promo Code?</span>
+                            <input class="promo_question" type="checkbox" name="promo_question" value="1" onchange="valueChanged()"/>
+                            <span class="item-text">Yes</span>
                         </h6>
                     </div>
+                    <div class="col-lg-6 mx-auto">
+                        <div class="shoping__discount" style="display: none">
+                            <h5>Apply Promo Code</h5>
+                            <form id="applyPromoForm" action="{{ route('applyPromoCode') }}" method="get">
+                                @csrf
+                                <input type="text" class="promo-code" name="promo_code" placeholder="Enter your Promo Code">
+                                <button type="submit" class="site-btn apply-promo">APPLY PROMO</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                 </div>
                 <div class="checkout__form">
                     <h4>Billing Details</h4>
@@ -55,14 +70,18 @@
                                     <div class="checkout__order__products">Products  <span>Total</span></div>
                                     <ul>
                                         @php $total = 0; @endphp
-                                        @foreach ($updateCarts as $cart)
+                                        @foreach ($carts as $cart)
                                         <li>{{ Str::substr($cart->product->name, 0, 20) }}<span>{{ $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty }} {{ $cart->product->currency }}</span></li>
                                         @php $total += $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty @endphp
                                         @endforeach
                                     </ul>
                                     <input type="hidden" name="total_price" value="{{ $total }}">
                                     <hr>
+                                    @if($cartTotalBalance > 0)
+                                    <div class="checkout__order__total">Total <span>{{ $cartTotalBalance }} {{ $cart->product->currency ?? '' }}</span></div>
+                                    @else
                                     <div class="checkout__order__total">Total <span>{{ $total }} {{ $cart->product->currency ?? '' }}</span></div>
+                                    @endif
                                     <div class="checkout__input__checkbox">
                                         <label for="payment">
                                             Cash On Delivery
@@ -94,3 +113,12 @@
         </section>
         <!-- Checkout Section End -->
 @endsection
+<script>
+    // do you have promo js
+function valueChanged() {
+  if($('.promo_question').is(":checked"))
+    $(".shoping__discount").show();
+  else
+    $(".shoping__discount").hide();
+};
+</script>
