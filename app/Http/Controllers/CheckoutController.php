@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ApplyPromoCode;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -90,10 +91,9 @@ class CheckoutController extends Controller
                 $cartTotalBalance +=  $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty;
             }
             $promoCode = PromoCode::where('code',$request->promo_code)->first();
+            $applyPromoCode = ApplyPromoCode::where('user_id',auth()->user()->id)->first();
             if($promoCode){
-                if($promoCode->user_id == auth()->user()->id){
-                    return redirect()->back()->with('error','You are already used promo code');
-                }else{
+                if(!$applyPromoCode){
                     $currentDate = Carbon::now();
                     $expiryDate = Carbon::createFromFormat('m/d/Y', $promoCode->expire_date);
                     if ($currentDate < $expiryDate) {
@@ -104,9 +104,14 @@ class CheckoutController extends Controller
                                 $cartTotalBalance -= $promoCode->discount;
                             }
                             $promoCode->used = $promoCode->used + 1;
-                            $promoCode->limit = $promoCode->limit - 1;
-                            $promoCode->user_id = auth()->user()->id;
+                            if($promoCode->limit != 0){
+                                $promoCode->limit = $promoCode->limit - 1;
+                            }
                             $promoCode->save();
+                            $applyPromoCode = new ApplyPromoCode();
+                            $applyPromoCode->promo_code_id = $promoCode->id;
+                            $applyPromoCode->user_id = auth()->user()->id;
+                            $applyPromoCode->save();
                             return view('frontend.checkout.index',compact('cartTotalBalance','carts'))->with('message','Promo Code applied successfully');
                         } else {
                             $promoCode->status = 0;
@@ -116,12 +121,11 @@ class CheckoutController extends Controller
                     } else {
                         $promoCode->status = 0;
                         $promoCode->save();
-                        return response()->json([
-                            'status' => 'expired_error',
-                        ]);
+                        return redirect()->back()->with('error','Promo code expired');
                     }
+                }else{
+                    return redirect()->back()->with('error','You are already used promo code');
                 }
-
             }else{
                 return redirect()->back()->with('error','Promo code not found');
             }

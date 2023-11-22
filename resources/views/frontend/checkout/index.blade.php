@@ -75,14 +75,14 @@
                                         @php $total += $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty @endphp
                                         @endforeach
                                     </ul>
-                                    <input type="hidden" name="total_price" value="{{ $total }}">
+                                    <input type="hidden" name="total_price" value="{{ $cartTotalBalance =! 0 ? $cartTotalBalance : $total }}">
                                     <hr>
                                     @if($cartTotalBalance > 0)
                                     <div class="checkout__order__total">Total <span>{{ $cartTotalBalance }} {{ $cart->product->currency ?? '' }}</span></div>
                                     @else
                                     <div class="checkout__order__total">Total <span>{{ $total }} {{ $cart->product->currency ?? '' }}</span></div>
                                     @endif
-                                    <div class="checkout__input__checkbox">
+                                    {{-- <div class="checkout__input__checkbox">
                                         <label for="payment">
                                             Cash On Delivery
                                             <input type="checkbox" id="payment">
@@ -102,7 +102,7 @@
                                             <input type="checkbox" id="paypal">
                                             <span class="checkmark"></span>
                                         </label>
-                                    </div>
+                                    </div> --}}
                                     <button type="submit" class="site-btn">PLACE ORDER</button>
                                 </div>
                             </div>

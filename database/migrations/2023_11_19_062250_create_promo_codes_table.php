@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('promo_codes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->nullable();
             $table->string('title');
             $table->tinyInteger('type')->default('0')->comment('1 = percentage, 0 = fixed');
             $table->string('code');
