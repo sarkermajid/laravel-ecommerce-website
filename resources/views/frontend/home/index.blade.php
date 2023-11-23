@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="{{ asset('admin/banner-image/'. $banner->image) }}">
+                    <div class="hero__item set-bg" data-setbg="{{ asset('admin/banner-image/'.$banner->image)}}">
                         <div class="hero__text">
                             <h2>{{ $banner->title ?? ''}}</h2>
                             <p>{{ $banner->short_description ?? ''}}</p>
@@ -85,7 +85,7 @@
                 @foreach($products as $product)
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'.$product->image) }}">
+                        <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'.$product->image) ?? ''}}">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
