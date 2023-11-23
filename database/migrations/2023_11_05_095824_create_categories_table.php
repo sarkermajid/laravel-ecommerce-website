@@ -21,9 +21,6 @@ return new class extends Migration
             $table->tinyInteger('status')->default('0');
             $table->tinyInteger('popular')->default('0');
             $table->string('image');
-            $table->string('meta_title')->nullable();
-            $table->string('meta_description')->nullable();
-            $table->string('meta_keywords')->nullable();
             $table->timestamps();
         });
     }

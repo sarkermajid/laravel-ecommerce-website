@@ -257,7 +257,7 @@
                                 <span>Settings</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('blog.category.add') }}">General Settings</a></li>
+                                <li><a href="{{ route('generalSettings') }}">General Settings</a></li>
                             </ul>
                         </li>
 

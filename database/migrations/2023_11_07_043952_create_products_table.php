@@ -29,9 +29,6 @@ return new class extends Migration
             $table->double('discount_amount')->nullable();
             $table->tinyInteger('trending')->default('0');
             $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');
-            $table->mediumText('meta_title')->nullable();
-            $table->mediumText('meta_description')->nullable();
-            $table->mediumText('meta_keyword')->nullable();
             $table->timestamps();
         });
     }

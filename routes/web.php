@@ -15,6 +15,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DeliveryInformationController;
+use App\Http\Controllers\GeneralSettingsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\PromoCodeController;
@@ -233,6 +234,10 @@ Auth::routes();
         Route::get('/promo/status', 'status')->name('promo.status');
         Route::post('/promo/delete', 'delete')->name('promo.delete');
     });
+
+    // GeneralSettings routes
+    Route::get('/generalSettings',[GeneralSettingsController::class, 'generalSettings'])->name('generalSettings');
+    Route::post('/generalSettings/update',[GeneralSettingsController::class, 'generalSettingsUpdate'])->name('generalSettings.update');
 
     // About us routes
     Route::get('/about-us/create',[AboutUsController::class, 'index'])->name('about-us');
