@@ -34,7 +34,7 @@
                                 <i class="fa fa-star-half-o"></i>
                                 <span>(18 reviews)</span>
                             </div>
-                            <div class="product__details__price">{{ $product->price }} BDT</div>
+                            <div class="product__details__price">{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ generalSettings('currency') }}</div>
                             <p>{{ $product->short_description }}</p>
                             @if($product->qty > 0 )
                             <input type="hidden" class="product_id" value="{{ $product->id }}">

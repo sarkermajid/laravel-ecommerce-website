@@ -32,7 +32,7 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->qty }}</td>
                                     <td>{{ $product->price }}</td>
-                                    <td>{{ $product->discount_amount }}</td>
+                                    <td>{{ $product->discount_amount ?? 'No Discount' }}</td>
                                     <td><img src="{{ asset('admin/product-image/'.$product->image) }}" height="50" width="70"
                                             alt=""></td>
                                     <td><a href="" data-id="{{ $product->id }}" class="btn btn-sm product-status {{ $product->status == 1 ? 'btn-success' : 'btn-danger' }}">{{ $product->status == 1 ? 'Active' : 'Inactive' }}</a>

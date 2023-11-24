@@ -153,7 +153,7 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6><a href="#">{{ $product->name }}</a></h6>
-                                        <h5>{{ $product->currency }} {{ $product->price }}</h5>
+                                        <h5>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ generalSettings('currency') }}</h5>
                                     </div>
                                 </div>
                             </div>

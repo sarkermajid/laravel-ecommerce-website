@@ -96,7 +96,7 @@
                         </div>
                         <div class="product__item__text">
                             <h6><a href="#">{{ $product->name }}</a></h6>
-                            <h5>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ $product->currency }} </h5>
+                            <h5>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ generalSettings('currency') }} </h5>
                         </div>
                     </div>
                 </div>
@@ -117,13 +117,13 @@
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 @foreach ($latestProductsDesc as $latestProduct )
-                                <a href="#" class="latest-product__item">
+                                <a href="{{ route('product.single.view', ['id'=>$latestProduct->id]) }}" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="{{ asset('admin/product-image/'.$latestProduct->image) }}" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>{{ $latestProduct->name }}</h6>
-                                        <span>{{ $latestProduct->price }} {{ $latestProduct->currency }}</span>
+                                        <span>{{ $latestProduct->discount_amount ? $latestProduct->discount_amount : $latestProduct->price }} {{ generalSettings('currency') }}</span>
                                     </div>
                                 </a>
                                 @endforeach

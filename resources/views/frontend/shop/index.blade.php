@@ -45,7 +45,7 @@
                                                 </div>
                                                 <div class="latest-product__item__text">
                                                     <h6>{{ $product->name }}</h6>
-                                                    <span>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ $product->currency }} </span>
+                                                    <span>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ generalSettings('currency') }} </span>
                                                 </div>
                                             </a>
                                             @endforeach
