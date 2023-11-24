@@ -81,6 +81,10 @@
                             <label for="header_message">Frontend Header Message</label>
                             <input type="text" value="{{ old('header_message') ?? generalSettings('header_message') }}" name="header_message" class="form-control" id="header_message">
                         </div>
+                        <div class="form-group">
+                            <label for="frontend_site_link">Frontend Site Link</label>
+                            <input type="text" value="{{ old('frontend_site_link') ?? generalSettings('frontend_site_link') }}" name="frontend_site_link" class="form-control" id="frontend_site_link">
+                        </div>
 
                         <div class="row">
                             <div class="col-md-4">

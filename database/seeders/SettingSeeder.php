@@ -28,5 +28,6 @@ class SettingSeeder extends Seeder
         GeneralSettings::create(['key' => 'twitter_link', 'value' => '']);
         GeneralSettings::create(['key' => 'linkedin_link', 'value' => '']);
         GeneralSettings::create(['key' => 'open_time', 'value' => '']);
+        GeneralSettings::create(['key' => 'frontend_site_link', 'value' => '']);
     }
 }

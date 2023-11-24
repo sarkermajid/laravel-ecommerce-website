@@ -32,7 +32,7 @@ class HomeController extends Controller
         $latestCategories = Category::where('status',1)->orderBy('id','desc')->limit(8)->get();
         $categories = Category::where('status',1)->orderBy('id','desc')->get();
         $banner = Banner::first();
-        $products = Product::where('status',1)->get();
+        $products = Product::where('status',1)->limit(16)->get();
         $latestProductsDesc = Product::where('status',1)->orderBy('id','desc')->limit(3)->get();
         $blogs = Blog::where('status',1)->orderBy('id','desc')->limit(3)->get();
         $trendingProducts = Product::orderBy('trending','desc')->limit(3)->get();

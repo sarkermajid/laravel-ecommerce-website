@@ -7,7 +7,7 @@
 @section('body')
 <div class="container">
     <div class="row py-5">
-        <p>{!! $termsAndCondition->terms_and_condition !!}</p>
+        <p>{!! $termsAndCondition->terms_and_condition ?? '' !!}</p>
     </div>
 </div>
 @endsection
