@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Description :</strong></td>
-                                <td class="text-style">{{ $blog->description }}</td>
+                                <td class="text-style">{!! $blog->description !!}</td>
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Image :</strong></td>

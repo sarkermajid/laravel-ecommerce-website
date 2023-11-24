@@ -102,7 +102,7 @@ class BlogController extends Controller
         $blog->slug = Str::slug($blog->title).'-'.rand(1000,5000);
         $blog->user_id = auth()->user()->id;
         $blog->blog_category_id = $request->blog_category_id;
-        $blog->description = strip_tags(html_entity_decode($request->description));
+        $blog->description = $request->description;
         $blog->status = $request->status;
         // Image upload
         $image = $request->file('image');
@@ -153,7 +153,7 @@ class BlogController extends Controller
         $blog->slug = Str::slug($blog->title).'-'.rand(1000,5000);
         $blog->user_id = auth()->user()->id;
         $blog->blog_category_id = $request->blog_category_id;
-        $blog->description = strip_tags(html_entity_decode($request->description));
+        $blog->description = $request->description;
         $blog->status = $request->status;
         // Image upload
         $image = $request->file('image');

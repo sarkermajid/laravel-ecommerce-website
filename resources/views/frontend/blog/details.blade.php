@@ -42,7 +42,7 @@
                 <div class="col-lg-8 col-md-7 order-md-1 order-1">
                     <div class="blog__details__text">
                         <img src="{{ asset('admin/blog-image/'.$blog->image) }}" alt="">
-                        <p>{{ $blog->description }}</p>
+                        <p>{!! $blog->description !!}</p>
                     </div>
                     <div class="blog__details__content">
                         <div class="row">
@@ -57,18 +57,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 pt-4">
                                 <div class="blog__details__widget">
                                     <ul>
                                         <li><span>Categories:</span> {{ $blog->blogCategory->name }}</li>
                                     </ul>
-                                    <div class="blog__details__social">
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                                        <a href="#"><i class="fa fa-envelope"></i></a>
-                                    </div>
                                 </div>
                             </div>
                         </div>

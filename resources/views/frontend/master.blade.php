@@ -176,7 +176,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset('admin/site-logo/'. generalSettings('footer_logo')) }}" alt=""></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('admin/site-logo/'. generalSettings('footer_logo')) }}" height="40" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: {{ generalSettings('shop_address') }}</li>

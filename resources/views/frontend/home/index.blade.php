@@ -198,7 +198,6 @@
                                 <li><i class="fa fa-user"></i> {{ $blog->user->name }}</li>
                             </ul>
                             <h5><a href="{{ route('blog.single.view', ['id'=>$blog->id]) }}">{{ $blog->title }}</a></h5>
-                            <p>{{ Str::substr($blog->description, 0, 100) }}</p>
                         </div>
                     </div>
                 </div>

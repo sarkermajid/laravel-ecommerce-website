@@ -30,7 +30,7 @@
                                             <h5>{{ $cart->product->name }}</h5>
                                         </td>
                                         <td class="shoping__cart__price">
-                                           {{ $cart->product->discount_amount ? $cart->product->discount_amount  : $cart->product->price }} {{ $cart->product->currency }}
+                                           {{ $cart->product->discount_amount ? $cart->product->discount_amount  : $cart->product->price }} {{ generalSettings('currency') }}
                                         </td>
                                         @if($cart->product->qty >= $cart->product_qty)
                                         <td class="shoping__cart__quantity">
@@ -46,7 +46,7 @@
                                             <td><span class="text-danger">Out Of Stock</span></td>
                                         @endif
                                         <td class="shoping__cart__total">
-                                            {{ $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty }} {{ $cart->product->currency }}
+                                            {{ $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty }} {{ generalSettings('currency') }}
                                         </td>
                                         <td class="shoping__cart__item__close">
                                             <span class="icon_close remove_cart" data-id="{{ $cart->id }}"></span>
@@ -71,7 +71,7 @@
                         <div class="shoping__checkout">
                             <h5>Cart Total</h5>
                             <ul>
-                                <li>Total <span>{{ $total }} {{ $cart->product->currency ?? ''}}</span></li>
+                                <li>Total <span>{{ $total }} {{ generalSettings('currency') }}</span></li>
                             </ul>
                             <a href="{{ route('checkout') }}" class="primary-btn">PROCEED TO CHECKOUT</a>
                         </div>

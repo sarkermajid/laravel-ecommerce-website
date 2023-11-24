@@ -71,16 +71,16 @@
                                     <ul>
                                         @php $total = 0; @endphp
                                         @foreach ($carts as $cart)
-                                        <li>{{ Str::substr($cart->product->name, 0, 20) }}<span>{{ $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty }} {{ $cart->product->currency }}</span></li>
+                                        <li>{{ Str::substr($cart->product->name, 0, 20) }}<span>{{ $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty }} {{ generalSettings('currency') }}</span></li>
                                         @php $total += $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty @endphp
                                         @endforeach
                                     </ul>
                                     <input type="hidden" name="total_price" value="{{ $cartTotalBalance =! 0 ? $cartTotalBalance : $total }}">
                                     <hr>
                                     @if($cartTotalBalance > 0)
-                                    <div class="checkout__order__total">Total <span>{{ $cartTotalBalance }} {{ $cart->product->currency ?? '' }}</span></div>
+                                    <div class="checkout__order__total">Total <span>{{ $cartTotalBalance }} {{ generalSettings('currency') }}</span></div>
                                     @else
-                                    <div class="checkout__order__total">Total <span>{{ $total }} {{ $cart->product->currency ?? '' }}</span></div>
+                                    <div class="checkout__order__total">Total <span>{{ $total }} {{ generalSettings('currency') }}</span></div>
                                     @endif
                                     {{-- <div class="checkout__input__checkbox">
                                         <label for="payment">

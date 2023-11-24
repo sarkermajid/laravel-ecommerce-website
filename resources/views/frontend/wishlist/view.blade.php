@@ -27,7 +27,7 @@
                                         <h5>{{ $wishlist->product->name }}</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        {{ $wishlist->product->price }} {{ $wishlist->product->currency }}
+                                        {{ $wishlist->product->discount_amount ? $wishlist->product->discount_amount : $wishlist->product->price }} {{ generalSettings('currency') }}
                                     </td>
                                     <td class="shoping__cart__total">
                                         <a href="#" data-id="{{ $wishlist->product->id }}" class="cart-btn directAddToCart"><span class=""></span>
