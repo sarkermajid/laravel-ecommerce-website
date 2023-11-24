@@ -25,7 +25,7 @@ return new class extends Migration
             $table->bigInteger('qty');
             $table->tinyInteger('discount_type')->nullable()->comment('1 = percentage, 0 = fixed amount');
             $table->double('price');
-            $table->string('currency')->nullable();
+            $table->string('weight')->nullable();
             $table->double('discount_amount')->nullable();
             $table->tinyInteger('trending')->default('0');
             $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');

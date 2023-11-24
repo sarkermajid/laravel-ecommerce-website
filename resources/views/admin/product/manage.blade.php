@@ -17,8 +17,6 @@
                             <tr>
                                 <th>SL</th>
                                 <th>Name</th>
-                                <th>Category</th>
-                                <th>Brand</th>
                                 <th>Stock</th>
                                 <th>Price</th>
                                 <th>Discount Price</th>
@@ -32,8 +30,6 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td>{{ $product->category->name }}</td>
-                                    <td>{{ $product->brand->name }}</td>
                                     <td>{{ $product->qty }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>{{ $product->discount_amount }}</td>

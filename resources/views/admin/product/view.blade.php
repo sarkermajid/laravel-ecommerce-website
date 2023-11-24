@@ -43,16 +43,8 @@
                                 <td class="text-style">{{ $product->price }}</td>
                             </tr>
                             <tr>
-                                <td class="payment-title"><strong>Currency :</strong></td>
-                                <td class="text-style">{{ $product->currency ?? '' }}</td>
-                            </tr>
-                            <tr>
                                 <td class="payment-title"><strong>Weight :</strong></td>
                                 <td class="text-style">{{ $product->weight ?? ''}}</td>
-                            </tr>
-                            <tr>
-                                <td class="payment-title"><strong>Discount Type :</strong></td>
-                                <td class="text-style">{{ $product->discount_type ?? '' }}</td>
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Discount Amount:</strong></td>
@@ -65,18 +57,6 @@
                             <tr>
                                 <td class="payment-title"><strong>Status :</strong></td>
                                 <td class="text-style">{{ $product->status == 1 ? 'Active' : 'Inactive'  }}</td>
-                            </tr>
-                            <tr>
-                                <td class="payment-title"><strong>Meta Title :</strong></td>
-                                <td class="text-style">{{ $product->meta_title }}</td>
-                            </tr>
-                            <tr>
-                                <td class="payment-title"><strong>Meta Description :</strong></td>
-                                <td class="text-style">{{ $product->meta_description }}</td>
-                            </tr>
-                            <tr>
-                                <td class="payment-title"><strong>Meta Keywords :</strong></td>
-                                <td class="text-style">{{ $product->meta_keywords }}</td>
                             </tr>
                             <tr>
                                 <td class="payment-title"><strong>Created At :</strong></td>

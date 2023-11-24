@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="qty" class="form-label">Product Quantity</label>
                                     @error('qty')
@@ -139,7 +139,7 @@
                                         aria-describedby="emailHelp" placeholder="Quantity" value="{{ old('qty') }}">
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="price" class="form-label" >Price</label>
                                     @error('price')
@@ -150,19 +150,6 @@
                                     <input type="number" step="any" name="price"
                                         class="form-control @error('price') is-invalid @enderror" id="price"
                                         aria-describedby="emailHelp" placeholder="Price" value="{{ old('price') }}">
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="currency" class="form-label" >Currency</label>
-                                    @error('currency')
-                                    <h6 class="modal-header justify-content-start"
-                                    style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
-                                    {{ $message }}</h6>
-                                    @enderror
-                                    <input type="text" step="any" name="currency"
-                                        class="form-control @error('currency') is-invalid @enderror" id="currency"
-                                        aria-describedby="emailHelp" placeholder="Currency" value="{{ old('currency') }}">
                                 </div>
                             </div>
                         </div>

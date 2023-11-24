@@ -30,7 +30,6 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->qty = $request->qty;
         $product->price = $request->price;
-        $product->currency = $request->currency;
         $product->weight = $request->weight;
         $product->discount_amount = $request->discount_amount;
         $product->status = $request->status;
@@ -74,7 +73,6 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->qty = $request->qty;
         $product->price = $request->price;
-        $product->currency = $request->currency;
         $product->weight = $request->weight;
         $product->discount_amount = $request->discount_amount;
         $product->status = $request->status;
