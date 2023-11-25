@@ -38,7 +38,7 @@
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone" style="margin-top: 15px"></i>
+                                <i class="fa fa-phone" style="margin-top:15px"></i>
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>{{ generalSettings('shop_phone') }}</h5>
@@ -93,10 +93,10 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'.$product->image) ?? ''}}">
                             <ul class="product__item__pic__hover">
-                                <li><a href="#" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
+                                <li><a href="#" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart" style="margin-top:10px"></i></a></li>
+                                <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye" style="margin-top:10px"></i></a></li>
                                 @if($product->qty > 0)
-                                <li><a href="#" data-id="{{ $product->id }}" class="directAddToCart"><i class="fa fa-shopping-cart "></i></a></li>
+                                <li><a href="#" data-id="{{ $product->id }}" class="directAddToCart"><i class="fa fa-shopping-cart" style="margin-top:10px"></i></a></li>
                                 @endif
                             </ul>
                         </div>

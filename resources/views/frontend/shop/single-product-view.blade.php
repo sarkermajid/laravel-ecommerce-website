@@ -26,14 +26,14 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="product__details__text">
                             <h3>{{ $product->name }}</h3>
-                            <div class="product__details__rating">
+                            {{-- <div class="product__details__rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-half-o"></i>
                                 <span>(18 reviews)</span>
-                            </div>
+                            </div> --}}
                             <div class="product__details__price">{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ generalSettings('currency') }}</div>
                             <p>{{ $product->short_description }}</p>
                             @if($product->qty > 0 )
@@ -73,10 +73,10 @@
                                     <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
                                         aria-selected="true">Description</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
                                         aria-selected="false">Reviews <span>(1)</span></a>
-                                </li>
+                                </li> --}}
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-1" role="tabpanel">
