@@ -10,7 +10,7 @@ class FrontendBlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::where('status',1)->limit(6)->get();
+        $blogs = Blog::where('status',1)->paginate(6);
         $blogCategories = BlogCategory::where('status',1)->orderBy('id','desc')->get();
         $recentNews = Blog::orderBy('id','desc')->get();
         return view('frontend.blog.index',compact('blogs','blogCategories','recentNews'));

@@ -32,7 +32,7 @@ class ShopController extends Controller
         $latestProducts = Product::where('status',1)->orderBy('id','desc')->limit(4)->get();
         $products = Product::where('category_id',$id)
                                 ->where('status',1)
-                                ->get();
+                                ->paginate(9);
 
         return view('frontend.shop.category-wise-product',compact(
             'categories',
@@ -49,7 +49,7 @@ class ShopController extends Controller
         $latestProducts = Product::where('status',1)->orderBy('id','desc')->limit(4)->get();
         $products = Product::where('brand_id',$id)
                                 ->where('status',1)
-                                ->get();
+                                ->paginate(9);
 
         return view('frontend.shop.brand-wise-product',compact(
             'categories',
