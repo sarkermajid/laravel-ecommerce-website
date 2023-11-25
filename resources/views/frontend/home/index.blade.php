@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('title')
-    Home
+    eCom
 @endsection
 
 @push('styles')
