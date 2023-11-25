@@ -82,6 +82,9 @@ Route::get('/privacy-policy',[PrivacyPolicyController::class, 'view'])->name('pr
 Route::get('/terms-and-condition',[TermsAndConditionController::class, 'view'])->name('termsAndCondition');
 Route::get('/delivery-information',[DeliveryInformationController::class, 'view'])->name('deliveryInformation');
 
+//  search routes
+Route::get('/search',[HomeController::class,'productListAjax'])->name('product.list');
+Route::post('/search-product',[HomeController::class,'productSearch'])->name('product.search');
 
 Route::middleware(['auth'])->group(function(){
 

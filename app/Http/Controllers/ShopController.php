@@ -29,6 +29,7 @@ class ShopController extends Controller
     {
         $categories = Category::where('status',1)->orderBy('id','desc')->get();
         $brands = Brand::where('status',1)->get();
+        $latestProducts = Product::where('status',1)->orderBy('id','desc')->limit(4)->get();
         $products = Product::where('category_id',$id)
                                 ->where('status',1)
                                 ->get();
@@ -36,6 +37,7 @@ class ShopController extends Controller
         return view('frontend.shop.category-wise-product',compact(
             'categories',
             'products',
+            'latestProducts',
             'brands'
         ));
     }
@@ -44,6 +46,7 @@ class ShopController extends Controller
     {
         $categories = Category::where('status',1)->orderBy('id','desc')->get();
         $brands = Brand::where('status',1)->get();
+        $latestProducts = Product::where('status',1)->orderBy('id','desc')->limit(4)->get();
         $products = Product::where('brand_id',$id)
                                 ->where('status',1)
                                 ->get();
@@ -51,6 +54,7 @@ class ShopController extends Controller
         return view('frontend.shop.brand-wise-product',compact(
             'categories',
             'products',
+            'latestProducts',
             'brands'));
     }
 

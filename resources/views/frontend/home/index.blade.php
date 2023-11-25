@@ -4,6 +4,11 @@
     Home
 @endsection
 
+@push('styles')
+    {{-- jquery autocomplete search css link --}}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+@endpush
+
 @section('body')
     <!-- Hero Section Begin -->
     <section class="hero">
@@ -25,14 +30,15 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
+                            <form action="{{ route('product.search') }}" method="POST">
+                                @csrf
+                                <input type="text" id="search-product" name="search_product" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
+                                <i class="fa fa-phone" style="margin-top: 15px"></i>
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>{{ generalSettings('shop_phone') }}</h5>
@@ -207,3 +213,24 @@
     </section>
     <!-- Blog Section End -->
 @endsection
+{{-- jquery autocomplete for search --}}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+    var availableTags = [
+        $.ajax({
+            url: "{{ route('product.list') }}",
+            method: 'GET',
+            success:function(res){
+                startAutoComplete(res);
+            }
+        })
+    ];
+
+    function startAutoComplete(availableTags){
+        $( "#search-product" ).autocomplete({
+          source: availableTags
+        });
+    }
+
+</script>

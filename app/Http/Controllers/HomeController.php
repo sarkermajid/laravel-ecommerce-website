@@ -48,4 +48,30 @@ class HomeController extends Controller
             'brands'
         ));
     }
+
+    public function productListAjax()
+    {
+        $products = Product::select('name')->where('status',1)->get();
+        $data = [];
+
+        foreach($products as $product){
+            $data[] = $product['name'];
+        }
+        return $data;
+    }
+
+    public function productSearch(Request $request)
+    {
+        if($request->search_product != ''){
+            $product = Product::where('name','LIKE','%'.$request->search_product.'%')->first();
+            if($product){
+                $relatedProducts = Product::where('category_id',$product->category_id)->get();
+                return view('frontend.shop.single-product-view',compact('product','relatedProducts'));
+            }else{
+                return redirect()->back()->with('message','No product found');
+            }
+        }else{
+            return redirect()->back();
+        }
+    }
 }
