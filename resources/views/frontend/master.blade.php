@@ -205,10 +205,10 @@
                             <button type="submit" class="site-btn">Subscribe</button>
                         </form>
                         <div class="footer__widget__social">
-                            <a href="{{ generalSettings('facebook_link') }}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{ generalSettings('instagram_link') }}"><i class="fa fa-instagram"></i></a>
-                            <a href="{{ generalSettings('twitter_link') }}"><i class="fa fa-twitter"></i></a>
-                            <a href="{{ generalSettings('linkedin_link') }}"><i class="fa fa-linkedin"></i></a>
+                            <a href="{{ generalSettings('facebook_link') }}"><i class="fa fa-facebook" style="margin-top: 10px;"></i></a>
+                            <a href="{{ generalSettings('instagram_link') }}"><i class="fa fa-instagram" style="margin-top: 10px;"></i></a>
+                            <a href="{{ generalSettings('twitter_link') }}"><i class="fa fa-twitter" style="margin-top: 10px;"></i></a>
+                            <a href="{{ generalSettings('linkedin_link') }}"><i class="fa fa-linkedin" style="margin-top: 10px;"></i></a>
                         </div>
                     </div>
                 </div>

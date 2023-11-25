@@ -3533,7 +3533,3 @@ body > footer > div > div:nth-child(2) > div > div > div.footer__copyright__text
     background-color: #02A8F3;
     border-color: #02A8F3;
 }
-
-body > header > div.container > div.row > div:nth-child(3) > div{
-    display: none;
-}
