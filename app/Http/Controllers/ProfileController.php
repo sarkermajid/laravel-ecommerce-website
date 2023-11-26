@@ -11,7 +11,8 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('admin.profile.index',compact('user'));
+
+        return view('admin.profile.index', compact('user'));
     }
 
     public function update(Request $request, $id)
@@ -25,6 +26,7 @@ class ProfileController extends Controller
         $image->move('admin/profile/', $image_name);
         $user->image = $image_name;
         $user->update();
+
         return redirect()->back();
     }
 }

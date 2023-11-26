@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\GeneralSettings;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Sabberworm\CSS\Settings;
 
 class SettingSeeder extends Seeder
 {

@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Cache;
 
 class GeneralSettingsController extends Controller
 {
-
     public function generalSettings()
     {
         $getSettings = $this->getSettings();
-        return view('admin.settings.general-settings',compact('getSettings'));
-    }
 
+        return view('admin.settings.general-settings', compact('getSettings'));
+    }
 
     public function getSettings()
     {
@@ -30,20 +29,20 @@ class GeneralSettingsController extends Controller
     {
         // header logo upload
         $header_logo = $request->file('header_logo');
-        if($header_logo){
+        if ($header_logo) {
             $imageDirectory = 'admin/site-logo/';
             deleteImage(generalSettings('header_logo'), $imageDirectory);
-            $image_name = time().'.'. $header_logo->getClientOriginalExtension();
+            $image_name = time().'.'.$header_logo->getClientOriginalExtension();
             $header_logo->move('admin/site-logo/', $image_name);
             $header_logo = $image_name;
         }
 
         // footer logo upload
         $footer_logo = $request->file('footer_logo');
-        if($footer_logo){
+        if ($footer_logo) {
             $imageDirectory = 'admin/site-logo/';
             deleteImage(generalSettings('footer_logo'), $imageDirectory);
-            $image_name = time().'.'. $footer_logo->getClientOriginalExtension();
+            $image_name = time().'.'.$footer_logo->getClientOriginalExtension();
             $footer_logo->move('admin/site-logo/', $image_name);
             $footer_logo = $image_name;
         }
@@ -65,6 +64,6 @@ class GeneralSettingsController extends Controller
         Artisan::call('cache:clear');
         Artisan::call('config:clear');
 
-        return redirect()->back()->with('message','Settings updated successfully');
+        return redirect()->back()->with('message', 'Settings updated successfully');
     }
 }

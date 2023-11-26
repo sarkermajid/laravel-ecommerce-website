@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');;
+            $table->tinyInteger('status')->default('0')->comment('1 = Active, 0 = Deactive');
             $table->timestamps();
         });
     }

@@ -5,35 +5,34 @@ namespace App\Http\Controllers;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Ui\Presets\React;
 
 class WishlistController extends Controller
 {
     public function index()
     {
-        $wishlists = Wishlist::where('user_id',auth()->user()->id)->get();
-        return view('frontend.wishlist.view',compact('wishlists'));
+        $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
+
+        return view('frontend.wishlist.view', compact('wishlists'));
     }
 
     public function addToWishList(Request $request)
     {
-        if(auth()->user())
-        {
-            if(Wishlist::where('user_id',Auth::id())->where('product_id',$request->product_id)->exists())
-            {
+        if (auth()->user()) {
+            if (Wishlist::where('user_id', Auth::id())->where('product_id', $request->product_id)->exists()) {
                 return response()->json([
                     'status' => 'error',
                 ]);
-            }else{
+            } else {
                 $wishlist = new Wishlist();
                 $wishlist->product_id = $request->product_id;
                 $wishlist->user_id = Auth()->user()->id;
                 $wishlist->save();
+
                 return response()->json([
                     'status' => 'success',
                 ]);
             }
-        }else{
+        } else {
             return response()->json([
                 'status' => 'info',
             ]);
@@ -44,6 +43,7 @@ class WishlistController extends Controller
     {
         $wishlist = Wishlist::find($request->wishlist_id);
         $wishlist->delete();
+
         return response()->json([
             'status' => 'success',
         ]);
@@ -51,7 +51,8 @@ class WishlistController extends Controller
 
     public function wishlistCount(Request $request)
     {
-        $wishListCount = Wishlist::where('user_id',auth()->user()->id)->count();
+        $wishListCount = Wishlist::where('user_id', auth()->user()->id)->count();
+
         return response()->json([
             'wishListCount' => $wishListCount,
         ]);

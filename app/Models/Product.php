@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;
-use App\Models\Brand;
 
 class Product extends Model
 {
     use HasFactory;
 
     protected $table = 'products';
+
     protected $fillable = [
         'name',
         'slug',

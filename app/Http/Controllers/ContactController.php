@@ -19,25 +19,29 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->message = $request->message;
         $contact->save();
-        return redirect()->back()->with('message','Message sent successfully');
+
+        return redirect()->back()->with('message', 'Message sent successfully');
     }
 
     public function contactMessage()
     {
-        $contactMessages = Contact::orderBy('id','desc')->get();
-        return view('admin.contact.message',compact('contactMessages'));
+        $contactMessages = Contact::orderBy('id', 'desc')->get();
+
+        return view('admin.contact.message', compact('contactMessages'));
     }
 
     public function contactMessageView($id)
     {
         $contactMessage = Contact::find($id);
-        return view('admin.contact.view',compact('contactMessage'));
+
+        return view('admin.contact.view', compact('contactMessage'));
     }
 
     public function contactMessageDelete(Request $request)
     {
         $contactMessage = Contact::find($request->message_id);
         $contactMessage->delete();
+
         return response()->json([
             'status' => 'success',
         ]);

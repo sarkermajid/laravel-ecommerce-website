@@ -2,16 +2,12 @@
 
 namespace App\Providers;
 
-use App\Models\Banner;
-use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Product;
 use App\Models\Wishlist;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {

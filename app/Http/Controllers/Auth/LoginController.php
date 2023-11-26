@@ -31,13 +31,10 @@ class LoginController extends Controller
 
     protected function authenticated()
     {
-        if(Auth::user()->role_as == '1') //1 = Admin Login
-        {
-            return redirect('dashboard')->with('status','Welcome to your dashboard');
-        }
-        elseif(Auth::user()->role_as == '0') // Normal or Default User Login
-        {
-            return redirect('/')->with('status','Logged in successfully');
+        if (Auth::user()->role_as == '1') { //1 = Admin Login
+            return redirect('dashboard')->with('status', 'Welcome to your dashboard');
+        } elseif (Auth::user()->role_as == '0') { // Normal or Default User Login
+            return redirect('/')->with('status', 'Logged in successfully');
         }
     }
 

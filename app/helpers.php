@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\File;
 
-
 function generalSettings($key)
 {
     /**
@@ -32,5 +31,3 @@ function deleteFile($location)
 {
     File::exists($location) && File::delete($location);
 }
-
-?>
