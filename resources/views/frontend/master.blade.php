@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/style.css" type="text/css">
     {{-- toster msg --}}
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/toastr.min.css">
     @stack('styles')
 </head>
 
@@ -237,7 +237,7 @@
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="{{ asset('/') }}frontend/assets/js/toastr.min.js"></script>
 
     @include('frontend.ajax')
     <script>
