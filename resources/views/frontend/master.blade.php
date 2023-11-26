@@ -152,7 +152,7 @@
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__cart">
+                    <div class="header__cart d-none d-md-block">
                         <ul>
                             <li><a href="{{ route('wishlist') }}"><i class="fa fa-heart"></i> <span class="wishlist-count">0</span></a></li>
                             <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-bag"></i> <span class="cart-count">0</span></a></li>
@@ -161,7 +161,7 @@
                 </div>
             </div>
             <div class="humberger__open">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars" style="margin-top: 5px;"></i>
             </div>
         </div>
     </header>

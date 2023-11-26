@@ -10,9 +10,13 @@ class WishlistController extends Controller
 {
     public function index()
     {
-        $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
+        if (auth()->user()) {
+            $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
 
-        return view('frontend.wishlist.view', compact('wishlists'));
+            return view('frontend.wishlist.view', compact('wishlists'));
+        } else {
+            return redirect()->back()->with('error', 'Wishlist is empty');
+        }
     }
 
     public function addToWishList(Request $request)

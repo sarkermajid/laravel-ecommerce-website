@@ -71,9 +71,13 @@ class CartController extends Controller
 
     public function cartView()
     {
-        $carts = Cart::where('user_id', Auth::id())->get();
+        if (auth()->user()) {
+            $carts = Cart::where('user_id', Auth::id())->get();
 
-        return view('frontend.cart.view', compact('carts'));
+            return view('frontend.cart.view', compact('carts'));
+        } else {
+            return redirect()->back()->with('error', 'Cart is empty');
+        }
     }
 
     public function cartUpdateInc(Request $request)
