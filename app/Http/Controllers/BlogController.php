@@ -21,7 +21,7 @@ class BlogController extends Controller
     {
         $blogCategory = new BlogCategory();
         $blogCategory->name = $request->name;
-        $blogCategory->slug = Str::slug($blogCategory->slug).'-'.rand(1000, 5000);
+        $blogCategory->slug = Str::slug($blogCategory->name).'-'.rand(1000, 5000);
         $blogCategory->status = $request->status;
         $blogCategory->save();
 

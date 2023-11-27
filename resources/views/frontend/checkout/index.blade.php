@@ -39,7 +39,12 @@
                                     <div class="col-lg-12">
                                         <div class="checkout__input">
                                             <p>Name<span>*</span></p>
-                                            <input type="text" name="name" value="{{ auth()->user()->name }}">
+                                            @error('name')
+                                            <h6 class="modal-header justify-content-start"
+                                                style="font-weight: 800; color: #ffffff; background-color: red; padding: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                                {{ $message }}</h6>
+                                            @enderror
+                                            <input type="text" name="name" required value="{{ auth()->user()->name }}">
                                         </div>
                                     </div>
                                 </div>
@@ -47,21 +52,41 @@
                                     <div class="col-lg-12">
                                         <div class="checkout__input">
                                             <p>Phone<span>*</span></p>
-                                            <input type="number" name="phone" value="{{ auth()->user()->phone ?? '' }}">
+                                            @error('phone')
+                                            <h6 class="modal-header justify-content-start"
+                                                style="font-weight: 800; color: #ffffff; background-color: red; padding: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                                {{ $message }}</h6>
+                                            @enderror
+                                            <input type="number" name="phone" required value="{{ auth()->user()->phone ?? '' }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="checkout__input">
                                     <p>Address<span>*</span></p>
-                                    <input type="text" name="address" value="{{ auth()->user()->address ?? '' }}" class="checkout__input__add">
+                                    @error('address')
+                                    <h6 class="modal-header justify-content-start"
+                                        style="font-weight: 800; color: #ffffff; background-color: red; padding: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                        {{ $message }}</h6>
+                                    @enderror
+                                    <input type="text" name="address" required value="{{ auth()->user()->address ?? '' }}" class="checkout__input__add">
                                 </div>
                                 <div class="checkout__input">
                                     <p>City/Town<span>*</span></p>
-                                    <input type="text" name="city" value="{{ auth()->user()->city ?? '' }}">
+                                    @error('city')
+                                    <h6 class="modal-header justify-content-start"
+                                        style="font-weight: 800; color: #ffffff; background-color: red; padding: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                        {{ $message }}</h6>
+                                    @enderror
+                                    <input type="text" name="city" required value="{{ auth()->user()->city ?? '' }}">
                                 </div>
                                 <div class="checkout__input">
                                     <p>Postcode / ZIP<span>*</span></p>
-                                    <input type="number" name="zip_code" value="{{ auth()->user()->zip_code ?? '' }}">
+                                    @error('zip_code')
+                                    <h6 class="modal-header justify-content-start"
+                                        style="font-weight: 800; color: #ffffff; background-color: red; padding: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                        {{ $message }}</h6>
+                                    @enderror
+                                    <input type="number" name="zip_code" required value="{{ auth()->user()->zip_code ?? '' }}">
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">

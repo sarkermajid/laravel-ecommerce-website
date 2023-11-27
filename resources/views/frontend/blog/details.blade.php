@@ -16,7 +16,7 @@
                             <h4>Blog Categories</h4>
                             <ul>
                                 @foreach ($blogCategories as $category)
-                                <li><a href="{{ route('category.blog.view', ['id'=>$category->id]) }}">{{ $category->name }}</a></li>
+                                <li><a href="{{ route('category.blog.view', ['id'=>$category->slug]) }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -24,7 +24,7 @@
                             <h4>Recent News</h4>
                             <div class="blog__sidebar__recent">
                                 @foreach ($recentNews as $rnews)
-                                <a href="{{ route('blog.single.view', ['id'=>$rnews->id]) }}" class="blog__sidebar__recent__item">
+                                <a href="{{ route('blog.single.view', ['id'=>$rnews->slug]) }}" class="blog__sidebar__recent__item">
                                     <div class="blog__sidebar__recent__item__pic">
                                         <img src="{{ asset('admin/blog-image/'. $rnews->image) }}" alt="" width="150" height="150">
                                     </div>

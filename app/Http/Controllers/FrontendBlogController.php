@@ -16,18 +16,19 @@ class FrontendBlogController extends Controller
         return view('frontend.blog.index', compact('blogs', 'blogCategories', 'recentNews'));
     }
 
-    public function singleBlog($id)
+    public function singleBlog($slug)
     {
-        $blog = Blog::find($id);
+        $blog = Blog::where('slug', $slug)->first();
         $blogCategories = BlogCategory::where('status', 1)->orderBy('id', 'desc')->get();
         $recentNews = Blog::orderBy('id', 'desc')->get();
 
         return view('frontend.blog.details', compact('blog', 'blogCategories', 'recentNews'));
     }
 
-    public function categoryBlog($id)
+    public function categoryBlog($slug)
     {
-        $categoryWiseBlogs = Blog::where('blog_category_id', $id)->paginate(4);
+        $blogCategory = BlogCategory::where('slug', $slug)->first();
+        $categoryWiseBlogs = Blog::where('blog_category_id', $blogCategory->id)->paginate(4);
         $recentNews = Blog::orderBy('id', 'desc')->get();
         $blogCategories = BlogCategory::where('status', 1)->orderBy('id', 'desc')->get();
 

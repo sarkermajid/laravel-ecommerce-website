@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckoutStoreRequest;
 use App\Models\ApplyPromoCode;
 use App\Models\Cart;
 use App\Models\Order;
@@ -30,7 +31,7 @@ class CheckoutController extends Controller
         return view('frontend.checkout.index', compact('carts', 'cartTotalBalance'));
     }
 
-    public function placeOrder(Request $request)
+    public function placeOrder(CheckoutStoreRequest $request)
     {
         $carts = Cart::where('user_id', auth()->user()->id)->get();
 

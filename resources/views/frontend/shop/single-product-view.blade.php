@@ -105,24 +105,26 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title related__product__title">
-                            <h2>Related Product</h2>
+                            <h2>Related Products</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($relatedProducts as $product)
-                    <div class="col-lg-3 col-md-4 col-sm-6">
+                    @foreach($relatedProducts as $product)
+                    <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'.$product->image) }}">
+                            <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'. $product->image) }}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="#" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="{{ route('product.single.view', ['id'=>$product->slug]) }}"><i class="fa fa-eye"></i></a></li>
+                                    @if($product->qty > 0)
+                                    <li><a href="#" data-id="{{ $product->id }}" class="directAddToCart"><i class="fa fa-shopping-cart "></i></a></li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">{{ $product->name }}</a></h6>
-                                <h5>{{ $product->price }} BDT</h5>
+                                <h6><a href="{{ route('product.single.view', ['id'=>$product->slug]) }}">{{ $product->name }}</a></h6>
+                                <h5>{{ $product->discount_amount ? $product->discount_amount : $product->price }} {{ generalSettings('currency') }} </h5>
                             </div>
                         </div>
                     </div>
