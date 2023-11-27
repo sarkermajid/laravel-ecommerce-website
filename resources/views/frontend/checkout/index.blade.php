@@ -100,7 +100,7 @@
                                         @php $total += $cart->product->discount_amount ? $cart->product->discount_amount * $cart->product_qty : $cart->product->price * $cart->product_qty @endphp
                                         @endforeach
                                     </ul>
-                                    <input type="hidden" name="total_price" value="{{ $cartTotalBalance =! 0 ? $cartTotalBalance : $total }}">
+                                    <input type="hidden" name="total_price" value="{{ $cartTotalBalance != 0 ? $cartTotalBalance : $total }}">
                                     <hr>
                                     @if($cartTotalBalance > 0)
                                     <div class="checkout__order__total">Total <span>{{ $cartTotalBalance }} {{ generalSettings('currency') }}</span></div>

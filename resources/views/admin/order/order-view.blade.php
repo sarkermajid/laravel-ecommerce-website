@@ -58,13 +58,13 @@
                                     <tr>
                                         <td>{{ $item->product->name }}</td>
                                         <td>{{ $item->product_qty }}</td>
-                                        <td>{{ $item->price }} {{ $item->product->currency }}</td>
-                                        <td>{{ $item->price * $item->product_qty }} {{ $item->product->currency }}</td>
+                                        <td>{{ $item->price }} {{ generalSettings('currency') }}</td>
+                                        <td>{{ $item->price * $item->product_qty }} {{ generalSettings('currency') }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            <h5 class="px-2">Total Price: <span class="float-right">{{ $order->total_price}} {{ $item->product->currency }}</span></h5>
+                            <h5 class="px-2">Total Price: <span class="float-right">{{ $order->total_price}} {{ generalSettings('currency') }}</span></h5>
                         </div>
                     </div>
                 </div>
