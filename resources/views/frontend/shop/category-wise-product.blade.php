@@ -19,7 +19,7 @@
                                 <h4>Brands</h4>
                                 @foreach ($brands as $brand)
                                 <ul>
-                                    <li><a href="{{ route('brand.product.view',['id'=>$brand->id]) }}">{{ $brand->name }}</a></li>
+                                    <li><a href="{{ route('brand.product.view',['id'=>$brand->slug]) }}">{{ $brand->name }}</a></li>
                                 </ul>
                                 @endforeach
                             </div>

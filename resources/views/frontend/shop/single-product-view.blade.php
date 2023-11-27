@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn addToCart">ADD TO CARD</a>
+                            <a href="#" class="primary-btn addToCart">ADD TO CART</a>
                             <a href="#" data-id="{{ $product->id }}" class="heart-icon addToWishlist"><span class="icon_heart_alt"></span></a>
                             @endif
                             <ul>
