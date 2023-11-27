@@ -26,12 +26,13 @@ class ShopController extends Controller
         ));
     }
 
-    public function categoryProduct($id)
+    public function categoryProduct($slug)
     {
         $categories = Category::where('status', 1)->orderBy('id', 'desc')->get();
         $brands = Brand::where('status', 1)->get();
         $latestProducts = Product::where('status', 1)->orderBy('id', 'desc')->limit(4)->get();
-        $products = Product::where('category_id', $id)
+        $category = Category::where('slug', $slug)->first();
+        $products = Product::where('category_id', $category->id)
                                 ->where('status', 1)
                                 ->paginate(9);
 

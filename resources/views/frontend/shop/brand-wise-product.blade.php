@@ -11,7 +11,7 @@
                                 <h4>Categories</h4>
                                 @foreach ($categories as $category)
                                 <ul>
-                                    <li><a href="{{ route('category.product.view',['id'=>$category->id]) }}">{{ $category->name }}</a></li>
+                                    <li><a href="{{ route('category.product.view',['id'=>$category->slug]) }}">{{ $category->name }}</a></li>
                                 </ul>
                                 @endforeach
                             </div>

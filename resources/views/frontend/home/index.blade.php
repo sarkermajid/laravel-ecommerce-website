@@ -22,7 +22,7 @@
                         </div>
                         @foreach ($latestCategories as $category)
                         <ul>
-                            <li><a href="{{ route('category.product.view',['id'=>$category->id]) }}">{{ $category->name }}</a></li>
+                            <li><a href="{{ route('category.product.view',['id'=>$category->slug]) }}">{{ $category->name }}</a></li>
                         </ul>
                         @endforeach
                     </div>
@@ -67,7 +67,7 @@
                     @foreach ($categories as $category)
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="{{ asset('admin/category-image/'. $category->image) }}">
-                            <h5><a href="{{ route('category.product.view',['id'=>$category->id]) }}">{{ $category->name }}</a></h5>
+                            <h5><a href="{{ route('category.product.view',['id'=>$category->slug]) }}">{{ $category->name }}</a></h5>
                         </div>
                     </div>
                     @endforeach
