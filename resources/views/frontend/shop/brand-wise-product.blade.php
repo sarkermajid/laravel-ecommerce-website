@@ -29,7 +29,7 @@
                                     <div class="latest-product__slider owl-carousel">
                                         <div class="latest-prdouct__slider__item">
                                             @foreach ($latestProducts as $product)
-                                            <a href="#" class="latest-product__item">
+                                            <a href="{{ route('product.single.view', ['id'=>$product->slug]) }}" class="latest-product__item">
                                                 <div class="latest-product__item__pic">
                                                     <img src="{{ asset('admin/product-image/'.$product->image) }}" alt="">
                                                 </div>
@@ -56,7 +56,7 @@
                                     <div class="product__item__pic set-bg" data-setbg="{{ asset('admin/product-image/'.$product->image) }}">
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#" data-id="{{ $product->id }}" class="addToWishlist"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="{{ route('product.single.view', ['id'=>$product->id]) }}"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="{{ route('product.single.view', ['id'=>$product->slug]) }}"><i class="fa fa-eye"></i></a></li>
                                             @if($product->qty > 0)
                                             <li><a href="#" data-id="{{ $product->id }}" class="directAddToCart"><i class="fa fa-shopping-cart "></i></a></li>
                                             @endif

@@ -61,9 +61,9 @@ class ShopController extends Controller
             'brands'));
     }
 
-    public function singleProduct($id)
+    public function singleProduct($slug)
     {
-        $product = Product::find($id);
+        $product = Product::where('slug', $slug)->first();
         $product->trending = $product->trending + 1;
         $product->save();
         $relatedProducts = Product::where('category_id', $product->category_id)->get();
