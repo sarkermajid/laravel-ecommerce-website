@@ -13,7 +13,7 @@ class CheckoutStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return True;
+        return true;
     }
 
     /**

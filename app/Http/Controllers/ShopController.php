@@ -49,7 +49,7 @@ class ShopController extends Controller
         $categories = Category::where('status', 1)->orderBy('id', 'desc')->get();
         $brands = Brand::where('status', 1)->get();
         $latestProducts = Product::where('status', 1)->orderBy('id', 'desc')->limit(4)->get();
-        $brand = Brand::where('slug',$slug)->first();
+        $brand = Brand::where('slug', $slug)->first();
         $products = Product::where('brand_id', $brand->id)
                                 ->where('status', 1)
                                 ->paginate(9);
