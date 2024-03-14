@@ -1,4 +1,3 @@
-I have successfully developed an e-commerce website utilizing the Laravel Framework. Please find attached screenshots of the frontend site as well as the admin panel dashboard for your review and consideration.
 Website Features :
 ### Admin Dashboard ###
 1. Dashboard
