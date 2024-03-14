@@ -1,4 +1,4 @@
-Website Features :
+###Website Features :
 ### Admin Dashboard ###
 1. Dashboard
 2. Total orders, products, categories, brands, users, and blogs can be viewed.
@@ -36,5 +36,5 @@ Website Features :
 18. About Us page 
 19. Delivery Information Page
 20. Terms and Conditions page.
+    
 you can also visit this website at this link: https://ecom.freedomhotelinn.com
-If you're interested in buying this website, kindly direct messages to my inbox. I will provide you with detailed information, including the pricing of the website.
