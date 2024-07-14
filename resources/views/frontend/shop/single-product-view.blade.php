@@ -1,6 +1,7 @@
 @extends('frontend.master')
 
 @section('body')
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <!-- Product Details Section Begin -->
         <section class="product-details spad">
             <div class="container">
@@ -21,6 +22,21 @@
                                 <img data-imgbigurl="{{ asset('admin/product-image/'.$product->image) }}"
                                     src="{{ asset('admin/product-image/'.$product->image) }}" alt="">
                             </div> --}}
+                            <div class="it-blog-item-wrap">
+                                <div class="it-blog-item">
+                                    <div class="section-title product__discount__title">
+                                        <h2>Product Video</h2>
+                                    </div>
+                                   <div class="it-blog-thumb mb-10 p-relative">
+                                    @php
+                                    $youtubeUrl = $product->youtube_video_link;
+                                    parse_str(parse_url($youtubeUrl, PHP_URL_QUERY), $queryParams);
+                                    $videoId = $queryParams['v'] ?? null;
+                                    @endphp
+                                    <iframe width="50%" height="200" src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

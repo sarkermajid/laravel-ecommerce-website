@@ -51,6 +51,10 @@
                                 <td class="text-style">{{ $product->discount_amount ?? ''}}</td>
                             </tr>
                             <tr>
+                                <td class="payment-title"><strong>Youtube Video Link:</strong></td>
+                                <td class="text-style">{{ $product->youtube_video_link ?? ''}}</td>
+                            </tr>
+                            <tr>
                                 <td class="payment-title"><strong>Image :</strong></td>
                                 <td class="text-dark "><img src="{{ asset('admin/product-image/'.$product->image) }} "style="border-radius: 10px;" alt="" width="150" height="150"/></td>
                             </tr>

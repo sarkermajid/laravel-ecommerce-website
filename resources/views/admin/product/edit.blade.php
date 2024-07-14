@@ -172,7 +172,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="weight" class="form-label" >Weight</label>
                                     @error('weight')
@@ -185,7 +185,7 @@
                                         aria-describedby="emailHelp" placeholder="Weight" value="{{ old('weight') ?? $product->currency }}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="discount_amount" class="form-label">Discount Price</label>
                                     @error('discount_amount')
@@ -197,6 +197,20 @@
                                         class="form-control @error('discount_amount') is-invalid @enderror" id="discount_amount"
                                         aria-describedby="emailHelp" placeholder="Discount Price"
                                         value="{{ old('discount_amount') ?? $product->discount_amount }}">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="youtube_video_link" class="form-label">Youtube Video Link</label>
+                                    @error('youtube_video_link')
+                                    <h6 class="modal-header justify-content-start"
+                                    style="font-weight: 800; color: #FFFFFF; background-color: red; padding-top: 10px;  padding-bottom: 10px; font-size: 12px; max-width: 100%; border-radius: 5px;">
+                                    {{ $message }}</h6>
+                                    @enderror
+                                    <input type="text" step="any" name="youtube_video_link"
+                                        class="form-control @error('youtube_video_link') is-invalid @enderror" id="youtube_video_link"
+                                        aria-describedby="emailHelp" placeholder="Youtube Video Link"
+                                        value="{{ old('youtube_video_link') ?? $product->youtube_video_link }}">
                                 </div>
                             </div>
                         </div>

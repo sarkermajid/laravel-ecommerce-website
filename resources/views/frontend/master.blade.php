@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/style.css" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     {{-- toster msg --}}
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/toastr.min.css">
     @stack('styles')

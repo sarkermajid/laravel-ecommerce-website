@@ -33,6 +33,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->weight = $request->weight;
         $product->discount_amount = $request->discount_amount;
+        $product->youtube_video_link = $request->youtube_video_link;
         $product->status = $request->status;
         // Image upload
         $image = $request->file('image');
@@ -80,6 +81,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->weight = $request->weight;
         $product->discount_amount = $request->discount_amount;
+        $product->youtube_video_link = $request->youtube_video_link;
         $product->status = $request->status;
         // Image upload
         $image = $request->file('image');
