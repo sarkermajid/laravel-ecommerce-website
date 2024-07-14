@@ -123,7 +123,7 @@
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 @foreach ($latestProductsDesc as $latestProduct )
-                                <a href="{{ route('product.single.view', ['id'=>$latestProduct->id]) }}" class="latest-product__item">
+                                <a href="{{ route('product.single.view', ['id'=>$latestProduct->slug]) }}" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="{{ asset('admin/product-image/'.$latestProduct->image) }}" alt="">
                                     </div>
@@ -143,7 +143,7 @@
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 @foreach ($trendingProducts as $trendingProduct )
-                                <a href="{{ route('product.single.view', ['id'=>$trendingProduct->id]) }}" class="latest-product__item">
+                                <a href="{{ route('product.single.view', ['id'=>$trendingProduct->slug]) }}" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="{{ asset('admin/product-image/'.$trendingProduct->image) }}" alt="">
                                     </div>
@@ -163,7 +163,7 @@
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 @foreach ($brands as $brand )
-                                <a href="{{ route('brand.product.view',['id'=>$brand->id]) }}" class="latest-product__item">
+                                <a href="{{ route('brand.product.view',['id'=>$brand->slug]) }}" class="latest-product__item">
                                     <div class="latest-product__item__pic">
                                         <img src="{{ asset('admin/brand-image/'.$brand->image) }}" alt="">
                                     </div>

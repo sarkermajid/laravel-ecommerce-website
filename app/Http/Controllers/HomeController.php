@@ -36,7 +36,6 @@ class HomeController extends Controller
         $blogs = Blog::where('status', 1)->orderBy('id', 'desc')->limit(3)->get();
         $trendingProducts = Product::orderBy('trending', 'desc')->limit(3)->get();
         $brands = Brand::where('status', 1)->orderBy('id', 'desc')->limit(3)->get();
-
         return view('frontend.home.index', compact(
             'latestCategories',
             'categories',
