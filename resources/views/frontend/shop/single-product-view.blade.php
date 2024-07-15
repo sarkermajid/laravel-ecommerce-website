@@ -22,21 +22,6 @@
                                 <img data-imgbigurl="{{ asset('admin/product-image/'.$product->image) }}"
                                     src="{{ asset('admin/product-image/'.$product->image) }}" alt="">
                             </div> --}}
-                            <div class="it-blog-item-wrap">
-                                <div class="it-blog-item">
-                                    <div class="section-title product__discount__title">
-                                        <h2>Product Video</h2>
-                                    </div>
-                                   <div class="it-blog-thumb mb-10 p-relative">
-                                    @php
-                                    $youtubeUrl = $product->youtube_video_link;
-                                    parse_str(parse_url($youtubeUrl, PHP_URL_QUERY), $queryParams);
-                                    $videoId = $queryParams['v'] ?? null;
-                                    @endphp
-                                    <iframe width="50%" height="200" src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -80,6 +65,42 @@
                                     </div>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="product__details__tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                        aria-selected="true">Product Video</a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                        aria-selected="false">Reviews <span>(1)</span></a>
+                                </li> --}}
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                    <div class="it-blog-item-wrap">
+                                        <div class="it-blog-item pt-5">
+                                           <div class="it-blog-thumb mb-10 p-relative">
+                                            @php
+                                            $youtubeUrl = $product->youtube_video_link;
+                                            parse_str(parse_url($youtubeUrl, PHP_URL_QUERY), $queryParams);
+                                            $videoId = $queryParams['v'] ?? null;
+                                            @endphp
+                                            <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                    <div class="product__details__tab__desc">
+                                        <h6>Product Review</h6>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-12">
